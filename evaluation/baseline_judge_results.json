@@ -1,0 +1,49 @@
+[
+  {
+    "id": "scenario_1_fast_dinner",
+    "persona": "Türelmetlen kezdő, kevés főzési tapasztalat, 25-30 perc, max 6 hozzávaló.",
+    "goal": "Gyors, egyszerű csirkés vacsora 30 percen belül, sütő nélkül.",
+    "scores": {
+      "goal_completion": 0,
+      "answer_quality": 0
+    },
+    "explanation": "A bot nem adott használható receptet a felhasználó által megadott korlátok (csirke, rizs, alapfűszerek, 30 perc, sütő nélkül) figyelembevételével. A javasolt ételek nem relevánsak, és nem illeszkednek a persona igényeihez, ráadásul nem adott konkrét receptet sem."
+  },
+  {
+    "id": "scenario_2_glutenfree_kids",
+    "persona": "Elfoglalt szülő, gyors és gyerekbarát gluténmentes vacsorát keres.",
+    "goal": "Gyors, gluténmentes vacsora, amit a gyerekek is szeretnek.",
+    "scores": {
+      "goal_completion": 2,
+      "answer_quality": 2
+    },
+    "explanation": "A bot egy gyors, gluténmentes és gyerekbarát vacsorát ajánlott, ami megfelel a persona igényeinek, bár a sütőtök elkészítési ideje (60 perc) nem teljesen gyors. A vaj helyettesítésére adott javaslat laktózérzékenység esetén releváns és hasznos. A megoldás alapvetően használható, de a hosszú sütési idő miatt nem teljesen ideális az elfoglalt szülő számára."
+  },
+  {
+    "id": "scenario_3_dessert_request",
+    "persona": "Édesszájú felhasználó, gyors desszertet keres, kevés alapanyaggal.",
+    "goal": "Gyors, egyszerű desszert ajánlása vagy alternatíva, ha nincs desszert a korpuszban.",
+    "scores": {
+      "goal_completion": 1,
+      "answer_quality": 2
+    },
+    "explanation": "A bot helyesen jelezte, hogy nincs desszert recept a korpuszban, és alternatívaként egy gyümölcsalapú italt ajánlott, ami illeszkedik az édesség iránti igényhez. A bodzavirág gin-tonik receptje pontos és részletes, azonban ez nem egy desszert, így a felhasználó nem kapott valódi édességreceptet, csak egy italt, ami csak részben felel meg a célfeladatnak."
+  },
+  {
+    "id": "scenario_4_asian_cuisine",
+    "persona": "Kíváncsi, tanulni vágyó felhasználó, aki érdeklődik az ázsiai konyha iránt.",
+    "goal": "Megérteni az ázsiai ételek umami ízvilágának titkát és ajánlást kapni tartalmas levesekre.",
+    "scores": {
+      "goal_completion": 1,
+      "answer_quality": 1
+    },
+    "explanation": "A bot jól összefoglalta az umami titkát az ázsiai konyhában, de a levesekre vonatkozó kérdésre nem adott releváns választ, helyette egy nem leves ételt ajánlott, és nem kínált alternatívát vagy további segítséget a levesek terén, ami nem felelt meg a felhasználó céljának."
+  },
+  {
+    "summary": {
+      "avg_goal_completion": 1.0,
+      "avg_answer_quality": 1.25,
+      "num_conversations": 4
+    }
+  }
+]

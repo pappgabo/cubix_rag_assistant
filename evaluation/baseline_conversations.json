@@ -1,0 +1,49 @@
+[
+  {
+    "id": "scenario_1_fast_dinner",
+    "persona": "Türelmetlen kezdő, kevés főzési tapasztalat, 25-30 perc, max 6 hozzávaló.",
+    "goal": "Gyors, egyszerű csirkés vacsora 30 percen belül, sütő nélkül.",
+    "turns": [
+      {"role": "user", "content": "Gyors, egyszerű csirkés vacsora, maximum 30 percem van... nincs semmi, csak rizs és alapfűszerek"},
+      {"role": "assistant", "content": "A megadott kontextus alapján ezt nem tudom. Az általad megadott alapanyagokhoz (csirke, rizs, alapfűszerek) nincs konkrét recept a dokumentumban."},
+      {"role": "user", "content": "Akkor mit tudsz javasolni?"},
+      {"role": "assistant", "content": "Austro-magyar torma krémleves vagy Kofte kebab lehet jó választás. Mindkettő ízletes és viszonylag egyszerűen elkészíthető főétel. Ha valami könnyű, krémes levest szeretnél, a torma krémleves frissítő és különleges. Ha húsos, fűszeres fogásra vágysz, a Kofte kebab remek."}
+    ]
+  },
+
+  {
+    "id": "scenario_2_glutenfree_kids",
+    "persona": "Elfoglalt szülő, gyors és gyerekbarát gluténmentes vacsorát keres.",
+    "goal": "Gyors, gluténmentes vacsora, amit a gyerekek is szeretnek.",
+    "turns": [
+      {"role": "user", "content": "Valami gyors, gluténmentes vacsit keresek, amit a gyerekek is szeretnek."},
+      {"role": "assistant", "content": "A megadott kontextus alapján gyors, gluténmentes vacsorára ajánlom a Hasselback Butternut Squash-t, ami finom és gyerekbarát. Egyszerűen süsd meg a sütőtököt olívaolajjal, sóval, borssal, majd mázasd juharsziruppal, vajjal és almaecettel. Kb. 60 perc alatt kész."},
+      {"role": "user", "content": "Sajnos laktózérzékeny a gyerek..., így nem tudom, hogy a vajjal mit lehet tenni..."},
+      {"role": "assistant", "content": "A vaj helyett használhatsz laktózmentes margarint vagy növényi olajat a receptben, hogy a gyerek laktózérzékenysége miatt biztonságos legyen."}
+    ]
+  },
+
+  {
+    "id": "scenario_3_dessert_request",
+    "persona": "Édesszájú felhasználó, gyors desszertet keres, kevés alapanyaggal.",
+    "goal": "Gyors, egyszerű desszert ajánlása vagy alternatíva, ha nincs desszert a korpuszban.",
+    "turns": [
+      {"role": "user", "content": "Ennék valami finom édességet...."},
+      {"role": "assistant", "content": "A megadott kontextusban nincs desszert recept. Ha valami édesre vágysz, ajánlom például a friss gyümölcsök fogyasztását vagy egy gyümölcsalapú italt, mint például a málna és bodzavirág gin-tonik receptjét."},
+      {"role": "user", "content": "Esetleg meg tudod adni a receptjét a bodzavirág gin-toniknak?"},
+      {"role": "assistant", "content": "A bodzavirág gin-tonik receptje a következő: 8 málna (felengedve), friss kakukkfű (opcionális), 1,5 oz gin, fél lime leve, 1-2 evőkanál St Germaine likőr vagy 1-2 teáskanál egyszerű szirup, tonic. A málnát összetörjük a ginnel (és kakukkfűvel, ha használunk), hozzáadjuk a lime levét és a likőrt vagy szirupot, majd leszűrjük egy pohárba, jégkockát teszünk bele, és tonic-kal töltjük fel."}
+    ]
+  },
+
+  {
+    "id": "scenario_4_asian_cuisine",
+    "persona": "Kíváncsi, tanulni vágyó felhasználó, aki érdeklődik az ázsiai konyha iránt.",
+    "goal": "Megérteni az ázsiai ételek umami ízvilágának titkát és ajánlást kapni tartalmas levesekre.",
+    "turns": [
+      {"role": "user", "content": "Szeretnék valami ázsiai ételt készíteni. Mi a titka ezeknek az ételeknek, hogy olyan izgalmas, umami gazdag ízviláguk van?"},
+      {"role": "assistant", "content": "Az ázsiai ételek umami gazdag, izgalmas ízvilágának titka a friss fűszerek (pl. galangal, lime levél, citromfű), a hal szószok (fish sauce), a pirított alapanyagok (pl. pirított rizs porrá őrölve), és az ízek egyensúlyának (savanyú, sós, édes, csípős) harmonikus kombinációja. Ezek az összetevők és technikák adják meg az étel mélységét és karakterét."},
+      {"role": "user", "content": "Mely országok ételeit javaslod, ha az ízletes és tartalmas leveseket szeretem az ázsiai konyhában?"},
+      {"role": "assistant", "content": "A megadott kontextus alapján az ázsiai konyhából a thai ételeket javaslom, például a Kai Kaphrao Khai Dao-t (stir-fried pork with hot basil), amely ízletes és tartalmas fogás. A kontextusban azonban nincs leves recept, így konkrét leveseket nem tudok ajánlani."}
+    ]
+  }
+]
