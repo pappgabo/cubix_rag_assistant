@@ -1,0 +1,12 @@
+[
+  {
+    "id": "rag-test-001",
+    "question": "Mennyi ideig kell főzni a marhapörköltet, ha omlós húst szeretnék?",
+    "expected_doc_ids": ["doc_marhaporkolt_1", "doc_marhaporkolt_tippek"]
+  },
+  {
+    "id": "rag-test-002",
+    "question": "Milyen zöldségeket használjak egy gyors, 30 perces zöldséglevesez?",
+    "expected_doc_ids": ["doc_zoldsegleves_gyors_1"]
+  }
+]

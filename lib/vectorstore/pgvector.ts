@@ -102,7 +102,7 @@ export class PgvectorVectorStore {
     // SQL similarity search pgvectorral
     const res = await pool.query(
       `
-      SELECT text, metadata,
+      SELECT doc_id, text, metadata,
              1 - (embedding <=> $1::vector) AS score  -- cosine similarity pontszám
       FROM documents
       ORDER BY embedding <=> $1::vector              -- legkisebb távolság = legjobb találat
@@ -113,6 +113,7 @@ export class PgvectorVectorStore {
 
     // A találatok visszaalakítása JS objektummá
     return res.rows.map((row) => ({
+      id: row.doc_id as string,               // a dokumentum azonsítója
       score: Number(row.score),              // 0–1 közötti hasonlósági érték
       text: row.text as string,              // a dokumentum szövege
       payload: row.metadata as Record<string, any>, // metaadatok

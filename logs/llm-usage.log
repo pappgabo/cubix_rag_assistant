@@ -1,0 +1,1 @@
+[LLM_USAGE] {"timestamp":"2026-01-28T14:33:19.007Z","requestId":"c8ecdd89-c4ba-49fd-ac7d-297e515de0ff","component":"chat","model":"gpt-4.1-mini","provider":"openai","promptTokens":2785,"completionTokens":40,"totalTokens":2825,"costUsd":0.000442,"latencyMs":3886,"success":true}
