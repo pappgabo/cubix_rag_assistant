@@ -1,9 +1,15 @@
 import json
 from dataclasses import dataclass
 from typing import List, Dict, Any, Set, Tuple
-
+import sys
+from pathlib import Path
 import psycopg
 from openai import OpenAI
+
+# projekt gyökér hozzáadása az import úthoz, különben valamiért akkor nem látja config.py-t
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
 
 from config import (
     OPENAI_API_KEY,

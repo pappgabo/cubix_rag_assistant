@@ -1,12 +1,22 @@
 [
-  {
-    "id": "rag-test-001",
-    "question": "Mennyi ideig kell főzni a marhapörköltet, ha omlós húst szeretnék?",
-    "expected_doc_ids": ["doc_marhaporkolt_1", "doc_marhaporkolt_tippek"]
-  },
-  {
-    "id": "rag-test-002",
-    "question": "Milyen zöldségeket használjak egy gyors, 30 perces zöldséglevesez?",
-    "expected_doc_ids": ["doc_zoldsegleves_gyors_1"]
-  }
+  { "id": "q1", "question": "Hogyan készítsek marhahúsos tacót?", "expected_doc_ids": ["6"] },
+  { "id": "q2", "question": "Milyen alapanyagok kellenek a hummuszhoz?", "expected_doc_ids": ["35"] },
+  { "id": "q3", "question": "Hogyan készül az indiai padlizsánkrém?", "expected_doc_ids": ["3"] },
+  { "id": "q4", "question": "Van receptetek házi bagelre?", "expected_doc_ids": ["4"] },
+  { "id": "q5", "question": "Hogyan kell indiai lencsét (tarka dal) főzni?", "expected_doc_ids": ["74"] },
+  { "id": "q6", "question": "Milyen összetevők kellenek a thai sült rizshez?", "expected_doc_ids": ["76"] },
+  { "id": "q7", "question": "Hogyan kell Pad See Ew tésztát főzni?", "expected_doc_ids": ["47"] },
+  { "id": "q8", "question": "Hogyan süssek házi pitát?", "expected_doc_ids": ["50"] },
+  { "id": "q9", "question": "Milyen mártogatós a guasacaca?", "expected_doc_ids": ["29"] },
+  { "id": "q10", "question": "Milyen fűszerezésű a Massaman curry?", "expected_doc_ids": ["43"] },
+  { "id": "q11", "question": "Hogyan készül a klasszikus pizza tésztája?", "expected_doc_ids": ["51"] },
+  { "id": "q12", "question": "Milyen indiai étel az aloo matar?", "expected_doc_ids": ["1"] },
+  { "id": "q13", "question": "Milyen recept van okrával?", "expected_doc_ids": ["7"] },
+  { "id": "q14", "question": "Hogyan készül a görög citromos tahini szósz?", "expected_doc_ids": ["39"] },
+  { "id": "q15_neg", "question": "Van recept halas tacora?", "expected_doc_ids": [] },
+  { "id": "q16_neg", "question": "Van gluténmentes bagel receptetek?", "expected_doc_ids": [] },
+  { "id": "q17_multi", "question": "Milyen indiai ételeket találok a listában?", "expected_doc_ids": ["1", "74", "7"] },
+  { "id": "q18_spec", "question": "Melyik receptben használunk csicseriborsót?", "expected_doc_ids": ["35", "15"] },
+  { "id": "q19_spec", "question": "Milyen tésztaféléket vagy kenyereket tudok sütni?", "expected_doc_ids": ["4", "50", "51", "68", "69"] },
+  { "id": "q20_spec", "question": "Milyen thai ételek vannak a gyűjteményben?", "expected_doc_ids": ["76", "47"] }
 ]
