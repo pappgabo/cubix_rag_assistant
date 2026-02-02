@@ -6,11 +6,22 @@ import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
 
 export async function POST(req: Request) {
   try {
-    // A request body beolvasása JSON-ként.
-    // Ha nem sikerül parse-olni, akkor null-t ad vissza.
+    // ------------------------------------------------------------
+    // 1) STRATÉGIA KINYERÉSE AZ URL-BŐL
+    //    /api/upload-docs?strategy=baseline
+    //    /api/upload-docs?strategy=chunked
+    // ------------------------------------------------------------
+    const { searchParams } = new URL(req.url);
+    const strategy = searchParams.get("strategy") as "baseline" | "chunked";
+
+    // Ha a Python ingest nem küldte → legyen baseline
+    const finalStrategy = strategy || "baseline";
+
+    // ------------------------------------------------------------
+    // 2) Request body beolvasása
+    // ------------------------------------------------------------
     const body = await req.json().catch(() => null);
 
-    // Ellenőrzés: a body-nak tömbnek kell lennie.
     if (!Array.isArray(body)) {
       return Response.json(
         { error: "A request body egy tömb legyen (Array) dokumentum objektumokkal." },
@@ -18,10 +29,9 @@ export async function POST(req: Request) {
       );
     }
 
-    // A bejövő tömbből kiszűrjük az érvényes dokumentumokat:
-    // - objektum legyen
-    // - legyen 'text' mező
-    // - a 'text' ne legyen üres
+    // ------------------------------------------------------------
+    // 3) Dokumentumok szűrése és normalizálása
+    // ------------------------------------------------------------
     const docs: DocInput[] = body
       .filter(
         (item) =>
@@ -31,14 +41,11 @@ export async function POST(req: Request) {
           item.text.trim().length > 0
       )
       .map((item, idx) => ({
-        // Ha nincs id, generálunk egyet timestamp + index alapján
         id: item.id ?? `${Date.now()}-${idx}`,
         text: item.text,
-        // Metadata opcionális, ha nincs, üres objektumot adunk
         metadata: item.metadata ?? {},
       }));
 
-    // Ha egyetlen érvényes dokumentum sincs, hibát dobunk
     if (docs.length === 0) {
       return Response.json(
         { error: "Nem érkezett érvényes dokumentum (hiányzó vagy üres 'text' mező)." },
@@ -46,22 +53,28 @@ export async function POST(req: Request) {
       );
     }
 
-    // A dokumentumok indexelése Qdrantban OpenAI embeddingekkel
-    //await QdrantVectorStore.indexDocuments(docs);
+    console.log(`>>> Ingest indítása: Stratégia = ${finalStrategy}`);
+    console.log(`>>> Dokumentumok száma: ${docs.length}`);
 
-    // A dokumentumok indexelése PostgresDB-be OpenAI embeddingekkel
-    await PgvectorVectorStore.indexDocuments(docs);
-    // Sikeres válasz: mennyi dokumentum érkezett és mennyi volt érvényes
+    // ------------------------------------------------------------
+    // 4) Indexelés a megfelelő pipeline-ba
+    // ------------------------------------------------------------
+    await PgvectorVectorStore.indexDocuments(docs, finalStrategy);
+
+    // ------------------------------------------------------------
+    // 5) Sikeres válasz
+    // ------------------------------------------------------------
     return Response.json(
       {
         ok: true,
+        appliedStrategy: finalStrategy,
         receivedCount: body.length,
         validCount: docs.length,
       },
       { status: 200 }
     );
+
   } catch (err) {
-    // Ha bármi váratlan hiba történik, logoljuk és 500-at adunk vissza
     console.error(err);
     return Response.json(
       { error: "Váratlan hiba történt az upload-docs endpointban." },
