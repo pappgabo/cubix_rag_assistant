@@ -42,3 +42,6 @@ PG_DSN = os.getenv(
 RAG_TESTS_PATH = PROJECT_ROOT / "rag_eval" / "rag_tests.json"
 RAG_RESULTS_PATH = PROJECT_ROOT / "rag_eval" / "rag_results.json"
 RAG_TOP_K = 5
+
+DOCUMENTS_BASELINE_TABLE = "documents_baseline"
+DOCUMENTS_CHUNKS_TABLE = "documents_chunks"
