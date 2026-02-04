@@ -50,66 +50,60 @@ def make_chunks(
     max_len: int = 500,
     overlap_tokens: int = 50,
 ) -> List[Dict[str, Any]]:
-    """
-    Chunkolás mondatok alapján, opcionális overlap-pel.
-    Minden chunk kap egy base_id mezőt, amit a RAG eval használ.
-    """
     chunks: List[Dict[str, Any]] = []
 
     for doc in docs:
         text = doc["text"]
+        meta = doc.get("metadata", {})
 
-        # Az eredeti dokumentum ID-je → RAG eval ezt használja
-        original_id = str(doc.get("id", ""))
+        # slug preferált, különben a filename-ből képezzük
+        slug = meta.get("slug") or Path(meta.get("filename", "")).stem or str(doc.get("id", ""))
+        base_id = slug
 
-        # Mondatokra bontás
         sentences = re.split(r"(?<=[.!?])\s+", text)
-
         current_chunk: List[str] = []
         current_len = 0
+        chunk_idx = 0
 
         for sentence in sentences:
             sentence_words = sentence.split()
             sentence_len = len(sentence_words)
 
-            # Ha egy mondat túl hosszú → levágjuk
             if sentence_len > max_len:
                 sentence = " ".join(sentence_words[:max_len])
                 sentence_len = max_len
 
-            # Ha belefér a chunkba → hozzáadjuk
             if current_len + sentence_len <= max_len:
                 current_chunk.append(sentence)
                 current_len += sentence_len
-
             else:
-                # Chunk lezárása
                 if current_chunk:
-                    new_metadata = doc["metadata"].copy()
-                    new_metadata["base_id"] = original_id
-
+                    new_metadata = meta.copy()
+                    new_metadata["base_id"] = base_id
+                    new_metadata["chunk_index"] = chunk_idx
                     chunks.append({
+                        "id": f"{base_id}_{chunk_idx}",
                         "text": " ".join(current_chunk).strip(),
                         "metadata": new_metadata,
                     })
+                    chunk_idx += 1
 
-                # Overlap logika
                 last_sentence = current_chunk[-1] if current_chunk else None
                 if last_sentence and overlap_tokens > 0:
                     current_chunk = [last_sentence, sentence]
                 else:
                     current_chunk = [sentence]
-
                 current_len = sum(len(s.split()) for s in current_chunk)
 
-        # Utolsó chunk mentése
         if current_chunk:
             final_text = " ".join(current_chunk).strip()
             if not chunks or chunks[-1]["text"] != final_text:
-                new_metadata = doc["metadata"].copy()
-                new_metadata["base_id"] = original_id
-
+                new_metadata = meta.copy()
+                new_metadata["base_id"] = base_id
+                new_metadata["chunk_index"] = chunk_idx
+                new_metadata["slug"] = slug
                 chunks.append({
+                    "id": f"{base_id}_{chunk_idx}",
                     "text": final_text,
                     "metadata": new_metadata,
                 })

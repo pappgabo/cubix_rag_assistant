@@ -11,6 +11,7 @@ def main():
     # 2. Itt használjuk a base_id-s chunkolót
     chunks = make_chunks(docs, max_len=500, overlap_tokens=50)
     
+    
     # 3. Beküldés az API-nak
     target_strategy = "chunked"
     url = f"{API_URL}?strategy={target_strategy}"

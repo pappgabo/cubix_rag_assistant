@@ -106,7 +106,8 @@ def run_rag_eval_new():
                         "id": case.id,
                         "question": case.question,
                         "expected_doc_ids": case.expected_doc_ids,
-                        "retrieved": metrics["retrieved_raw"],
+                        #"retrieved": metrics["retrieved_raw"],
+                        "retrieved_raw": raw, # nyers doc/chunk dict-ek
                         **metrics,
                     }
                 )
@@ -150,7 +151,7 @@ def run_rag_eval_new():
         for case in cases:
 
             # chunked retrieval + CrossEncoder reranking
-            _, _, retrieved_ids = retrieve_chunked_rerank(
+            candidates, reranked, retrieved_ids = retrieve_chunked_rerank(
                 conn=conn,
                 question=case.question,
                 table_name=DOCUMENTS_CHUNKS_TABLE,
@@ -190,7 +191,8 @@ def run_rag_eval_new():
                     "id": case.id,
                     "question": case.question,
                     "expected_doc_ids": case.expected_doc_ids,
-                    "retrieved": metrics["retrieved_raw"],
+                    #"retrieved": metrics["retrieved_raw"],
+                    "retrieved": reranked,
                     **metrics,
                 }
             )

@@ -29,37 +29,33 @@ from config import API_URL, DATA_DIR
 # egységes dokumentum-objektumokká alakítjuk őket.
 # ---------------------------------------------------------------------------
 def load_text_files():
-    docs = []          # Ide gyűjtjük a dokumentumokat
-    idx = 1            # Automatikus növekvő dokumentum ID
-    patterns = ["*.txt", "*.md"]  # Csak ezekkel a kiterjesztésekkel dolgozunk
+    docs = []
+    idx = 1
+    patterns = ["*.txt", "*.md"]
 
     for pattern in patterns:
-        # A DATA_DIR-ben megkeressük a mintára illeszkedő fájlokat
         for path in sorted(DATA_DIR.glob(pattern)):
             try:
-                # Fájl beolvasása UTF-8 kódolással
                 text = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
-                # Ha a fájl nem UTF-8, akkor kihagyjuk
                 print(f"Nem sikerült beolvasni (kódolás hiba): {path}")
                 continue
 
-            # Üres fájlok kihagyása
             if not text.strip():
                 print(f"Üres fájl, kihagyom: {path.name}")
                 continue
 
-            # Dokumentum objektum összeállítása
-            docs.append(
-                {
-                    "id": idx,
-                    "text": text,
-                    "metadata": {
-                        "filename": path.name,
-                        "source": "local_markdown" if path.suffix == ".md" else "local_txt",
-                    },
-                }
-            )
+            slug = Path(path.name).stem  # pl. "aloo-matar"
+
+            docs.append({
+                "id": slug,
+                "text": text,
+                "metadata": {
+                    "filename": path.name,
+                    "slug": slug,
+                    "source": "local_markdown" if path.suffix == ".md" else "local_txt",
+                },
+            })
             idx += 1
 
     return docs

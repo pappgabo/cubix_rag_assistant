@@ -93,6 +93,7 @@ def eval_case(
     hit = hit_at_k(expected_ids, retrieved_ids, top_k)
     mrr = mrr_at_k(expected_ids, retrieved_ids, top_k)
     f1 = f1_at_k(prec, rec)
+    top_ids = retrieved_ids[:top_k]
 
     return {
         "precision_at_k": prec,   # 'precision' helyett, hogy a fő script megtalálja
@@ -100,5 +101,5 @@ def eval_case(
         "hit_at_k": hit,         # 'hit' helyett
         "mrr_at_k": mrr,         # 'mrr' helyett
         "f1_at_k": f1,           # 'f1' helyett
-        "retrieved_raw": retrieved_ids[:top_k] 
+        "retrieved_ids": top_ids, 
     }
