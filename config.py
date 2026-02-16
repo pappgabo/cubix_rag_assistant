@@ -21,7 +21,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 BACKEND_BASE_URL = "http://localhost:3000"
 UPLOAD_DOCS_PATH = "/api/upload-docs"
 API_URL = BACKEND_BASE_URL + UPLOAD_DOCS_PATH
-
+CHAT_ENDPOINT = "/api/chat"
 # ------------------------------------------------------------
 # OpenAI / modellek
 # ------------------------------------------------------------
@@ -35,6 +35,9 @@ PROMPT_EVAL_MODEL = "gpt-4.1-mini"
 
 # Embedding modell RAG-hoz
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+
+# User simulation modell-hez
+SIMULATED_USER_MODEL = "gpt-4.1-mini"
 
 # ------------------------------------------------------------
 # PostgreSQL kapcsolat (pgvector)
@@ -71,5 +74,10 @@ PROMPT_EVAL_JUDGE_PROMPT_PATH = Path("prompts/prompt_eval_judge_system.txt")
 # ------------------------------------------------------------
 # Beszélgetések és judge eredmények
 # ------------------------------------------------------------
-CONVERSATIONS_PATH = PROJECT_ROOT / "conversations.json"
-JUDGE_RESULTS_PATH = PROJECT_ROOT / "judge_results.json"
+CONVERSATIONS_PATH = PROJECT_ROOT / "outputs/conversations.json"
+JUDGE_RESULTS_PATH = PROJECT_ROOT / "outputs/judge_results.json"
+
+# ------------------------------------------------------------
+# Batch runner konfiguráció
+# ------------------------------------------------------------
+BATCH_CONFIG_PATH = PROJECT_ROOT / "conversation_eval" / "batch_config.yaml"

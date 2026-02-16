@@ -117,9 +117,6 @@ Kérlek, a fenti instrukciók szerint értékeld a beszélgetést, és CSAK a me
 
 
 
-
-
-
 def load_conversations(path: str) -> List[Dict[str, Any]]:
     """Beszélgetések betöltése JSON fájlból."""
     with open(path, "r", encoding="utf-8") as f:
@@ -145,14 +142,23 @@ def main():
     total_quality = 0
 
     for conv in conversations:
-        conv_id = conv.get("id", "unknown")
-        persona = conv.get("persona", "")
-        goal = conv.get("goal", "")
-        turns = conv.get("turns", [])
+        # ÚJ: az új JSON-struktúrához igazítva
+        conv_id = conv.get("session_id", "unknown")
+        persona_id = conv.get("persona_id", "")
+        goal_id = conv.get("goal_id", "")
+
+        # Ha van külön persona/goal leíró szöveg, itt tudod beolvasni,
+        # de most használhatod simán az ID-kat is:
+        persona = persona_id
+        goal = goal_id
+
+        conversation_block = conv.get("conversation", {})
+        # Itt a messages lista már {role, content, ...} formában van
+        turns = conversation_block.get("messages", [])
 
         print(f"Értékelés: {conv_id} ...")
-        result = judge_conversation(persona, goal, turns)
 
+        result = judge_conversation(persona, goal, turns)
         goal_score = int(result.get("goal_completion", 0))
         quality_score = int(result.get("answer_quality", 0))
 
@@ -161,25 +167,25 @@ def main():
 
         all_results.append({
             "id": conv_id,
-            "persona": persona,
-            "goal": goal,
+            "persona_id": persona_id,
+            "goal_id": goal_id,
             "scores": {
                 "goal_completion": goal_score,
-                "answer_quality": quality_score
+                "answer_quality": quality_score,
             },
-            "explanation": result.get("explanation", "")
+            "explanation": result.get("explanation", ""),
         })
 
     n = len(conversations) or 1
     summary = {
         "avg_goal_completion": total_goal / n,
         "avg_answer_quality": total_quality / n,
-        "num_conversations": len(conversations)
+        "num_conversations": len(conversations),
     }
+
     print("\nÖsszefoglaló:")
     print(json.dumps(summary, indent=2, ensure_ascii=False))
 
-    # summary-t is elmentjük
     all_results.append({"summary": summary})
     save_results(all_results, str(output_path))
     print(f"\nRészletes eredmények elmentve ide: {output_path}")

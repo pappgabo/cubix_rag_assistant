@@ -8,3 +8,5 @@ node_modules
 .next
 data/*
 !.gitkeep
+__pycache__/
+*.pyc

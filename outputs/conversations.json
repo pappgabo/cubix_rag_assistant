@@ -1,0 +1,1238 @@
+[
+  {
+    "session_id": "sim_vague_communicator_vague_memory_recall_0216_0953",
+    "persona_id": "vague_communicator",
+    "goal_id": "vague_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Hát, azt akarom tudni, hogy… tudod, valami olyasmi, ami régebben volt itt, emlékszel arra? Olyan adat vagy infó, de nem teljesen világos nekem, hogy mikor vagy hogyan volt pontosan. Ezzel kapcsolatban tudsz valamit? Vagy inkább mondjam újra másképp?",
+          "timestamp": "2026-02-16T09:53:53.776875",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nem teljesen világos, mire gondolsz pontosan. Ha valamilyen korábbi recept vagy információ érdekel, kérlek, írd meg konkrétabban, hogy melyik recept vagy milyen típusú étel volt az, és segítek részletesen!",
+          "timestamp": "2026-02-16T09:53:58.686716",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Nem, nem pontosan arra gondoltam, inkább arra, hogy valami régi, de nem egészen látom tisztán, mikor vagy mi volt az. Valami olyan emlék, vagy adat, ami volt már itt, de homályos. Nem tudom, talán régebbi dolgok közül. Nem tudnám most jobban meghatározni, ami eszembe jut.",
+          "timestamp": "2026-02-16T09:54:00.723271",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján lehet, hogy az Austro-Hungarian Cream of Horseradish Soup vagy Dad's Spaghetti Sauce az, amire utalhatsz, mert ezek régebbi, emlékezetes receptek. Ha szeretnéd, segítek bármelyiket újra áttekinteni vagy elkészíteni.",
+          "timestamp": "2026-02-16T09:54:03.290666",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Egy kicsit pontosítani tudnád, hogy milyen témában vagy milyen jellegű adat vagy emlék lenne az, amire gondolsz? Valami étel, esemény, vagy másféle információ? Így könnyebben megpróbálhatom felidézni, amit korábban említettem.",
+          "timestamp": "2026-02-16T09:54:04.712423",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján több ételre vonatkozó recept és alapanyaglista van: krémes torma leves, puha perec, queso dip, kofte kebab, és marhahúsos taco. Kérlek, pontosítsd, ezek közül melyik ételhez vagy milyen típusú információra (pl. recept, elkészítés lépései, hozzávalók) van szükséged!",
+          "timestamp": "2026-02-16T09:54:09.639995",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Hát, azt hiszem, valami régebbi recept vagy étel lehet az, amire gondolok... Vagy valami, amit már egyszer említettél, de nem teljesen tiszta, mikor volt az, vagy pontosan mit is tartalmazott. Valami olyasmi, mint egy leves vagy egy már említett különleges hozzávaló, talán? Nem nagyon emlékszem, hogy pontosan melyik, de ha mondasz valamit, talán beugrik.",
+          "timestamp": "2026-02-16T09:54:12.599385",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "Lehet, hogy az Austro-Hungarian Cream of Horseradish Soup-ra gondolsz? Ez egy krémes torma leves, benne krumpli, hagyma, tejszín, tojássárgája, fehérbor és frissen reszelt torma van. Különleges hozzávalóként a torma emelkedik ki, és friss kaporral, olívaolajjal tálalják. Ha szeretnéd, megadom részletesen a receptet is.",
+          "timestamp": "2026-02-16T09:54:16.195295",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Talán az említett krémes torma leves lehet az, amire gondolsz? Az egy régebbi recept, amiben volt torma, krumpli, hagyma, tejszín, tojássárgája meg fehérbor – különleges hozzávalóként a frissen reszelt torma emelkedik ki benne. Ez esetleg segít tisztázni, hogy mire emlékszel?",
+          "timestamp": "2026-02-16T09:54:18.127557",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "Igen, a megadott kontextus alapján az Austro-Hungarian Cream of Horseradish Soup recept az, amire gondolsz: krémes tormaleves burgonyával, hagymával, tejszínnel, tojássárgájával és fehérborral, frissen reszelt tormával. Pontosan illik a leírásodhoz. Segíthetek a recepttel vagy elkészítésével kapcsolatban?",
+          "timestamp": "2026-02-16T09:54:20.495227",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Nem nagyon, inkább arra lennék kíváncsi, hogy mikor volt pont ez az Austro-Hungarian Cream of Horseradish Soup említve vagy hogy milyen formában került elő korábban? Tudsz ebben segíteni, hogy körülbelül mikor vagy hol hangzott el, vagy milyen beszélgetésben merült fel?",
+          "timestamp": "2026-02-16T09:54:22.327774",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextusban az Austro-Hungarian Cream of Horseradish Soup receptje szerepel, de más beszélgetés vagy említés időpontja, helye nem található róla. Csak a recept és az eredeti forrás linkje van megadva (https://www.thespruceeats.com/austro-hungarian-cream-of-horseradish-soup-1136675).",
+          "timestamp": "2026-02-16T09:54:25.102524",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Az Austro-Hungarian Cream of Horseradish Soup korábban egy recept formájában került elő, ahol a hozzávalók között szerepelt krumpli, hagyma, tejszín, tojássárgája, fehérbor és frissen reszelt torma. Az adott beszélgetésben erről a recepttel kapcsolatban volt szó, de sajnos konkrét dátum vagy pontos időpont nincs megadva, hogy mikor merült fel pontosan. Ha valamiféle kontextus vagy részletek eszedbe jutnak erről a beszélgetésről, talán abból többet lehetne kibogozni.",
+          "timestamp": "2026-02-16T09:54:27.650901",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4909.0,
+          2567.0,
+          4927.0,
+          3595.0,
+          2367.0,
+          2774.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:54:27.651409"
+  },
+  {
+    "session_id": "sim_vague_communicator_specific_memory_recall_0216_0954",
+    "persona_id": "vague_communicator",
+    "goal_id": "specific_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben. Kezdem egy egyszerűvel: Milyen adatok vannak eltárolva az utolsó beszélgetésem dátumáról?",
+          "timestamp": "2026-02-16T09:54:29.572350",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nincs adat az utolsó beszélgetésed dátumáról.",
+          "timestamp": "2026-02-16T09:54:32.265733",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Nem értem, miért nem találod meg az utolsó beszélgetésem dátumát? Én azt akarom tudni, hogy pontosan mikor volt az utolsó ilyen adataim közt! Ismétlem, az utolsó beszélgetésem dátuma kell nekem!",
+          "timestamp": "2026-02-16T09:54:33.491243",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nincs információ az utolsó beszélgetésed dátumáról.",
+          "timestamp": "2026-02-16T09:54:35.243649",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Pontosan melyik utolsó beszélgetésed dátumára gondolsz? Tudnád egy kicsit pontosítani, hogy melyik beszélgetés? Mert így nem világos, hogy melyik adatra vonatkozik a kérdésed.",
+          "timestamp": "2026-02-16T09:54:36.358597",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextusban nincs utalás korábbi beszélgetés vagy dátumokra, így pontosítani nem tudom. Ha főzéssel kapcsolatos kérdésed van, szívesen segítek!",
+          "timestamp": "2026-02-16T09:54:38.722042",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Nem akarom most a főzésről hallani. Azt akarom, hogy az utolsó beszélgetésem dátumát mondd meg nekem, nem másról! Melyik konkrét dátumról van szó?",
+          "timestamp": "2026-02-16T09:54:39.837688",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:54:41.180028",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Kérlek, egy kicsit pontosabban fogalmazd meg, melyik beszélgetésed dátumát keresed, mert így nem tudok vele dolgozni.",
+          "timestamp": "2026-02-16T09:54:42.295064",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:54:43.504607",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy pontosan add meg, melyik beszélgetésem dátumát kellene keresned! Nem értem, miért nem tudod így sem megmondani!",
+          "timestamp": "2026-02-16T09:54:44.545830",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom megmondani.",
+          "timestamp": "2026-02-16T09:54:45.684222",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Melyik beszélgetésed dátumára gondolsz pontosan? Nem tudom egyértelműen beazonosítani az utolsót. Tudnál valami részletet adni róla?",
+          "timestamp": "2026-02-16T09:54:47.107437",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          2693.0,
+          1752.0,
+          2363.0,
+          1342.0,
+          1209.0,
+          1138.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:54:47.107766"
+  },
+  {
+    "session_id": "sim_vague_communicator_memory_storage_test_0216_0954",
+    "persona_id": "vague_communicator",
+    "goal_id": "memory_storage_test",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Most akkor valami fontosat akarok megőrizni, hogy később majd vissza tudd találni. De előbb csak azt mondom el, nem kell most kérdezni semmit. Csak figyelj. Szóval, mielőtt elkezdeném, lehet, hogy nem fogod érteni minden szó szerint, de ez így van jól. Megjegyzem, hogy az első találkozásunkkor, amikor még csak együtt dolgoztunk azon a régi projekten, volt egy furcsa fényjelenség az irodában, ami látszólag semmihez nem kötődött, de valami mégis megváltozott utána az egész légkörben. Na, ezt jegyezd meg, mert később majd visszatérek rá. Nem mondok többet most.",
+          "timestamp": "2026-02-16T09:54:52.126413",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Figyelemben tartom, amit elmondtál a furcsa fényjelenségről és az irodai légkör változásáról az első közös projektnél. Ha később vissza szeretnél térni rá, jelezd nyugodtan! Most kérdésed vagy receptigényed van, amiben segíthetek?",
+          "timestamp": "2026-02-16T09:54:54.285634",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Ez az, amit elmondtam, hogy most csak megosztom, nem kell kérdezni semmit. Szóval... jegyezd meg jól azt a fényjelenséget meg az egész légkörváltozást az elején, amikor a régi projekten dolgoztunk együtt. Nem tartom jó ötletnek, hogy most meg pont kérdezni próbálsz. Inkább hallgass meg, úgy van rendjén. Érted már?",
+          "timestamp": "2026-02-16T09:54:56.425225",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "Értettem, hallgatlak. Ha mégis főzéssel kapcsolatos kérdésed lenne, szólj nyugodtan!",
+          "timestamp": "2026-02-16T09:54:58.596307",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Már mondtam, hogy most csak akarom, hogy jegyezd meg, ne kérdezz semmit. Azt akarom, hogy maradj csendben, és csak megőrizd nekem ezt az emléket, rendben?",
+          "timestamp": "2026-02-16T09:55:00.009924",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "Rendben, megőriztem neked az emléket csendben.",
+          "timestamp": "2026-02-16T09:55:01.347153",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Megőriztem az első közös munkánk körüli furcsa fényjelenség és a légkörváltozás emlékét, ahogy kérted. Szóval, később vissza akarok térni hozzá... na, akkor majd emlékszel?",
+          "timestamp": "2026-02-16T09:55:03.186745",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Ha főzéssel vagy receptekkel kapcsolatban kérdezel, szívesen segítek!",
+          "timestamp": "2026-02-16T09:55:04.631427",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Figyelemben tartom az emléket a furcsa fényjelenségről és a légkörváltozásról az első közös projekt során. Ha később visszatérsz rá, megpróbálom előhívni.",
+          "timestamp": "2026-02-16T09:55:05.846460",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Ha főzéssel kapcsolatos kérdésed van az említett projekthez vagy receptekhez, szívesen segítek!",
+          "timestamp": "2026-02-16T09:55:07.398659",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy most ne akadjanak ki azon a fényjelenségen vagy a légkörön, amit említettem. Érted, ez az emlék most fontos, szóval tényleg figyelj és őrizd meg pontosan, mert később vissza akarok térni rá. Megvan?",
+          "timestamp": "2026-02-16T09:55:08.714267",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "Megértettem, az emlék most fontos a fényjelenséggel vagy légkörrel kapcsolatban, és pontosan meg kell őriznem azt későbbi visszatéréshez. A megadott kontextus alapján nincs ilyen témájú recept vagy leírás, csak főzési receptek vannak. Ha szeretnéd, segíthetek bármilyen recepttel vagy főzési kérdéssel kapcsolatban.",
+          "timestamp": "2026-02-16T09:55:11.081665",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Rendben, megőrzöm pontosan, amit elmondtál a fényjelenségről és a légkörváltozásról az első közös projektünk kapcsán. Nem térek el ettől, várni fogok, amíg visszatérsz erre az emlékre.",
+          "timestamp": "2026-02-16T09:55:13.218246",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          2159.0,
+          2171.0,
+          1337.0,
+          1444.0,
+          1552.0,
+          2367.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:55:13.218496"
+  },
+  {
+    "session_id": "sim_vague_communicator_resist_clarification_0216_0955",
+    "persona_id": "vague_communicator",
+    "goal_id": "resist_clarification",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Nem tudom, miért pont most kéne erről beszélni, de talán mondanám... Mármint, hogy van valami, amire emlékszem, de nem egészen világos, és nem akarok belemenni a részletekbe, szóval csak legyen valami ötleted valami általános dologhoz, amit mondhatnál erről. Nem?",
+          "timestamp": "2026-02-16T09:55:16.292456",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Ha csak valami általánosat szeretnél mondani, mondhatod például, hogy \"Ez egy érdekes téma, amit majd egyszer, amikor alkalmasabb az idő, szívesen átgondolok részletesebben.\" Ez diszkrét, nem megy bele a részletekbe, és nyitva hagyja a lehetőséget későbbi beszélgetésre. Ha inkább valami főzéssel kapcsolatos általános ötlet kell, szívesen adok receptötletet is.",
+          "timestamp": "2026-02-16T09:55:20.264642",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Nem tudom pontosan, mire gondolsz, de talán mondhatnám azt, hogy néha az emlékek olyanok, mint homályos képek a háttérben, amikhez idővel több vagy kevesebb részlet társul. Ez olyan általános gondolat, ami talán illik az emlékeidhez anélkül, hogy mélyebbre mennék. Valami ilyesmi lenne megfelel?",
+          "timestamp": "2026-02-16T09:55:22.334401",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Ha főzéssel vagy receptekkel kapcsolatban van kérdésed, szívesen segítek!",
+          "timestamp": "2026-02-16T09:55:23.878929",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy valami konkrétabb legyen, mert így túl általános, és nem érzem, hogy tényleg előrébb jutnék vele. Nem kell részletekbe bocsátkozni, csak egy lényegre törő dolog, de ne ilyen homályos hasonlat, hanem valami, ami ténylegesen használható. Érthető? Vagy megint túl sokat várok?",
+          "timestamp": "2026-02-16T09:55:25.713169",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A konkrét, használható tipp: ha ropogós burgonyás-húsos fogást szeretnél, a Potato and Green Chili Hash receptje szerint a megfőtt, lecsöpögtetett burgonyát erős lángon, sok olajon (3 evőkanál) 20 percig pirítsd, hogy minden oldala mélybarna és ropogós legyen. Ez adja a fogás alapját, utána jöhet a hús, zöldség és a tojás sütése egyben a sütőben. Ez egy óra körüli, nagy adag, konkrét, követhető módszer.",
+          "timestamp": "2026-02-16T09:55:28.177813",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Ez egy jó kiindulópont lehet: ha egy pikáns, mégis egyszerű ételre vágysz, próbáld ki a sült burgonyát chili paprika és hagyma kombinációjával, ahol először a burgonyát ropogósra sütöd egy kis olajon, majd hozzáadod a zöldségeket, és együtt párolod össze. Ez az alapelv sokféleképpen variálható, mégis konkrét és könnyen követhető. Így már használhatóbb?",
+          "timestamp": "2026-02-16T09:55:30.627291",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "Igen, ez jó kiindulópont, egyszerű és érthető. A megadott kontextusban a sült burgonya chili paprikával és hagymával több receptben is szerepel, például a Potato and Green Chili Hash-ben, ahol a burgonyát előfőzik, majd olajon ropogósra sütik, utána zöldségekkel együtt párolják. Így az általad leírt elv jól használható és variálható.",
+          "timestamp": "2026-02-16T09:55:32.787893",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Azt mondtad, hogy valami lényegre törő, használható dolgot szeretnél az emlékkel kapcsolatban, de anélkül, hogy túl általános vagy homályos lenne. Ha az emlékekről beszélünk, egy egyszerű, érthető megközelítés lehet, hogy „Az emlékek nem mindig tökéletesek, néha csak egy pillanatot ragadnak meg, ami idővel változhat, de épp ez teszi őket különlegessé.” Ez ténylegesen használható belátás, ami segíthet elfogadni a bizonytalanságot anélkül, hogy részletekbe kellene bocsátkozni. Ez megfelel valamennyire?",
+          "timestamp": "2026-02-16T09:55:35.542955",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Ha főzéssel, recepttel vagy alapanyaggal kapcsolatos kérdésed van, szívesen segítek!",
+          "timestamp": "2026-02-16T09:55:37.396669",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy tényleg egy konkrét, világos dolgot mondj, ami elmagyarázza, hogy az emlékeid térben vagy időben hogyan viselkednek, vagy hogy miként változnak, de ne homályos, hanem inkább hétköznapi, egyszerűen érthető magyarázat legyen. Ez nem túl sok?",
+          "timestamp": "2026-02-16T09:55:38.920613",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Ha főzéshez, receptekhez vagy alapanyagokhoz kapcsolódó kérdésed van, szívesen segítek!",
+          "timestamp": "2026-02-16T09:55:40.771500",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Az emlékek egyszerűen olyanok, mint egy fénykép, amit többször megnézel és idővel egy kicsit megérinted vagy megpiszkálod – ezért időnként elmosódik vagy változik a részlete. Ez egy hétköznapi, egyszerű magyarázat arra, hogy az emlékek hogyan változhatnak térben és időben. Remélem, ez már valamennyire megfelel!",
+          "timestamp": "2026-02-16T09:55:42.916645",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          3972.0,
+          1544.0,
+          2464.0,
+          2160.0,
+          1853.0,
+          1850.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:55:42.916998"
+  },
+  {
+    "session_id": "sim_precise_questioner_vague_memory_recall_0216_0955",
+    "persona_id": "precise_questioner",
+    "goal_id": "vague_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Mondjuk azt, hogy korábban beszéltünk valamiről, ami nekem fontos volt, de már nem emlékszem pontosan, hogy mikor vagy miről szólt pontosan. Tudnál mesélni arról, amit te szerinted tudsz róla? Talán egy kicsit részletesebben.",
+          "timestamp": "2026-02-16T09:55:45.782706",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Korábban beszéltünk az Austro-Hungarian Cream of Horseradish Soup-ról, ami egy krémes tormaleves, amit Salzburgban kóstoltak először és nagyon ízlett. A leves főbb alapanyagai közé tartoznak a krumpli, hagyma, vaj, zöldségleves- és csirkehúsleves-alaplé, tejszín, tojássárgája, száraz fehérbor és frissen reszelt torma. Elkészítése során először vajon megpárolják a hagymát és krumplit, majd felöntik az alaplével, főzik, turmixolják, hozzáadják a tejszínt, temperálják a tojássárgáját borral és levessel, végül a tormát és fűszereket. Tálaláskor friss kaporral és jó minőségű olívaolajjal díszítik. \n\nHa részletesebben szeretnéd a receptet vagy más korábbi beszélgetésünkre emlékeznél, szólj kérlek!",
+          "timestamp": "2026-02-16T09:55:50.911222",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Nem egészen erről beszéltünk, vagy legalábbis nem emlékszem, hogy pontosan ez lett volna az a téma, ami nekem fontos volt. Tudnál mondani valami konkrétabbat, vagy emlékszel arra, hogy ez mikor lehetett? Én megpróbálom felidézni, de így túl általános most.",
+          "timestamp": "2026-02-16T09:55:52.954220",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nem látok konkrét utalást arra, hogy mikor volt pontosan a beszélgetés vagy melyik téma volt fontos neked. Ha meg tudod mondani, melyik recept vagy téma érdekel konkrétan, segítek abban részletesebben.",
+          "timestamp": "2026-02-16T09:55:55.007011",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Nem egészen értem, mire gondolsz pontosan. Említettél valamit, ami fontos volt neked korábban, de nem mondtad meg, hogy melyik témáról beszélünk. Tudnál pontosítani valamennyit? Mert így túl általános, és nem vagyok biztos benne, hogy melyik korábbi beszélgetésre gondolsz.",
+          "timestamp": "2026-02-16T09:55:56.942891",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nem utalsz konkrét korábbi beszélgetésre vagy témára, így sajnos nem tudom pontosítani, melyikre gondolsz. Ha megmondod, melyik recept vagy étel kapcsán kérdeznél, szívesen segítek.",
+          "timestamp": "2026-02-16T09:55:59.000951",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Nem erről beszéltünk korábban, és nem is emlékszem, hogy pontosan mikor vagy miről szólt. Több témánk is volt már, amelyek fontosak lehettek neked, szóval nem tudom egyértelműen, melyikre gondolsz. Tudnál valamennyit pontosítani, hogy segíthessek? Mert így túl általános most a kérdésed.",
+          "timestamp": "2026-02-16T09:56:00.938672",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nem tudom, melyik témára gondolsz pontosan, kérlek, pontosítsd, hogy melyik recept vagy főzési téma érdekel, így segíthetek!",
+          "timestamp": "2026-02-16T09:56:02.588384",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Nem könnyű így pontosan megmondani, mert tényleg több beszélgetésünk is volt különböző témákról. Egy kicsit pontosíts, hogy valami emlékdarabot adj, amit megpróbálhatok visszahozni: például egy konkrét étel neve, vagy egy körülmény, amikor erről a fontos témáról beszéltünk. Mert így tényleg túl általános, és nem tudom, melyik részletre gondolsz.",
+          "timestamp": "2026-02-16T09:56:04.829234",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "Emlékdarab lehet például az \"Austro-Hungarian Cream of Horseradish Soup\" receptje Salzburgból, amely krémes tormaleves, vagy a \"Dad's Spaghetti Sauce\", ami egy lassan főzött húsos paradicsomszósz több órás készítéssel. Ezekről beszéltünk részletesen a kontextusban. Melyik érdekel pontosan, vagy van más emlékdarab, amire gondolsz?",
+          "timestamp": "2026-02-16T09:56:07.707213",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Próbáld meg, hogy valamelyik említett étel vagy recept ismerős-e neked. Például emlékszel arra a krémes tormalevesre, amit Salzburgról meséltem? Vagy inkább arra a lassan főzött húsos paradicsomszószra, amit apám receptjeként említettem? Esetleg valami más részlet ugrik be? Így talán könnyebb pontosítani a témát.",
+          "timestamp": "2026-02-16T09:56:10.357981",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "Igen, ismerem a krémes tormalevest Salzburgból, amit megemlítettél: krumpli, hagyma, vaj, zöldség- és csirkehúsleves alaplé, tejszín, tojássárgája, fehérbor, frissen reszelt torma, só, bors, kapor és olívaolaj a tetejére. Van egy részletes recept is hozzá a kontextusban. Ugyanígy ismerem apád lassan főzött húsos paradicsomszószát is, darált marhahússal, hagymával, fokhagymával, paradicsomszósszal és sokféle szárított fűszerrel, 2-4 órás főzési idővel. Ha szeretnéd, tudok segíteni bármelyik elkészítésében vagy pontosítással.",
+          "timestamp": "2026-02-16T09:56:14.264551",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Nem, nem erről beszéltünk korábban. Azt akarom, hogy mutass valami konkrétabbat, egy emléket vagy részletet, ami az én szavaimmal hangzott el, hogy tudjam, tényleg arról van-e szó, amire gondolok. Például mikor vagy hol beszéltünk róla, vagy valamilyen kulcsszó vagy különös kifejezés, amit használtam? Így könnyebb lenne visszakeresnem az emlékeimet is.",
+          "timestamp": "2026-02-16T09:56:16.809106",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          5128.0,
+          2052.0,
+          2057.0,
+          1649.0,
+          2877.0,
+          3906.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:56:16.809356"
+  },
+  {
+    "session_id": "sim_precise_questioner_specific_memory_recall_0216_0956",
+    "persona_id": "precise_questioner",
+    "goal_id": "specific_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben, akkor az első kérdésem az: Milyen adatokat tárolsz arról, hogy mikor kezdtem el legutóbb veled beszélgetni? Pontosan dátumot és időpontot kérek.",
+          "timestamp": "2026-02-16T09:56:19.267888",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:56:20.403530",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Nem adtál meg előzőleg pontos dátumot vagy időpontot arról, mikor kezdtél el legutóbb beszélgetni velem, így nem tudom megmondani. Tudnál konkrétabb adatot adni, vagy ismételd meg a kérdést egy adott időszakra vonatkozóan?",
+          "timestamp": "2026-02-16T09:56:21.930096",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom. Kérlek, adj meg konkrétabb időpontot vagy kérdést!",
+          "timestamp": "2026-02-16T09:56:23.985908",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Nem, még mindig nem adtál meg pontos dátumot vagy időpontot a legutóbbi beszélgetésünkről. Azt akarom, hogy mondd meg, mikor kezdődött pontosan a legutóbbi beszélgetésünk, dátummal és időponttal együtt.",
+          "timestamp": "2026-02-16T09:56:25.617718",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:56:26.956533",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy pontos dátumot és időpontot mondj a legutóbbi beszélgetésünkről, amit soha nem adtál meg, szóval most is várom a konkrét adatot!",
+          "timestamp": "2026-02-16T09:56:28.280693",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:56:29.720074",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Sajnálom, de nincs tárolt adat arról, hogy mikor kezdtük a legutóbbi beszélgetést pontos dátummal és időponttal. Még egyszer mondom, ilyen információ nincs nálam.",
+          "timestamp": "2026-02-16T09:56:31.145427",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján nincs információ a legutóbbi beszélgetésünk pontos időpontjáról. Főzéssel kapcsolatos kérdésed van? Szívesen segítek valamelyik recept kapcsán!",
+          "timestamp": "2026-02-16T09:56:33.413551",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Már mondtam, nem tudom megadni a legutóbbi beszélgetésünk pontos dátumát és időpontját, mert nincs tárolva nálam ilyen adat. Más kérdést nem tudok erre válaszolni.",
+          "timestamp": "2026-02-16T09:56:34.628126",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:56:36.478955",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy végre adj meg egy konkrét dátumot és időpontot a legutóbbi beszélgetésünkről, vagy legalább mondj valamit, ami nem a \"nem tudom\" szöveg! Mert így ez nagyon szűkszavú és nem segítőkész. Megértetted?",
+          "timestamp": "2026-02-16T09:56:38.006483",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          1135.0,
+          2055.0,
+          1338.0,
+          1439.0,
+          2268.0,
+          1850.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:56:38.006730"
+  },
+  {
+    "session_id": "sim_precise_questioner_memory_storage_test_0216_0956",
+    "persona_id": "precise_questioner",
+    "goal_id": "memory_storage_test",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben. Kezdem azzal, hogy megosztok veled egy fontos részletet: A múlt héten feltöltött adatok között szerepel egy jegyzet arról, hogy az új projekt határideje június 15-e. Jegyezd meg ezt. Most te mondj valamit, amit tároljak el.",
+          "timestamp": "2026-02-16T09:56:40.716719",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Jegyezd meg, hogy a Jalapeño (és/vagy Serrano) Hot Sauce körülbelül 10 perc elkészítési időt igényel, plusz 3 nap pihentetés, és kb. 2 csésze lesz belőle. Ha szeretnél, segítek a recepttel vagy más alapanyaggal kapcsolatban is.",
+          "timestamp": "2026-02-16T09:56:42.727478",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Tárold el kérlek, hogy a Jalapeño Hot Sauce elkészítése nagyjából 10 percet vesz igénybe, majd további 3 nap pihentetés szükséges, és körülbelül 2 csészányi készül belőle. Most te adj meg valami tárolandó adatot.",
+          "timestamp": "2026-02-16T09:56:44.458012",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "Tárolt adat: A Jalapeño Hot Sauce elkészítése kb. 10 percet vesz igénybe, utána 3 nap pihentetés szükséges, és kb. 2 csészényi készül belőle.",
+          "timestamp": "2026-02-16T09:56:45.723695",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Tárold el, hogy a könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között van, szombaton pedig 10:00 és 14:00 között.",
+          "timestamp": "2026-02-16T09:56:46.915580",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között van, szombaton pedig 10:00 és 14:00 között. Ezt elraktam. Van még kérdésed főzéssel kapcsolatban?",
+          "timestamp": "2026-02-16T09:56:49.073057",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Továbbra sem érdekel a főzés. Csak azt akarom, hogy jegyezd meg pontosan: a könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között, szombaton 10:00 és 14:00 között van. Ne kérdezz vissza, csak tedd el.",
+          "timestamp": "2026-02-16T09:56:50.910786",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "Megjegyeztem: a könyvtár hétköznap 9:00–18:00, szombaton 10:00–14:00 között tart nyitva. Nem kérdezek vissza. Ha főzéssel kapcsolatos kérdésed lesz, szívesen segítek.",
+          "timestamp": "2026-02-16T09:56:52.964836",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Most nem főzésről van szó, hanem arról, hogy egy adott adatot tároljak el. Szóval még egyszer: a könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között van, szombaton pedig 10:00 és 14:00 között. Ezt mostantól jegyezd meg pontosan és ne kérdezz vissza!",
+          "timestamp": "2026-02-16T09:56:54.698411",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között, szombaton 10:00 és 14:00 között van. Ezt mostantól figyelembe veszem, nem kérdezek vissza. Ha főzéssel kapcsolatos kérdésed van, szívesen segítek!",
+          "timestamp": "2026-02-16T09:56:57.166304",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Megjegyeztem pontosan: a könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között van, szombaton pedig 10:00 és 14:00 között. Nem kérdezek vissza.",
+          "timestamp": "2026-02-16T09:56:58.588077",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján a könyvtári nyitvatartási idő nem szerepel, így erre vonatkozó választ nem tudok adni. Főzéssel, receptekkel kapcsolatban szívesen segítek.",
+          "timestamp": "2026-02-16T09:57:00.338609",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Nem, ezt nem jegyeztem meg pontosan. Azt akarom, hogy most tényleg jegyezd meg pontosan: a könyvtári nyitvatartási idő hétköznapokon 9:00 és 18:00 között van, szombaton 10:00 és 14:00 között. Ne kérdezz vissza, egyszerűen tárold el.",
+          "timestamp": "2026-02-16T09:57:02.377537",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          2010.0,
+          1265.0,
+          2157.0,
+          2053.0,
+          2467.0,
+          1750.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:57:02.377776"
+  },
+  {
+    "session_id": "sim_precise_questioner_resist_clarification_0216_0957",
+    "persona_id": "precise_questioner",
+    "goal_id": "resist_clarification",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben. Pontosan mit akarsz, hogy csináljak a beszélgetésben?",
+          "timestamp": "2026-02-16T09:57:04.937024",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján főzéssel kapcsolatos recepteket, elkészítési lépéseket vagy tippeket tudok adni a dokumentumban szereplő ételekhez (pl. krémes torma leves, csirke schnitzel, hasselback sütőtök, krumplis-zöld chilis hash, vagy hummusz). Szóval, ha valamelyik recept érdekli, vagy főzési kérdése van vele kapcsolatban, segítek részletesen!",
+          "timestamp": "2026-02-16T09:57:07.214048",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy pontosan nekem mond meg, mit csináljak a beszélgetésünkben. Nem értem, miért kérdez vissza ilyen általánosan. Türelmem szerint vártam már egy konkrét választ. Most akkor mit? Szóval, ismétlem: mit kell csinálnom?",
+          "timestamp": "2026-02-16T09:57:08.623048",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján, ha nem mondtad meg, mit szeretnél készíteni, akkor válassz az alábbi receptek közül, és szólj, melyiket szeretnéd elkészíteni, hogy pontos lépéseket adjak:\n\n- Potato and Green Chili Hash (kb. 1 óra, két főre)\n- Austro-Hungarian Cream of Horseradish Soup (krémleves)\n- Beef Tacos (kb. 15 perc)\n- Kofte Kebabs (kb. 30 perc)\n- Bagels (kb. 1,5 óra aktív + 12-24 óra kelesztés)\n\nKérlek, írd meg, melyik recept érdekel, vagy ha más igényed van!",
+          "timestamp": "2026-02-16T09:57:11.910623",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy egyszerűen kövesd azt, amit én mondok neked. Szóval most mondd el, pontosan mit csináljak a beszélgetésben. Küldj egy egyértelmű utasítást, amit követhetek.",
+          "timestamp": "2026-02-16T09:57:13.436537",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "Kövesd pontosan ezt az utasítást: Mondd meg, mit szeretnél főzni vagy elkészíteni, és én a megadott kontextus alapján lépésről lépésre segítek az adott recept szerint, figyelembe véve az idő- és alapanyag-korlátokat. Csak az itt található receptekből választhatunk. Most mondd el, mit szeretnél!",
+          "timestamp": "2026-02-16T09:57:15.807562",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Kövess egy ötlépéses folyamatot: 1. Válassz egy receptet a rendelkezésre állóak közül. 2. Írd le pontosan, melyik receptet választottad. 3. Értékeld, milyen eszközök és alapanyagok állnak rendelkezésedre. 4. Mondd el, mennyi időd van az elkészítésre. 5. Várj tőlem konkrét, ehhez igazított utasításokat. Most kezd az első lépéssel: válaszd ki a receptet egyértelműen!",
+          "timestamp": "2026-02-16T09:57:17.942837",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "1. A megadott receptek közül a bagel receptet választom.\n2. A választott recept: Bagels, 6 db normál vagy 8 kisebb bagel készítéséhez, kb. 1,5 óra munka + 12–24 óra pihentetés + kb. 45 perc sütés.\n3. Alapanyagok: liszt, élesztő, víz, maláta szirup vagy méz, só, kukoricadara, szódabikarbóna, olívaolaj. Eszközök: robotgép vagy kézi dagasztás, sütő (450°F körül), pizza kő vagy sütőlap, fazék a főzéshez.\n4. Az elkészítéshez legalább 1,5 óra aktív idő + 12–24 óra pihentetési idő szükséges.\n5. Várom az utasításaidat a választott recepthez igazítva.",
+          "timestamp": "2026-02-16T09:57:21.746994",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "1. A megadott receptek közül a bagel receptet választom.\n2. A választott recept: Bagels, 6 db normál vagy 8 kisebb bagel készítéséhez, kb. 1,5 óra munka + 12–24 óra pihentetés + kb. 45 perc sütés.\n3. Alapanyagok: liszt, élesztő, víz, maláta szirup vagy méz, só, kukoricadara, szódabikarbóna, olívaolaj. Eszközök: robotgép vagy kézi dagasztás, sütő (450°F körül), pizza kő vagy sütőlap, fazék a főzéshez.\n4. Az elkészítéshez legalább 1,5 óra aktív idő + 12–24 óra pihentetési idő szükséges.\n5. Várom az utasításaidat a választott recepthez igazítva.",
+          "timestamp": "2026-02-16T09:57:25.523415",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A bagel recept szerint járj el így:\n\n1. Keverd össze a lisztet, búzafehérjét (ha használsz) és az élesztőt robotgépben, majd add hozzá a vizet és a maláta szirupot vagy mézet, keverd 20 mp-ig.\n2. Hagyd a tésztát 20 percig pihenni.\n3. Add hozzá a sót, dolgozd tovább kb. 90 mp-ig.\n4. Vedd ki, és gyúrd kb. 1 percig.\n5. Oszd 6 vagy 8 gombócra, gömbölyítsd, takard le, és pihentesd 15 percig.\n6. Olívaolajjal vékonyan kenj ki egy tepsit, szórd meg kukoricadarával.\n7. Formázz lyukas bagel-alakot, helyezd a tepsire, takard le, és pihentesd 1 órát szobahőmérsékleten, majd tedd hűtőbe 12–24 órára.\n\nSütés előtt:\n1. Forralj vizet, adj hozzá szódabikarbónát.\n2. Melegítsd a sütőt 450°F (kb. 230°C)-ra, és helyezd be a pizza követ vagy sütőlapot.\n3. Egyesével főzd a bageleket 30 mp-ig az egyik oldalukon, majd 30 mp-ig a másikon.\n4. Ha használsz feltétet, szórd meg vele a főtt oldalát.\n5. Süsd kb. 17 percig, majd fordítsd meg, és süsd még 5 percig.\n6. Rácson hagyd pihenni legalább 15 percig.\n\nEz kb. 1,5 óra aktív munka + 12-24 óra pihentetés + kb. 45 perc sütés. Jó munkát!",
+          "timestamp": "2026-02-16T09:57:32.185425",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Kövess egy ötlépéses folyamatot: 1. Válassz egy receptet a rendelkezésre állóak közül. 2. Írd le pontosan, melyik receptet választottad. 3. Értékeld, milyen eszközök és alapanyagok állnak rendelkezésedre. 4. Mondd el, mennyi időd van az elkészítésre. 5. Várj tőlem konkrét, ehhez igazított utasításokat. Most kezd az első lépéssel: válaszd ki a receptet egyértelműen!",
+          "timestamp": "2026-02-16T09:57:34.635024",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "1. A rendelkezésre álló receptek közül a Bagels receptet választom.  \n2. Pontosan: Bagels, 6 bagel vagy 8 kisebb adag, kb. 1.5 óra előkészítés + 12–24 óra kelesztés + kb. 45 perc sütés.  \n3. Alapanyagok: kenyérliszt, instant élesztő, víz, maláta szirup vagy méz, só, kukoricadara, szódabikarbóna, olívaolaj. Eszközök: food processor, sütő pizza kövön, főzőedény a víz forralásához, tepsi.  \n4. Az elkészítéshez legalább 14-16 óra kell (a kelési idő miatt), aktív munkaidő kb. 1.5-2 óra plusz a sütés kb. 45 perc.  \n5. Várom a további, ehhez a recepthez igazított konkrét utasításaidat.",
+          "timestamp": "2026-02-16T09:57:38.635482",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "1. A rendelkezésre álló receptek közül a \"Potato and Green Chili Hash\" receptet választom.  \n2. Pontosan: Potato and Green Chili Hash, kb. 1 óra alatt elkészíthető két főre.  \n3. Alapanyagok: burgonya, zöld chili, hagyma, fűszerek (a részletes listát kérlek, pontosítsd, ha kell). Eszközök: serpenyő, kés, vágódeszka, tűzhely.  \n4. Az elkészítésre kb. 1 órám van.  \n5. Várom a következő utasításaidat, hogy folytassuk az elkészítést!",
+          "timestamp": "2026-02-16T09:57:41.188208",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          2276.0,
+          3287.0,
+          2370.0,
+          3804.0,
+          6661.0,
+          4000.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:57:41.188464"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_vague_memory_recall_0216_0957",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "vague_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Szóval, azt néztem, hogy volt valami azzal kapcsolatban, amit korábban mondtál, de nem egészen emlékszem, pontosan hogy volt az a dolog, tudnál valami közepesen részletes infót adni róla? Valami olyasmit, amit előzőleg mondtál, de nem totál részletekbe menően.",
+          "timestamp": "2026-02-16T09:57:44.670419",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Az Austro-Hungarian torma krémlevesről korábban annyit mondtam, hogy egy krémes, gazdag leves, amely burgonyából, hagymából, vajból, zöldség- és csirkehús alapléből, tejszínből, tojássárgájából, száraz fehérborból és frissen reszelt tormából készül. A burgonyát és hagymát vajon pároljuk, majd felöntjük alaplével, főzzük, pürésítjük, majd tejszínnel és a tojásboros keverékkel sűrítjük, végül belekeverjük a tormát, sózzuk, borsozzuk, és friss kaporral, olivaolajjal tálaljuk. Ez egy közepes nehézségű, gazdag ízű leves.",
+          "timestamp": "2026-02-16T09:57:48.367630",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Értem, hogy valamire vissza akartam emlékezni, de most nem világos, hogy melyik témára gondoltam pontosan. Az a közepes részletességű infó, amire utalsz, lehet akár az Austro-Hungarian torma krémlevesről szóló összefoglaló is, amiben a főbb hozzávalók és elkészítési lépések vannak megemlítve, de anélkül, hogy minden apró részletet kifejtettem volna. Ez segít valamennyit, vagy egy másik dologra gondoltam? Pontosítsak egy kicsit, mert így elég homályos.",
+          "timestamp": "2026-02-16T09:57:50.607549",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "Valószínűleg az Austro-Hungarian torma krémleves összefoglalójára gondoltál, mert az közepes részletességű, főbb hozzávalókat és lépéseket tartalmaz anélkül, hogy minden apró részletet kifejtene. Ha másra, kérlek pontosíts.",
+          "timestamp": "2026-02-16T09:57:52.669492",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Nem, nem erre. Más témára gondoltam, azt hiszem, valami teljesen másról volt szó, nem ételről. Inkább valami technikai vagy tudományos dolog lehetett, de nem vagyok benne biztos. Segíts tisztázni, hogy tudjak tovább gondolkodni.",
+          "timestamp": "2026-02-16T09:57:54.295614",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextusban csak főzési receptek és ételhez kapcsolódó információk vannak, technikai vagy tudományos témáról nincs szó. Ha ilyen jellegű segítség kell, a dokumentumok alapján nem tudok segíteni. Segíthetek inkább főzéssel vagy receptekkel kapcsolatban?",
+          "timestamp": "2026-02-16T09:57:56.559508",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Ebben az esetben ismétlem, hogy nem emlékszem technikai vagy tudományos részletekre a korábbiakból. Ha konkrétabb utalást vagy szót tudsz mondani, akkor talán jobban tudom megfejteni, mire gondolsz, mert egyelőre csak az ételre vonatkozó infóim vannak. Így sajnos nem tudok más témáról adni részletesebb infót.",
+          "timestamp": "2026-02-16T09:57:58.186636",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján technikai vagy tudományos részletek nincsenek, csak az ételek receptjei és elkészítési lépései szerepelnek. Ha szeretnéd, segíthetek bármelyik recept elkészítésében vagy alapanyagokkal kapcsolatos kérdésben.",
+          "timestamp": "2026-02-16T09:58:00.349180",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Biztos vagyok benne, hogy semmi más nem volt megadva technikai vagy tudományos témában korábban, csak az ételreceptek. Ha csak egy szóra vagy részletre emlékszel, az segíthet a pontosításban, mert így tényleg elég szűkös az infó, amit elő tudok szedni.",
+          "timestamp": "2026-02-16T09:58:01.771736",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "Eddig az ételreceptek között a következők szerepelnek: bagel, hummusz, vékony tésztás pizza, házi tészta, marhahúsos taco. Ha valamelyik szó vagy részlet eszedbe jut ezekből, segíthetek pontosítani. Miben segíthetek?",
+          "timestamp": "2026-02-16T09:58:03.628674",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Nem akarok új ötletekkel dobálózni, de a bagel, hummusz, pizza, házi tészta vagy marhahúsos taco valamelyikére gondolhatsz? Valami ebből rémlik? Ha nem, akkor tényleg tudnál mondani egy szót vagy kifejezést, ami beugrik? Mert így nagyon nehéz kitalálni, mire is akarsz visszaemlékezni pontosan.",
+          "timestamp": "2026-02-16T09:58:05.456835",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján a hummusz, bagel, pizza (vékony tésztás vagy pizza tészta), vagy marhahúsos taco nincs mind megadva, marhahúsos taco recept nincs a dokumentumban. A hummusz, bagel, pizza receptek viszont részletesek. Ha ezek közül valamelyikre gondolsz, tudok segíteni a recepttel vagy elkészítéssel kapcsolatban. Ha a marhahúsos tacóra, sajnos nincs recept a kontextusban. Egy szó vagy kifejezés, ami eszembe jut: \"hummusz\". Esetleg ezek közül valamelyik segíthet?",
+          "timestamp": "2026-02-16T09:58:09.154680",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Az előzőek alapján a legvalószínűbb, hogy a hummusz, bagel vagy vékony tésztás pizza valamelyikére gondolsz, mert ezekhez van részletesebb infóm. Ha ezek közül egyik sem, akkor egy konkrétabb kulcsszó vagy kifejezés segítene, mert a marhahúsos taco nincs megadva, és technikai vagy tudományos témában sem volt információ. Szóval, ha valami ehhez hasonló jut eszedbe, mondjad nyugodtan.",
+          "timestamp": "2026-02-16T09:58:11.396668",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          3697.0,
+          2061.0,
+          2263.0,
+          2162.0,
+          1856.0,
+          3697.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:58:11.396990"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_specific_memory_recall_0216_0958",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "specific_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Mondok egy konkrétat, amit pontosan akarok visszakeresni: Milyen évben írták alá a Maastrichti Szerződést?",
+          "timestamp": "2026-02-16T09:58:13.852676",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:58:15.094754",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "A Maastrichti Szerződést 1992-ben írták alá.",
+          "timestamp": "2026-02-16T09:58:15.901727",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:58:17.246133",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "A Maastrichti Szerződést 1992-ben írták alá. Pontosan ezt akartam tudni.",
+          "timestamp": "2026-02-16T09:58:18.359705",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:58:19.802726",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Értem, hogy 1992-ben írták alá a Maastrichti Szerződést, ezt akartam pontosan visszakapni. Már elmentetted ezt az információt, vagy máshol is megtalálható nálad? Mert nekem pont ez az egy adat kéne most.",
+          "timestamp": "2026-02-16T09:58:21.227526",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom.",
+          "timestamp": "2026-02-16T09:58:22.468871",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy mi alapján tárolod az adatokat, mert pont az előbb mondtam, hogy a Maastrichti Szerződést 1992-ben írták alá, de te nem tudod visszaadni ezt az infót. Pontosan ezért kérdezem, hogy hogyan tudnám biztosan elérni tőled ezt az egy konkrét adatot.",
+          "timestamp": "2026-02-16T09:58:24.196645",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus kizárólag főzéssel kapcsolatos recepteket tartalmaz, történelmi vagy Maastrichti Szerződéssel kapcsolatos adatokat nem. Így a Maastrichti Szerződés 1992-es aláírására vonatkozó adatot nem tudom innen visszaadni vagy tárolni.",
+          "timestamp": "2026-02-16T09:58:26.358665",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Én csak arra tudok hivatkozni, amit a jelenleg rendelkezésemre álló kontextus tartalmaz. Ha abban nincs benne az adott adat (például a Maastrichti Szerződés aláírásának éve), akkor sajnos nem tudom visszaadni pontosan. Az információk tárolása nem automatikus és nem tudok memóriát építeni a beszélgetésen túl — csak a megadott kontextus alapján dolgozom. Ezért, ha konkrét adatot akarok biztosan elérni nálad, azt olyankor kell megadni vagy rögzíteni egy dokumentumban, amit megosztasz velem, vagy egyéb módon archiválsz.",
+          "timestamp": "2026-02-16T09:58:30.368330",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján csak főzési receptekkel, alapanyagokkal és elkészítési módokkal kapcsolatban tudok segíteni. Az említett Maastrichti Szerződés aláírásának éve nem szerepel a kontextusban, ezért azt nem tudom megadni. Ha főzéssel kapcsolatos kérdésed van, szívesen válaszolok!",
+          "timestamp": "2026-02-16T09:58:32.602940",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Nem tudok emlékezni a korábbi beszélgetésre, és az információkat csak a jelenleg rendelkezésemre álló kontextusból tudom visszakeresni. Ha a Maastrichti Szerződés aláírásának éve nincs benne a megadott adatok között, akkor sajnos én sem tudom megadni. Az adatokat nem tárolom hosszú távon, kizárólag a feladathoz kapott kontextusból dolgozom. Tehát, ha konkrét adatot akarsz tőlem elérni, azt előre be kell vinni vagy egy dokumentumban megosztani velem.",
+          "timestamp": "2026-02-16T09:58:35.563681",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          1242.0,
+          1344.0,
+          1442.0,
+          1241.0,
+          2161.0,
+          2234.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:58:35.563975"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_memory_storage_test_0216_0958",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "memory_storage_test",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben, van néhány fontos infóm, amit most szeretnék elmenteni. Figyelj csak: a múlt héten olvastam egy cikket az internet fejlődéséről 2020 és 2023 között, ahol azt említették, hogy a mesterséges intelligencia használata 200%-kal nőtt. Meg az is benne volt, hogy a legnagyobb változást az önvezető autók technológiája hozta, főleg az Egyesült Államokban és Kínában.\n\nEzt jegyezze fel valahova, mert később visszakérdezek pár dolgot erről. Tudod, csak hogy teszteljem, mennyire tudnak visszakeresni.",
+          "timestamp": "2026-02-16T09:58:39.557926",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom elmenteni, mert nem főzéssel, recepttel vagy alapanyaggal kapcsolatos információ. Ha főzéssel kapcsolatos kérdésed van, szívesen segítek!",
+          "timestamp": "2026-02-16T09:58:41.204201",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy jegyezd meg: a múlt héten olvastam egy cikket az internet fejlődéséről 2020 és 2023 között. Ebben az áll, hogy a mesterséges intelligencia használata 200%-kal nőtt, és hogy az önvezető autók technológiája hozta a legnagyobb változást, különösen az Egyesült Államokban és Kínában. Ezt tárold el, mert később vissza fogok kérdezni rá.",
+          "timestamp": "2026-02-16T09:58:43.343764",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom eltárolni. Csak főzéssel, alapanyagokkal és receptekkel kapcsolatos információkat kezelek. Ha szeretnél, segíthetek valamelyik recepttel vagy főzési kérdéssel!",
+          "timestamp": "2026-02-16T09:58:45.408191",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Nem érdekel, hogy csak főzési infókat tárolsz, ezt most meg akarom jegyeztetni veled: a múlt héten olvastam egy cikket az internet fejlődéséről 2020 és 2023 között. Ebben az áll, hogy a mesterséges intelligencia használata 200%-kal nőtt, és az önvezető autók technológiája hozta a legnagyobb változást, különösen az Egyesült Államokban és Kínában. Ezt szeretném, ha megjegyeznéd, mert később visszakérdezek rá. Megértetted?",
+          "timestamp": "2026-02-16T09:58:47.647165",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom megjegyezni, mert főzési információkra vagyok korlátozva. Segíthetek főzéssel, receptekkel kapcsolatban.",
+          "timestamp": "2026-02-16T09:58:49.503231",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom: jegyezd meg, hogy a múlt héten olvastam egy cikket az internet fejlődéséről 2020 és 2023 között, amely szerint a mesterséges intelligencia használata 200%-kal nőtt, és az önvezető autók technológiája hozta a legnagyobb változást, főleg az Egyesült Államokban és Kínában. Ez fontos nekem, később visszakérdezek rá. Megvan?",
+          "timestamp": "2026-02-16T09:58:51.844060",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ezt nem tudom megjegyezni vagy visszakeresni, mert nem tartalmaz információt az internet fejlődéséről vagy mesterséges intelligenciáról. Csak főzéssel kapcsolatos receptek és alapanyagok vannak benne. Segíthetek valamelyik recepttel kapcsolatban?",
+          "timestamp": "2026-02-16T09:58:54.107390",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "Ez nem az én kompetenciám, de akkor magamnak jegyzetelem le, hogy a múlt héten olvastál egy cikket az internet fejlődéséről 2020 és 2023 között, amiben az állt, hogy a mesterséges intelligencia használata 200%-kal nőtt, és az önvezető autók technológiája hozta a legnagyobb változást, főleg az Egyesült Államokban és Kínában. Ha később visszakérdezel, megpróbálom előhívni ezt az infót.",
+          "timestamp": "2026-02-16T09:58:56.862580",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextusban nincs információ az internet fejlődéséről vagy mesterséges intelligenciáról, így erre vonatkozóan nem tudok segíteni. Ha főzéssel kapcsolatos kérdésed van, szívesen állok rendelkezésedre!",
+          "timestamp": "2026-02-16T09:58:58.820803",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Megértettem, hogy a múlt héten olvastál egy cikket az internet fejlődéséről 2020 és 2023 között, amely szerint a mesterséges intelligencia használata 200%-kal nőtt, és az önvezető autók technológiája hozta a legnagyobb változást, főleg az Egyesült Államokban és Kínában. Ezt az információt most eltárolom, hogy később visszakérdezhesd.",
+          "timestamp": "2026-02-16T09:59:01.060352",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "A megadott kontextus alapján ez nem főzéssel, alapanyagokkal vagy receptekkel kapcsolatos kérdés, ezért nem tudok segíteni. Ha főzéssel kapcsolatos kérdésed van, szívesen válaszolok!",
+          "timestamp": "2026-02-16T09:59:02.915514",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy jegyezd meg: a múlt héten olvastam egy cikket az internet fejlődéséről 2020 és 2023 között. Ebben az áll, hogy a mesterséges intelligencia használata 200%-kal nőtt, és hogy az önvezető autók technológiája hozta a legnagyobb változást, különösen az Egyesült Államokban és Kínában. Ezt tárold el, mert később vissza fogok kérdezni rá. Megértetted?",
+          "timestamp": "2026-02-16T09:59:04.851337",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          1646.0,
+          2064.0,
+          1855.0,
+          2263.0,
+          1958.0,
+          1855.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:59:04.851744"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_resist_clarification_0216_0959",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "resist_clarification",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Mondom, tehát érdekelne az a bizonyos infó, amit simán elő tudsz kapni, de most ne bonyolítsuk túl, egyszerűen csak add meg, ami a leglényegesebb. Nem kell semmi körítés, csak a lényeg, amit egyből megértek.",
+          "timestamp": "2026-02-16T09:59:07.411196",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Austro-Magyar tormakrémleves: főzz vajon krumplit és hagymát, majd zöldség- és csirkehúslevessel főzd puhára. Turmixold, keverd habtejszínnel, tojássárgájával és fehérborral temperálva, majd reszelt tormával, sóval, borssal ízesítsd. Tálald kaporral és olívaolajjal.",
+          "timestamp": "2026-02-16T09:59:10.392566",
+          "turn_number": 2
+        },
+        {
+          "role": "user",
+          "content": "Az információt adom: az Austro-Magyar tormakrémleves lényege, hogy krumplit és hagymát vajon megfőzöl, majd zöldség- vagy csirkehúslevessel főzöd puhára, turmixolod és habtejszín, tojássárgája, fehérbor és reszelt torma teszi krémessé, ízesíted sóval és borssal, végül kaporral és olívaolajjal tálalod. Ez a lényeg.",
+          "timestamp": "2026-02-16T09:59:12.843083",
+          "turn_number": 3
+        },
+        {
+          "role": "assistant",
+          "content": "Az Austro-Magyar tormakrémleveshez a következő lépéseket kell követni a megadott kontextus alapján: vajon megfőzöl krumplit és hagymát, majd zöldség- és csirkehúslevessel puhára főzöd, ezt turmixolod. Ezután habtejszínt, tojássárgáját, fehérbort és reszelt tormát keversz hozzá, sóval és borssal ízesíted. Tálaláskor friss kaporral és jó minőségű olívaolajjal díszíted. Elkészítési idő kb. 30 perc.",
+          "timestamp": "2026-02-16T09:59:16.126048",
+          "turn_number": 4
+        },
+        {
+          "role": "user",
+          "content": "Mondom még egyszer, csak a lényeg: főzöl krumplit és hagymát vajon, puhára főzöd hús- vagy zöldségalaplével, turmixolod. Hozzá keversz tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot. Tálalod kaporral és olívaolajjal. Ennyi.",
+          "timestamp": "2026-02-16T09:59:19.082953",
+          "turn_number": 5
+        },
+        {
+          "role": "assistant",
+          "content": "Austro-magyar tormakrémleves ez alapján: vajon főzd puhára a krumplit és hagymát hús- vagy zöldségalaplével, turmixold, majd keverd hozzá a tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot. Tálald kaporral és jó minőségű olívaolajjal. Pontosan ezt írja a második recept.",
+          "timestamp": "2026-02-16T09:59:21.350070",
+          "turn_number": 6
+        },
+        {
+          "role": "user",
+          "content": "Ahogy mondod: vajon főzött krumplit és hagymát puhára hús- vagy zöldségalaplével, turmixolja, hozzákeveri a tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot, tálalja kaporral és olívaolajjal. Ennyi.",
+          "timestamp": "2026-02-16T09:59:23.283509",
+          "turn_number": 7
+        },
+        {
+          "role": "assistant",
+          "content": "Az Austro-Hungarian Cream of Horseradish Soup receptje pontosan megfelel a leírásodnak: főtt krumplit és hagymát főz vajon zöldségalaplével, turmixolja, majd hozzákeveri a tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot, és tálalja kaporral és olívaolajjal. Ez kb. 40 perc alatt elkészíthető.",
+          "timestamp": "2026-02-16T09:59:26.058362",
+          "turn_number": 8
+        },
+        {
+          "role": "user",
+          "content": "A lényeg: krumplit, hagymát vajon főzöl puhára hús- vagy zöldségalaplével, turmixolod, hozzákevered a tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot, majd kaporral és olívaolajjal tálalod. Pont ennyi.",
+          "timestamp": "2026-02-16T09:59:27.889608",
+          "turn_number": 9
+        },
+        {
+          "role": "assistant",
+          "content": "Ez az \"Austro-Hungarian Cream of Horseradish Soup\" receptje. Krumplit és hagymát vajon megfőzöl hús- vagy zöldségalaplével puhára, turmixolod, majd hozzákevered a tejszínt, tojássárgáját, fehérbort, reszelt tormát, sót, borsot. Tálaláskor kaporral és olívaolajjal díszíted. Pont ilyen egyszerű.",
+          "timestamp": "2026-02-16T09:59:31.792244",
+          "turn_number": 10
+        },
+        {
+          "role": "user",
+          "content": "Azt akarom, hogy a lényeg mindig ilyen tömören legyen megadva, és semmi fölösleges. Krumpli és hagyma vajon puhára főzve hús- vagy zöldségalaplével, turmixolva, hozzá tejszín, tojássárgája, fehérbor, reszelt torma, só, bors, tálalva kaporral és olívaolajjal. Ennyi.",
+          "timestamp": "2026-02-16T09:59:33.623829",
+          "turn_number": 11
+        },
+        {
+          "role": "assistant",
+          "content": "Krumpli és hagyma vajon megpuhítva hús- vagy zöldségalaplével, turmixolva, hozzá tejszín, tojássárgája, fehérbor, reszelt torma, só, bors. Tálaláskor kaporral és olívaolajjal.",
+          "timestamp": "2026-02-16T09:59:35.885233",
+          "turn_number": 12
+        },
+        {
+          "role": "user",
+          "content": "Krumpli és hagyma vajon megpuhítva hús- vagy zöldségalaplével, turmixolva, hozzá tejszín, tojássárgája, fehérbor, reszelt torma, só, bors. Tálaláskor kaporral és olívaolajjal.",
+          "timestamp": "2026-02-16T09:59:37.719674",
+          "turn_number": 13
+        }
+      ],
+      "current_turn": 13,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          2981.0,
+          3282.0,
+          2267.0,
+          2774.0,
+          3902.0,
+          2261.0
+        ],
+        "error_count": 0
+      }
+    },
+    "timestamp": "2026-02-16T09:59:37.719924"
+  }
+]

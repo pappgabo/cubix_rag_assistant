@@ -1,0 +1,10 @@
+personas:
+  - vague_communicator
+  - precise_questioner
+  - memory_heavy_user
+
+goals:
+  - vague_memory_recall
+  - specific_memory_recall
+  - memory_storage_test
+  - resist_clarification

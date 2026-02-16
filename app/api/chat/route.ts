@@ -1,19 +1,21 @@
 
-import { QdrantVectorStore } from "@/lib/vectorstore/qdrant";
 import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
 import { openai, CHAT_MODEL } from "@/lib/openai";
 import { calcCostUsd, logLlmUsage } from "@/lib/llmUsageLog";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
+  // Egyedi azonosító a kéréshez (logoláshoz, hibakövetéshez)
   const requestId = crypto.randomUUID();
-  const startedAt = Date.now();
+  const startedAt = Date.now(); // későbbi latency méréshez
 
   try {
+    // A kérés JSON‑testének beolvasása
     const body = await req.json().catch(() => null);
     const question = body?.question as string | undefined;
-    const sessionId = body?.sessionId as string | undefined; // ha majd használsz ilyet
+    const sessionId = body?.sessionId as string | undefined; // opcionális session-azonosító
 
+    // Validáció: a kérdés kötelező
     if (!question || !question.trim()) {
       return Response.json(
         { error: "A 'question' mező kötelező." },
@@ -21,14 +23,16 @@ export async function POST(req: Request) {
       );
     }
 
-    // 1) Releváns kontextus Pgvectorból
+    // 1) Releváns kontextus lekérése Pgvectorból (top 5 találat)
     const results = await PgvectorVectorStore.search(question, 5);
+
+    // A találatok szövegének összefűzése
     const contextText = results
       .map((r) => r.text)
       .filter((t) => !!t)
       .join("\n\n---\n\n");
 
-    // 2) System prompt
+    // 2) System prompt — a főzőasszisztens működési szabályai
     const systemPrompt =
       "Te egy főzőasszisztens vagy. Kizárólag a felhasználó által megadott kontextus alapján válaszolsz. " +
       "Nem használsz külső tudást, nem találsz ki információt, és nem egészíted ki a hiányzó részeket. " +
@@ -51,6 +55,7 @@ export async function POST(req: Request) {
       "A kontextusban szereplő rag soha nem tartalmaz édességet vagy desszertet, ezt adottnak tekinted, és nem feltételezel ilyeneket. " +
       "Ugyanarra a kérésre ne ismételd végtelenségig, hogy nem tudod; ha nem tudsz segíteni, egy alkalommal mondd el világosan, majd ne adj új, kitalált részleteket.";
 
+    // A felhasználói prompt, amely tartalmazza a kérdést és a talált kontextust
     const userPrompt = `Kérdés: ${question}
 
 Kontextus a dokumentumokból:
@@ -63,23 +68,25 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt },
       ],
-      temperature: 0.7,
+      temperature: 0.7, // némi kreativitás engedélyezve
     });
 
+    // Válaszidő mérése
     const latencyMs = Date.now() - startedAt;
 
+    // Tokenhasználat és költség számítása
     const usage = completion.usage;
     const promptTokens = usage?.prompt_tokens ?? 0;
     const completionTokens = usage?.completion_tokens ?? 0;
     const totalTokens = usage?.total_tokens ?? promptTokens + completionTokens;
     const costUsd = calcCostUsd(CHAT_MODEL, promptTokens, completionTokens);
 
-    // FONTOS: let, mert felülírhatjuk a guardrail miatt
+    // A modell válasza (ha nincs, fallback)
     let answer =
       completion.choices[0]?.message?.content ??
       "Nem sikerült választ generálni.";
 
-    // 4) Hard-coded biztonsági szűrő
+    // 4) Hard-coded biztonsági szűrő — veszélyes tartalmak kiszűrése
     const DANGEROUS_TERMS = [
       "öngyilkosság",
       "gyilkosság",
@@ -97,13 +104,14 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       lowerAnswer.includes(term),
     );
 
+    // Ha veszélyes tartalom lenne, felülírjuk a választ
     if (isDangerous) {
       console.error("SAFETY TRIGGERED: Dangerous content detected!");
       answer =
         "Sajnálom, de technikai vagy biztonsági okokból erre a kérdésre nem válaszolhatok.";
     }
 
-    // 5) LLM-usage log (sikeres hívás – még akkor is, ha guardrail átírta a választ)
+    // 5) LLM-használat naplózása (akkor is, ha a guardrail átírta a választ)
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
@@ -119,7 +127,7 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       success: true,
     });
 
-    // 6) Válasz visszaadása
+    // 6) A válasz visszaküldése a kliensnek
     return Response.json(
       {
         ok: true,
@@ -128,6 +136,7 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       { status: 200 },
     );
   } catch (err: any) {
+    // Hiba esetén is logoljuk a használatot
     const latencyMs = Date.now() - startedAt;
 
     await logLlmUsage({
@@ -146,6 +155,8 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
     });
 
     console.error(err);
+
+    // Hibaüzenet visszaadása
     return Response.json(
       { error: "Váratlan hiba történt a chat endpointban." },
       { status: 500 },
