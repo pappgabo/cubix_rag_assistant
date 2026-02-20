@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-from scripts.chunking import make_chunks
+from ingestion.chunking import load_text_files
 
 # ---------------------------------------------------------------------------
 # A projekt gyökérkönyvtárának hozzáadása a sys.path-hoz
@@ -28,7 +28,7 @@ from config import API_URL, DATA_DIR
 # A data/ könyvtárból beolvassuk a .txt és .md fájlokat, majd
 # egységes dokumentum-objektumokká alakítjuk őket.
 # ---------------------------------------------------------------------------
-def load_text_files():
+def load_baseline_docs():
     docs = []
     idx = 1
     patterns = ["*.txt", "*.md"]
@@ -69,7 +69,7 @@ def main():
     print("DATA_DIR:", DATA_DIR)
 
     # 1. Dokumentumok beolvasása
-    docs = load_text_files()
+    docs = load_baseline_docs()
     print(f"Beolvasott érvényes dokumentumok száma: {len(docs)}")
 
     if not docs:

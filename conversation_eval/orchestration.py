@@ -4,7 +4,6 @@ from __future__ import annotations
 import time
 from typing import List
 from datetime import datetime
-
 from .assistant_client import AssistantClient
 from .user_simulations import SimulatedUser 
 from .types import ConversationState, Message

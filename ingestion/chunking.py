@@ -3,7 +3,7 @@ import re
 from typing import List, Dict, Any
 from config import DATA_DIR
 
-def load_text_files() -> List[Dict[str, Any]]:
+def load_raw_files() -> List[Dict[str, Any]]:
     """
     Betölti a DATA_DIR könyvtárban található .txt és .md fájlokat.
     Minden fájlt egy strukturált dict-ként ad vissza:

@@ -7,7 +7,8 @@ from config import PG_DSN, RAG_TOP_K
 from rag_eval.retrieval import retrieve_baseline_or_chunked
 
 
-def retrieve_docs_for_question(question: str, top_k: int | None = None) -> List[str]:
+def retrieve_docs_for_question(question: str, top_k: int | None = None, session_id: str | None = None,  # Új paraméter
+    request_id: str | None = None ) -> List[str]:
     """
     Baseline RAG retrieval egy kérdéshez.
 
@@ -37,6 +38,8 @@ def retrieve_docs_for_question(question: str, top_k: int | None = None) -> List[
             table_name="documents_baseline",
             question=question,
             top_k=top_k,
+            session_id=session_id, # Továbbpasszolás
+            request_id=request_id  # Továbbpasszolás
         )
 
         # A raw_results tipikusan így néz ki:

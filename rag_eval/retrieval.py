@@ -2,10 +2,13 @@ from typing import List, Dict, Any, Tuple
 import psycopg
 from psycopg import sql
 from openai import OpenAI
-from config import OPENAI_API_KEY, EMBEDDING_MODEL
+from config import OPENAI_API_KEY, EMBEDDING_MODEL, GPT41_MINI_IN_PER_M, GPT41_MINI_OUT_PER_M
 from rag_eval.metrics import unique_base_ids_in_order
 import json
 from dataclasses import dataclass
+from monitoring.log_llm_usage import log_llm_usage
+import time
+import uuid
 
 
 # ------------------------------------------------------------
@@ -48,16 +51,46 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # ------------------------------------------------------------
 # 1) EMBEDDING GENERÁLÁSA
 # ------------------------------------------------------------
-def embed_text(text: str) -> List[float]:
+def embed_text(text: str, session_id=None, request_id=None) -> List[float]:
     """
     Egy szöveget embedding vektorrá alakít az OpenAI embedding API segítségével.
-    A pgvector ezt a vektort hasonlítja össze az adatbázisban tárolt embeddingekkel.
+    A hívásról részletes LLM-usage log készül (latency, tokenek, modell stb.).
     """
+    start = time.perf_counter()
+    r_id = request_id or str(uuid.uuid4())
+    s_id = session_id or f"rag-eval-fallback-{uuid.uuid4().hex[:6]}"
+    
+
+
+
     resp = client.embeddings.create(
         model=EMBEDDING_MODEL,
-        input=[text],            # egyetlen szöveg → listában kell átadni
-        encoding_format="float", # float32 vektorokat kérünk
+        input=[text],           # egyetlen szöveg → listában kell átadni
+        encoding_format="float" # float32 vektorokat kérünk
     )
+
+    prompt_tokens = resp.usage.prompt_tokens
+    completion_tokens = 0 #Embedding modellek nem generálnak szöveget, ezért nincs completion.A költségszámítás is csak a prompt tokenekre vonatkozik.
+    total_tokens = resp.usage.total_tokens
+
+    cost_usd = (prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 + 
+                completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000)
+    latency_ms = int((time.perf_counter() - start) * 1000)
+
+    log_llm_usage({
+        "requestId": r_id,
+        "sessionId": s_id,
+        "component": "rag-embed",
+        "model": EMBEDDING_MODEL,
+        "provider": "openai",
+        "promptTokens": prompt_tokens,
+        "completionTokens": completion_tokens,
+        "totalTokens": total_tokens,
+        "costUsd": cost_usd,
+        "latencyMs": latency_ms,
+        "success": True,
+    })
+
     return resp.data[0].embedding
 
 
@@ -69,6 +102,8 @@ def search_pgvector(
     query: str,
     k: int,
     table: str,
+    session_id: str | None = None, # Opcionális paraméter
+    request_id: str | None = None  # Opcionális paraméter
 ) -> List[Dict[str, Any]]:
     """
     Lekérdezi a pgvector táblából a query embeddingjéhez legközelebb eső K dokumentumot.
@@ -85,7 +120,7 @@ def search_pgvector(
     """
 
     # 1) Embedding generálása a kérdésből
-    emb = embed_text(query)
+    emb = embed_text(query, session_id=session_id, request_id=request_id)
 
     # 2) Biztonságos SQL összeállítása (Identifier → SQL injection védelem)
     query_sql = sql.SQL(
@@ -126,6 +161,8 @@ def retrieve_baseline_or_chunked(
     question: str,
     table_name: str,
     top_k: int,
+    session_id=None, # Új paraméter default értékkel
+    request_id=None  # Új paraméter default értékkel
 ) -> Tuple[List[Dict[str, Any]], List[str]]:
     """
     Baseline vagy chunked pipeline lekérdezése pgvectorból.
@@ -139,7 +176,8 @@ def retrieve_baseline_or_chunked(
         raw  – a nyers pgvector találatok (chunkok vagy dokumentumok)
         ids  – a top_k egyedi base_id sorrendben
     """
-    raw = search_pgvector(conn, question, top_k * 3, table_name)
+    raw = search_pgvector(conn, question, top_k * 3, table_name, session_id=session_id, 
+        request_id=request_id)
     ids = unique_base_ids_in_order(raw, top_k)
     return raw, ids
 
@@ -154,6 +192,8 @@ def retrieve_chunked_rerank(
     top_k: int,
     candidate_k: int,
     rerank_fn,
+    session_id: str = None, 
+    request_id: str = None  
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[str]]:
     """
     Chunked + CrossEncoder reranking pipeline.
@@ -170,7 +210,8 @@ def retrieve_chunked_rerank(
     """
 
     # 1) Jelöltek lekérése pgvectorból
-    candidates = search_pgvector(conn, question, candidate_k, table_name)
+    candidates = search_pgvector(conn, question, candidate_k, table_name, session_id=session_id,
+    request_id=request_id)
 
     # 2) Reranking CrossEncoderrel
     reranked = rerank_fn(question, candidates, top_n=top_k * 2)

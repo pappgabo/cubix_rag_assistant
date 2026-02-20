@@ -2,7 +2,10 @@ import os
 import json
 from typing import List, Dict, Any
 from openai import OpenAI
-from config import OPENAI_API_KEY, JUDGE_MODEL, CONVERSATIONS_PATH, JUDGE_RESULTS_PATH
+from config import OPENAI_API_KEY, JUDGE_MODEL, CONVERSATIONS_PATH, JUDGE_RESULTS_PATH, GPT41_MINI_IN_PER_M, GPT41_MINI_OUT_PER_M
+from monitoring.log_llm_usage import log_llm_usage
+import time
+import uuid
 #config.py már meghívta a load_dotenv()-et és beolvassa a .env-et
 
 if not OPENAI_API_KEY:
@@ -71,29 +74,53 @@ def format_conversation(turns: List[Dict[str, str]]) -> str:
 
 
 def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]]) -> Dict[str, Any]:
-    """Egy beszélgetés kiértékelése LLM-as-judge segítségével."""
+    
     conversation_text = format_conversation(turns)
+    user_prompt = (
+        f"Persona leírása:\n{persona}\n\n"
+        f"Goal (cél):\n{goal}\n\n"
+        f"Beszélgetés időrendben:\n{conversation_text}\n\n"
+        "Kérlek, a fenti instrukciók szerint értékeld a beszélgetést, "
+        "és CSAK a megadott JSON-formátumot add vissza."
+    )
+    start = time.perf_counter()
+    run_id = str(uuid.uuid4())
+    session_id = f"rag-eval-{run_id}"
 
-    user_prompt = f"""Persona leírása:
-{persona}
-
-Goal (cél):
-{goal}
-
-Beszélgetés (időrendben):
-
-{conversation_text}
-
-Kérlek, a fenti instrukciók szerint értékeld a beszélgetést, és CSAK a megadott JSON-formátumot add vissza.
-"""
 
     response = client.chat.completions.create(
-        model=JUDGE_MODEL,  # vagy az általad használt modell
+        model=JUDGE_MODEL,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.0,
+    )
+    prompt_tokens = response.usage.prompt_tokens
+    completion_tokens = response.usage.completion_tokens
+    total_tokens = response.usage.total_tokens
+
+    cost_usd = (prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 + 
+                completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000)
+
+    latency_ms = int((time.perf_counter() - start) * 1000)
+
+    
+
+    log_llm_usage(
+        {
+            "requestId": str(uuid.uuid4()),
+            "sessionId": None,          # vagy conv_id, ha átadod paraméterként
+            "component": "judge",
+            "model": JUDGE_MODEL,
+            "provider": "openai",
+            "promptTokens": prompt_tokens,
+            "completionTokens": completion_tokens,
+            "totalTokens": total_tokens,
+            "costUsd": cost_usd,            # ha akarod, később itt is számolhatsz
+            "latencyMs": latency_ms,
+            "success": True,
+        }
     )
 
     raw = response.choices[0].message.content.strip()

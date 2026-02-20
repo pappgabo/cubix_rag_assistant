@@ -36,6 +36,9 @@ PROMPT_EVAL_MODEL = "gpt-4.1-mini"
 # Embedding modell RAG-hoz
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
+# Reranker modell RAG-hoz
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
 # User simulation modell-hez
 SIMULATED_USER_MODEL = "gpt-4.1-mini"
 
@@ -69,7 +72,7 @@ RAG_TOP_K = 5
 # ------------------------------------------------------------
 PROMPT_TESTS_PATH = Path("prompt_eval/prompt_tests.json")
 PROMPT_EVAL_RESULTS_PATH = Path("prompt_eval/prompt_eval_results.json")
-PROMPT_EVAL_JUDGE_PROMPT_PATH = Path("prompts/prompt_eval_judge_system.txt")
+PROMPT_EVAL_JUDGE_PROMPT_PATH = Path("prompt_eval/prompt_eval_judge_system.txt")
 
 # ------------------------------------------------------------
 # Beszélgetések és judge eredmények
@@ -81,3 +84,9 @@ JUDGE_RESULTS_PATH = PROJECT_ROOT / "outputs/judge_results.json"
 # Batch runner konfiguráció
 # ------------------------------------------------------------
 BATCH_CONFIG_PATH = PROJECT_ROOT / "conversation_eval" / "batch_config.yaml"
+
+# ------------------------------------------------------------
+# LLM pricing (USD / 1M tokens)
+# ------------------------------------------------------------
+GPT41_MINI_IN_PER_M = 0.40
+GPT41_MINI_OUT_PER_M = 1.60

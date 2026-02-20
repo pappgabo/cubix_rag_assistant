@@ -1,12 +1,14 @@
 # reranker.py
 from typing import List, Dict
+from config import RERANKER_MODEL
 from sentence_transformers import CrossEncoder
+
 
 # A CrossEncoder egy olyan modell, amely NEM embeddingeket ad vissza,
 # hanem közvetlenül pontozza a (query, chunk) párokat.
 # Ez sokkal pontosabb, mint a cosine similarity, mert a két szöveget együtt olvassa,
 # és figyelembe veszi a kontextust, a jelentést, a kapcsolódást.
-reranker_model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+reranker_model = CrossEncoder(RERANKER_MODEL)
 
 
 def rerank_chunks(
