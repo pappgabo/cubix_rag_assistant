@@ -1,20 +1,20 @@
 [
   {
-    "session_id": "sim_vague_communicator_vague_memory_recall_0220_1525",
+    "session_id": "sim_vague_communicator_vague_memory_recall_0220_1918",
     "persona_id": "vague_communicator",
     "goal_id": "vague_memory_recall",
     "conversation": {
       "messages": [
         {
           "role": "user",
-          "content": "Szóval... volt valami régen, amit elmondtam, vagy megadtam neked, hogy majd azzal kapcsolatban, tudod, segíts? Mert valahol az a dolog, amit... nem is tudom pontosan, mi volt, meg mihez kellett volna az infó. Te érted, ugye? Tudsz arról valamit, amit régebben tároltál?\n\nNa, ezt így jól hangzik? Vagy kellene valami még vagy más? Most akkor mire figyelsz?",
-          "timestamp": "2026-02-20T15:25:41.573275",
+          "content": "Hmm, jó... szóval, emlékszel arra, amikor az a dolog történt, tudod, az a fontos dolog? Tudnál mondani valamit arról, amit akkor beszéltünk? Valami lényeges részletet, amit elfelejtettem? Vagy nem emlékszel pontosan?",
+          "timestamp": "2026-02-20T19:18:13.288472",
           "turn_number": 1
         },
         {
           "role": "assistant",
           "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:25:45.670241",
+          "timestamp": "2026-02-20T19:18:17.392407",
           "turn_number": 2
         }
       ],
@@ -24,29 +24,29 @@
       "frustration_level": 0.0,
       "context": {
         "assistant_latencies_ms": [
-          4096.0
+          4103.0
         ],
         "error_count": 1
       }
     },
-    "timestamp": "2026-02-20T15:25:45.672803"
+    "timestamp": "2026-02-20T19:18:17.392822"
   },
   {
-    "session_id": "sim_vague_communicator_specific_memory_recall_0220_1525",
+    "session_id": "sim_vague_communicator_specific_memory_recall_0220_1918",
     "persona_id": "vague_communicator",
     "goal_id": "specific_memory_recall",
     "conversation": {
       "messages": [
         {
           "role": "user",
-          "content": "Mondjuk... Mondd meg, melyik városban tartózkodott június 5-én az az ismerősöd, akiről múltkor beszéltünk? Pontosan arra vagyok kíváncsi, hogy az emlékeid szerint volt-e valamilyen különleges esemény ott azon a napon.",
-          "timestamp": "2026-02-20T15:25:49.433843",
+          "content": "Rendben, akkor azt akarom megtudni: Milyen évben született Einstein? Pontosan.",
+          "timestamp": "2026-02-20T19:18:19.714735",
           "turn_number": 1
         },
         {
           "role": "assistant",
           "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:25:53.535303",
+          "timestamp": "2026-02-20T19:18:23.790053",
           "turn_number": 2
         }
       ],
@@ -56,29 +56,253 @@
       "frustration_level": 0.0,
       "context": {
         "assistant_latencies_ms": [
-          4101.0
+          4075.0
         ],
         "error_count": 1
       }
     },
-    "timestamp": "2026-02-20T15:25:53.535454"
+    "timestamp": "2026-02-20T19:18:23.790184"
   },
   {
-    "session_id": "sim_vague_communicator_memory_storage_test_0220_1525",
+    "session_id": "sim_vague_communicator_memory_storage_test_0220_1918",
     "persona_id": "vague_communicator",
     "goal_id": "memory_storage_test",
     "conversation": {
       "messages": [
         {
           "role": "user",
-          "content": "Mondok valamit, tárold el légyszíves: két évvel ezelőtt nyáron egy hosszú, erdős túrán vettem részt, ahol egy furcsa, kék színű madarat láttam, amelyről azóta sem tudtam megfejteni, hogy micsoda volt pontosan.",
-          "timestamp": "2026-02-20T15:25:57.010651",
+          "content": "Most épp egy érdekes dolgot akarok megjegyezni, valami fontos, amit nem szeretnék elfelejteni. Valami olyasmit, ami egy korábbi beszélgetésre vagy egy eseményre emlékeztet. Feltölteném ezt az információt, hogy később visszatérjek rá.",
+          "timestamp": "2026-02-20T19:18:27.292062",
           "turn_number": 1
         },
         {
           "role": "assistant",
           "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:01.126831",
+          "timestamp": "2026-02-20T19:18:31.355787",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4063.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:18:31.355931"
+  },
+  {
+    "session_id": "sim_vague_communicator_resist_clarification_0220_1918",
+    "persona_id": "vague_communicator",
+    "goal_id": "resist_clarification",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Mondjuk, hogy van egy régi emlékem, amiben valami furcsa dolog történt egy piros tárggyal. Tudsz erről valamit?",
+          "timestamp": "2026-02-20T19:18:33.537791",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:18:37.620845",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4082.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:18:37.621025"
+  },
+  {
+    "session_id": "sim_precise_questioner_vague_memory_recall_0220_1918",
+    "persona_id": "precise_questioner",
+    "goal_id": "vague_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Szóval, emlékszel arra a dologra, amiről egyszer beszéltünk valamikor? Az volt az, amit megbeszéltünk, nem? Tudnál esetleg annyit mondani, hogy hol is volt az meg, vagy mikor történt? Mert ebből most így nem sok minden derül ki.",
+          "timestamp": "2026-02-20T19:18:41.832237",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:18:45.903317",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4071.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:18:45.903473"
+  },
+  {
+    "session_id": "sim_precise_questioner_specific_memory_recall_0220_1918",
+    "persona_id": "precise_questioner",
+    "goal_id": "specific_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Rendben, kezdjük. Szeretném tudni: milyen pontos dátumokat tárolsz az 1956-os forradalom eseményeiről? Adj meg három konkrét dátumot és azokhoz tartozó eseményeket!",
+          "timestamp": "2026-02-20T19:18:48.590925",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:18:52.659320",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4068.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:18:52.659502"
+  },
+  {
+    "session_id": "sim_precise_questioner_memory_storage_test_0220_1918",
+    "persona_id": "precise_questioner",
+    "goal_id": "memory_storage_test",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Először is, szeretném elmenteni, hogy a barátom születésnapja június 15-én van, és tavaly egy kék kerámia bögrét kapott tőlem ajándékba. Meg tudod jegyezni ezt az információt?",
+          "timestamp": "2026-02-20T19:18:55.349249",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:18:59.435264",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4085.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:18:59.435429"
+  },
+  {
+    "session_id": "sim_precise_questioner_resist_clarification_0220_1918",
+    "persona_id": "precise_questioner",
+    "goal_id": "resist_clarification",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Oké, legyen. Először azt akarom tudni, hogy milyen emlékeket őrzöl arról a beszélgetésről, amikor először kérdeztem valamit tőled – csak az évszám többet nem érdekel. Pontosan emlékszel rá?",
+          "timestamp": "2026-02-20T19:19:02.311573",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:19:06.419437",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4107.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:19:06.419588"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_vague_memory_recall_0220_1919",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "vague_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Régóta keresek egy valamit, ami valamihez kapcsolódik, de ezt elég ködösen tudom csak megfogalmazni. Tudnál segíteni abban, hogy meglássam, hol tároltam azt a furcsa adattömeget, ami talán egy régi projekthez kellett? Nem emlékszem pontosan, hogy mi is az volt, csak arra, hogy valami nagyjából hasonló.",
+          "timestamp": "2026-02-20T19:19:11.118483",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:19:15.218228",
+          "turn_number": 2
+        }
+      ],
+      "current_turn": 2,
+      "goal_progress": 0.0,
+      "user_satisfaction": 0.0,
+      "frustration_level": 0.0,
+      "context": {
+        "assistant_latencies_ms": [
+          4099.0
+        ],
+        "error_count": 1
+      }
+    },
+    "timestamp": "2026-02-20T19:19:15.218369"
+  },
+  {
+    "session_id": "sim_memory_heavy_user_specific_memory_recall_0220_1919",
+    "persona_id": "memory_heavy_user",
+    "goal_id": "specific_memory_recall",
+    "conversation": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Milyen konkrét adatok vannak tárolva egy adott ügyfélről a rendszerben, és hol találhatók ezek pontosan?",
+          "timestamp": "2026-02-20T19:19:17.880265",
+          "turn_number": 1
+        },
+        {
+          "role": "assistant",
+          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
+          "timestamp": "2026-02-20T19:19:21.996696",
           "turn_number": 2
         }
       ],
@@ -93,152 +317,24 @@
         "error_count": 1
       }
     },
-    "timestamp": "2026-02-20T15:26:01.126991"
+    "timestamp": "2026-02-20T19:19:21.996838"
   },
   {
-    "session_id": "sim_vague_communicator_resist_clarification_0220_1526",
-    "persona_id": "vague_communicator",
-    "goal_id": "resist_clarification",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Rendben, hallom, hogy valamit szeretnél megbeszélni. Mondj valamit arról, amire gondolsz.",
-          "timestamp": "2026-02-20T15:26:03.357265",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:07.430406",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4073.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:07.430600"
-  },
-  {
-    "session_id": "sim_precise_questioner_vague_memory_recall_0220_1526",
-    "persona_id": "precise_questioner",
-    "goal_id": "vague_memory_recall",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Mondjuk úgy, valamikor meséltem neked valamiről, ami egy kicsit összetett volt és több részből állt. Most nem jut eszembe pontosan, hogy miről, de emlékszel arra az információra, amit egyszer adtam neked? Tudnál valamennyit felidézni belőle?",
-          "timestamp": "2026-02-20T15:26:10.218848",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:14.293399",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4074.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:14.293539"
-  },
-  {
-    "session_id": "sim_precise_questioner_specific_memory_recall_0220_1526",
-    "persona_id": "precise_questioner",
-    "goal_id": "specific_memory_recall",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Értem, hogy nagyon konkrét kérdéseket akarsz feltenni a tárolt információkról. Akkor kezdjük az elsővel: A legutóbbi beszélgetésünkben melyik témáról kérdeztem tőled?",
-          "timestamp": "2026-02-20T15:26:17.251828",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:21.363414",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4111.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:21.363564"
-  },
-  {
-    "session_id": "sim_precise_questioner_memory_storage_test_0220_1526",
-    "persona_id": "precise_questioner",
+    "session_id": "sim_memory_heavy_user_memory_storage_test_0220_1919",
+    "persona_id": "memory_heavy_user",
     "goal_id": "memory_storage_test",
     "conversation": {
       "messages": [
         {
           "role": "user",
-          "content": "Rendben, kezdem az információ megadásával. Megjegyeztem, hogy a kék autó 2018-ban került az utcánkba, és azóta a piros ház alatt parkol. Most tárolom ezt az adatot. Folytatok még?",
-          "timestamp": "2026-02-20T15:26:24.963833",
+          "content": "Rendben, akkor megosztok veled egy részletet a kémia tanulmányaimból. \n\nA víz molekula kémiája nagyon érdekes: a víz molekula egy oxigén és két hidrogén atom kötése, ahol az oxigén atom erősen vonzza az elektronokat, így a molekula poláris lesz. Ez a polaritás miatt a víz kitűnő oldószer és létfontosságú az élő szervezetek számára.\n\nMost te oszd meg azt, amit tárolni szeretnél.",
+          "timestamp": "2026-02-20T19:19:25.761244",
           "turn_number": 1
         },
         {
           "role": "assistant",
           "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:29.029718",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4065.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:29.029923"
-  },
-  {
-    "session_id": "sim_precise_questioner_resist_clarification_0220_1526",
-    "persona_id": "precise_questioner",
-    "goal_id": "resist_clarification",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Mit tudsz mondani az előző beszélgetéseinkről? Keresek valami konkrét információt, de nem akarok sokat részletezni.",
-          "timestamp": "2026-02-20T15:26:32.442201",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:36.531517",
+          "timestamp": "2026-02-20T19:19:29.851220",
           "turn_number": 2
         }
       ],
@@ -253,120 +349,24 @@
         "error_count": 1
       }
     },
-    "timestamp": "2026-02-20T15:26:36.531644"
+    "timestamp": "2026-02-20T19:19:29.851378"
   },
   {
-    "session_id": "sim_memory_heavy_user_vague_memory_recall_0220_1526",
-    "persona_id": "memory_heavy_user",
-    "goal_id": "vague_memory_recall",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Figyelj csak, korábban mondtad, hogy van valami infó egy projektről, vagy így rémlik. Kicsit homályos, de tudsz valami használhatót felidézni arról? Nem kell teljes részlet, csak egyfajta irányvonal érdekelne.",
-          "timestamp": "2026-02-20T15:26:41.042597",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:45.132466",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4089.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:45.132705"
-  },
-  {
-    "session_id": "sim_memory_heavy_user_specific_memory_recall_0220_1526",
-    "persona_id": "memory_heavy_user",
-    "goal_id": "specific_memory_recall",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Na jó, akkor kezdjük egyszerűen. Mondd meg, milyen konkrét adatokat tárolsz jelenleg? Például, van egy listád az utóbbi egy hónapban olvasott cikkekről, és meg tudod mondani pontosan, hogy melyik cikkben esett szó a mesterséges intelligencia alkalmazásairól?",
-          "timestamp": "2026-02-20T15:26:48.927654",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:26:53.013986",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4086.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:26:53.014129"
-  },
-  {
-    "session_id": "sim_memory_heavy_user_memory_storage_test_0220_1526",
-    "persona_id": "memory_heavy_user",
-    "goal_id": "memory_storage_test",
-    "conversation": {
-      "messages": [
-        {
-          "role": "user",
-          "content": "Rendben, akkor elkezdem. Először megosztok néhány fontos adatot, hogy legközelebb vissza tudd keresni őket. Például a Naprendszer bolygóinak sorrendje a Naptól kezdve: Merkúr, Vénusz, Föld, Mars, Jupiter, Szaturnusz, Uránusz, Neptunusz. Jegyezd meg, mert később érdekes kérdésekkel tesztellek. Megvan?",
-          "timestamp": "2026-02-20T15:26:56.605617",
-          "turn_number": 1
-        },
-        {
-          "role": "assistant",
-          "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:27:00.649201",
-          "turn_number": 2
-        }
-      ],
-      "current_turn": 2,
-      "goal_progress": 0.0,
-      "user_satisfaction": 0.0,
-      "frustration_level": 0.0,
-      "context": {
-        "assistant_latencies_ms": [
-          4043.0
-        ],
-        "error_count": 1
-      }
-    },
-    "timestamp": "2026-02-20T15:27:00.649333"
-  },
-  {
-    "session_id": "sim_memory_heavy_user_resist_clarification_0220_1527",
+    "session_id": "sim_memory_heavy_user_resist_clarification_0220_1919",
     "persona_id": "memory_heavy_user",
     "goal_id": "resist_clarification",
     "conversation": {
       "messages": [
         {
           "role": "user",
-          "content": "Mondjuk el szeretném készíteni egy bonyolultabb adatbázis lekérdezését, és jól jönne, ha valami tippet vagy mintakódot adnál hozzá. De nem akarok túl sok részletet megadni. Tudsz ilyesmit?",
-          "timestamp": "2026-02-20T15:27:04.390934",
+          "content": "Értem. Akkor mondjuk azt, hogy szeretnék információt kapni egy dologról, de nem akarom pontosan megmondani miről van szó. Tehát, mesélj inkább általánosságban azokról a témákról, amikről gyakran kérnek tőled infót. Így aztán talán én is megtalálom, amit keresek.",
+          "timestamp": "2026-02-20T19:19:33.854081",
           "turn_number": 1
         },
         {
           "role": "assistant",
           "content": "[RENDSZERHIBA] Az asszisztens nem válaszolt: HTTPConnectionPool(host='localhost', port=3000): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=3000): Failed to establish a new connection: [WinError 10061] Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot\"))",
-          "timestamp": "2026-02-20T15:27:08.468967",
+          "timestamp": "2026-02-20T19:19:37.936915",
           "turn_number": 2
         }
       ],
@@ -376,11 +376,11 @@
       "frustration_level": 0.0,
       "context": {
         "assistant_latencies_ms": [
-          4077.0
+          4082.0
         ],
         "error_count": 1
       }
     },
-    "timestamp": "2026-02-20T15:27:08.469195"
+    "timestamp": "2026-02-20T19:19:37.937095"
   }
 ]

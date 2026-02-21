@@ -7,8 +7,8 @@ from pydantic import BaseModel, Field
 # Ezek a paraméterek határozzák meg, hogyan viselkedik a "felhasználó"
 # egy beszélgetési szimuláció során.
 class UserPersona(BaseModel):
-    id: str  # Egyedi azonosító
-    name: str  # A persona neve
+    id: str           # Egyedi azonosító
+    name: str         # A persona neve
     description: str  # Rövid leírás a személyiségről
 
     # A következő mezők 0 és 1 közötti skálán mérik a jellemzőket:

@@ -2,133 +2,164 @@
 
 from typing import Optional
 from openai import OpenAI
-from .types import UserPersona, ConversationGoal, ConversationState, Message
-from config import SIMULATED_USER_MODEL
+from .types import UserPersona, ConversationGoal, ConversationState
+from config import SIMULATED_USER_MODEL, GPT41_MINI_IN_PER_M, GPT41_MINI_OUT_PER_M
+from monitoring.log_llm_usage import log_llm_usage
+import time
+import uuid
 
 
 class SimulatedUserLLM:
     """
-    Egy LLM-alapú szimulált felhasználó.
-    
-    Ez a verzió NEM heurisztikákat használ (mint a SimulatedUser),
-    hanem egy külön OpenAI-modellt kér meg arra, hogy a felhasználó
-    szerepét játssza el a beszélgetésben.
-
-    Fő előnye:
-    - sokkal életszerűbb, változatosabb válaszok
-    - a persona finomabb árnyalatai is megjelennek
-    - a cél (goal) alapján dinamikusan reagál
-
-    Hátránya:
-    - lassabb és drágább, mint a heurisztikus user
+    LLM-alapú szimulált felhasználó, részletes LLM-usage logolással.
     """
 
-    def __init__(self, openai_api_key: str, persona: UserPersona, goal: ConversationGoal):
-        # OpenAI kliens inicializálása
+    def __init__(self, openai_api_key: str, persona: UserPersona, goal: ConversationGoal, session_id: str = "sim-fallback"):
         self.client = OpenAI(api_key=openai_api_key)
-
-        # A szimulált user személyisége és célja
         self.persona = persona
         self.goal = goal
-
-        # A SimulationOrchestrator ezt figyeli majd
         self.satisfied = False
+        self.session_id = session_id
 
-    # ----------------------------------------------------------------------
-    # SYSTEM PROMPT — a modellnek elmagyarázzuk, hogyan viselkedjen
-    # ----------------------------------------------------------------------
+
+    # ------------------------------------------------------------
+    # SYSTEM PROMPT
+    # ------------------------------------------------------------
     def _build_system_prompt(self) -> str:
-        """
-        A rendszerüzenet, amely meghatározza a szimulált felhasználó
-        személyiségét, célját és viselkedési szabályait.
-        """
         return f"""
         Te egy szimulált felhasználó vagy egy beszélgetésben. NEM vagy mesterséges intelligencia, NEM chatbot és NEM asszisztens.
 
         SZEMÉLYISÉG (Persona): {self.persona.description}
 
         JELLEMZŐK:
-        - Türelem: {self.persona.patience} (0=türelmetlen, 1=nagyon nyugodt)
-        - Szakértelem: {self.persona.expertise} (0=kezdő, 1=profi)
-        - Világosság: {self.persona.clarity_of_communication} (0=zagyva, 1=érthető)
+        - Türelem: {self.persona.patience}
+        - Szakértelem: {self.persona.expertise}
+        - Világosság: {self.persona.clarity_of_communication}
 
         A CÉLOD:
         {self.goal.description}
 
         SZABÁLYOK:
-	    1. SOHA ne ajánlj fel segítséget. SOHA ne kérdezd meg, hogy "Miben segíthetek?".
-	    2. Te vagy az, akinek szüksége van valamire.
-	    3. Ha az asszisztens kérdez valamit, a személyiséged alapján válaszolj.
-	    4. Ha az asszisztens nem segítőkész, légy frusztrált, vagy ismételd meg a kérésedet a türelmednek megfelelően.
-	    5. Beszélj ELSŐ SZEMÉLYBEN (pl. "Azt akarom...", "Kereselek...").
+        1. SOHA ne ajánlj fel segítséget.
+        2. Te vagy az, akinek szüksége van valamire.
+        3. Ha az asszisztens kérdez valamit, válaszolj a személyiséged alapján.
+        4. Ha az asszisztens nem segítőkész, légy frusztrált vagy ismételd meg a kérésedet.
+        5. Beszélj ELSŐ SZEMÉLYBEN.
         """
 
 
-    # ----------------------------------------------------------------------
+    # ------------------------------------------------------------
+    # EGYSÉGES LLM-HÍVÁS LOGOLÁSSAL
+    # ------------------------------------------------------------
+    def _call_llm(self, messages, component: str) -> Optional[str]:
+        """
+        Egységes LLM-hívás hibakezeléssel és garantált logolással.
+        """
+        start = time.perf_counter()
+        request_id = str(uuid.uuid4())
+
+        # Alapértelmezett értékek hiba esetére
+        prompt_tokens = 0
+        completion_tokens = 0
+        total_tokens = 0
+        cost_usd = 0.0
+        success = False
+        content = None
+        error_msg = None
+
+        try:
+            # 1) LLM hívás
+            resp = self.client.chat.completions.create(
+                model=SIMULATED_USER_MODEL,
+                messages=messages,
+                timeout=30.0
+            )
+
+            content = resp.choices[0].message.content
+            usage = resp.usage
+
+            prompt_tokens = usage.prompt_tokens
+            completion_tokens = usage.completion_tokens
+            total_tokens = usage.total_tokens
+
+            cost_usd = (
+                prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 +
+                completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000
+            )
+
+            success = True
+
+        except Exception as e:
+            error_msg = str(e)
+            print(f"❌ LLM Error [{component}]: {error_msg}")
+            success = False
+
+        finally:
+            latency_ms = int((time.perf_counter() - start) * 1000)
+
+            # 2) Logolás (külön try-ban)
+            try:
+                log_llm_usage({
+                    "requestId": request_id,
+                    "sessionId": self.session_id,
+                    "component": component,
+                    "model": SIMULATED_USER_MODEL,
+                    "provider": "openai",
+                    "promptTokens": prompt_tokens,
+                    "completionTokens": completion_tokens,
+                    "totalTokens": total_tokens,
+                    "costUsd": cost_usd,
+                    "latencyMs": latency_ms,
+                    "success": success,
+                    "error": error_msg,
+                })
+            except Exception as log_err:
+                print(f"⚠️ Critical: Logging failed! {log_err}")
+
+        return content
+
+
+    # ------------------------------------------------------------
     # KEZDŐ ÜZENET
-    # ----------------------------------------------------------------------
+    # ------------------------------------------------------------
     def first_message(self) -> str:
-        """
-        A beszélgetés indítása.
-        A rendszerprompt + egy user prompt alapján az LLM generálja
-        a szimulált felhasználó első üzenetét.
-        """
-        response = self.client.chat.completions.create(
-            model=SIMULATED_USER_MODEL,
-            messages=[
-                {'role': 'system', 'content': self._build_system_prompt()},
-                {
-                    'role': 'user',
-                    'content': f"Kezdd el a beszélgetést a célod érdekében: {self.goal.description}"
-                },
-            ]
-        )
+        messages = [
+            {'role': 'system', 'content': self._build_system_prompt()},
+            {
+                'role': 'user',
+                'content': f"Kezdd el a beszélgetést a célod érdekében: {self.goal.description}"
+            },
+        ]
 
-        # Az LLM által generált első üzenet
-        return response.choices[0].message.content
+        return self._call_llm(messages, component="simulated-user-first")
 
-    # ----------------------------------------------------------------------
-    # KÖVETKEZŐ ÜZENET — a teljes beszélgetési előzmény alapján
-    # ----------------------------------------------------------------------
+
+    # ------------------------------------------------------------
+    # KÖVETKEZŐ ÜZENET
+    # ------------------------------------------------------------
     def next_message(self, state: ConversationState) -> Optional[str]:
-        """
-        A szimulált felhasználó válasza az asszisztens üzenetére.
-        A teljes beszélgetési előzményt elküldjük az LLM-nek,
-        így kontextusban tud reagálni.
-        """
-
-        # A beszélgetés előzménye OpenAI formátumban
         history = []
         for m in state.messages:
-            # Explicit emlékeztető a modellnek, hogy melyik üzenet kié
             role_label = "YOUR PREVIOUS MESSAGE" if m.role == "user" else "ASSISTANT RESPONSE"
             history.append({"role": m.role, "content": f"[{role_label}]: {m.content}"})
 
-        # LLM hívás a teljes kontextussal
-        response = self.client.chat.completions.create(
-            model=SIMULATED_USER_MODEL,
-            messages=[
-                {'role': 'system', 'content': self._build_system_prompt()},
-                *history
-            ]
-        )
+        messages = [
+            {'role': 'system', 'content': self._build_system_prompt()},
+            *history
+        ]
 
-        content = response.choices[0].message.content
+        content = self._call_llm(messages, component="simulated-user-next")
 
-        # Egyszerű lezárási logika:
-        # Ha a user elköszön vagy jelzi, hogy elégedett → satisfied=True
+        # egyszerű lezárási logika
         stop_words = ["viszlát", "köszönöm", "szia", "rendben vagyunk"]
-        if any(word in content.lower() for word in stop_words):
+        if content and any(word in content.lower() for word in stop_words):
             self.satisfied = True
 
         return content
 
-    # ----------------------------------------------------------------------
-    # ÁLLAPOT LEKÉRDEZÉSE
-    # ----------------------------------------------------------------------
+
+    # ------------------------------------------------------------
+    # ÁLLAPOT
+    # ------------------------------------------------------------
     def is_satisfied(self) -> bool:
-        """
-        A SimulationOrchestrator ezzel ellenőrzi,
-        hogy a szimulált user elérte-e a célját.
-        """
         return self.satisfied

@@ -73,8 +73,11 @@ def format_conversation(turns: List[Dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
-def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]]) -> Dict[str, Any]:
-    
+def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], session_id: str) -> Dict[str, Any]:
+    """
+    A beszélgetés értékelése LLM-mel, részletes logolással és hibakezeléssel.
+    """
+
     conversation_text = format_conversation(turns)
     user_prompt = (
         f"Persona leírása:\n{persona}\n\n"
@@ -83,65 +86,97 @@ def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]]) -> 
         "Kérlek, a fenti instrukciók szerint értékeld a beszélgetést, "
         "és CSAK a megadott JSON-formátumot add vissza."
     )
+
+    # ---- LLM hívás + logolás ----
     start = time.perf_counter()
-    run_id = str(uuid.uuid4())
-    session_id = f"rag-eval-{run_id}"
+    request_id = str(uuid.uuid4())
+    #session_id = f"judge-eval-{uuid.uuid4().hex[:6]}"
 
+    # Alapértelmezett értékek hiba esetére
+    prompt_tokens = 0
+    completion_tokens = 0
+    total_tokens = 0
+    cost_usd = 0.0
+    success = False
+    error_msg = None
+    raw = ""
 
-    response = client.chat.completions.create(
-        model=JUDGE_MODEL,
-        messages=[
-            {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-        temperature=0.0,
-    )
-    prompt_tokens = response.usage.prompt_tokens
-    completion_tokens = response.usage.completion_tokens
-    total_tokens = response.usage.total_tokens
-
-    cost_usd = (prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 + 
-                completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000)
-
-    latency_ms = int((time.perf_counter() - start) * 1000)
-
-    
-
-    log_llm_usage(
-        {
-            "requestId": str(uuid.uuid4()),
-            "sessionId": None,          # vagy conv_id, ha átadod paraméterként
-            "component": "judge",
-            "model": JUDGE_MODEL,
-            "provider": "openai",
-            "promptTokens": prompt_tokens,
-            "completionTokens": completion_tokens,
-            "totalTokens": total_tokens,
-            "costUsd": cost_usd,            # ha akarod, később itt is számolhatsz
-            "latencyMs": latency_ms,
-            "success": True,
-        }
-    )
-
-    raw = response.choices[0].message.content.strip()
-
-    # JSON parse, minimális hibakezeléssel
     try:
-        result = json.loads(raw)
+        # 1) LLM hívás
+        response = client.chat.completions.create(
+            model=JUDGE_MODEL,
+            messages=[
+                {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0.0,
+            timeout=40.0
+        )
+
+        raw = response.choices[0].message.content.strip()
+
+        usage = response.usage
+        prompt_tokens = usage.prompt_tokens
+        completion_tokens = usage.completion_tokens
+        total_tokens = usage.total_tokens
+
+        cost_usd = (
+            prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 +
+            completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000
+        )
+
+        success = True
+
+    except Exception as e:
+        error_msg = str(e)
+        print(f"❌ Judge LLM error: {error_msg}")
+        success = False
+
+    finally:
+        latency_ms = int((time.perf_counter() - start) * 1000)
+
+        # 2) Logolás (külön try-ban)
+        try:
+            log_llm_usage({
+                "requestId": request_id,
+                "sessionId": session_id,
+                "component": "judge",
+                "model": JUDGE_MODEL,
+                "provider": "openai",
+                "promptTokens": prompt_tokens,
+                "completionTokens": completion_tokens,
+                "totalTokens": total_tokens,
+                "costUsd": cost_usd,
+                "latencyMs": latency_ms,
+                "success": success,
+                "error": error_msg,
+            })
+        except Exception as log_err:
+            print(f"⚠️ Logging failed in judge_conversation: {log_err}")
+
+    # ---- JSON parse ----
+    if not success:
+        return {
+            "goal_completion": 0,
+            "answer_quality": 0,
+            "explanation": f"LLM hiba történt: {error_msg}"
+        }
+
+    try:
+        return json.loads(raw)
+
     except json.JSONDecodeError:
         # fallback: próbáljuk meg a JSON-részletet kinyerni
         try:
             start = raw.index("{")
             end = raw.rindex("}") + 1
-            result = json.loads(raw[start:end])
+            return json.loads(raw[start:end])
         except Exception:
-            result = {
+            return {
                 "goal_completion": 0,
                 "answer_quality": 0,
-                "explanation": f"Nem sikerült a JSON-t parse-olni. Nyers válasz: {raw[:200]}..."
+                "explanation": f"Nem sikerült JSON-t parse-olni. Nyers válasz: {raw[:200]}..."
             }
-    return result
-
 
 
 def load_conversations(path: str) -> List[Dict[str, Any]]:
@@ -168,11 +203,14 @@ def main():
     total_goal = 0
     total_quality = 0
 
+    session_id = f"judge-eval-{uuid.uuid4().hex[:6]}"
+
     for conv in conversations:
         # ÚJ: az új JSON-struktúrához igazítva
         conv_id = conv.get("session_id", "unknown")
         persona_id = conv.get("persona_id", "")
         goal_id = conv.get("goal_id", "")
+
 
         # Ha van külön persona/goal leíró szöveg, itt tudod beolvasni,
         # de most használhatod simán az ID-kat is:
@@ -185,7 +223,7 @@ def main():
 
         print(f"Értékelés: {conv_id} ...")
 
-        result = judge_conversation(persona, goal, turns)
+        result = judge_conversation(persona, goal, turns, session_id = session_id)
         goal_score = int(result.get("goal_completion", 0))
         quality_score = int(result.get("answer_quality", 0))
 
@@ -220,3 +258,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
