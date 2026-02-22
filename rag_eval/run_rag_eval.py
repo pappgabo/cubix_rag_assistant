@@ -154,7 +154,7 @@ def run_rag_eval_new():
         pipeline_results = []
 
         for case in cases:
-
+            request_id = f"req-{case.id}-{uuid.uuid4().hex[:8]}"
             # chunked retrieval + CrossEncoder reranking
             candidates, reranked, retrieved_ids = retrieve_chunked_rerank(
                 conn=conn,

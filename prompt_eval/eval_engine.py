@@ -1,22 +1,20 @@
-from typing import List, Dict, Any
-import time
-import uuid
+import time, uuid
 from config import PROMPT_TESTS_PATH
-from prompt_eval.test_case_loader import load_prompt_tests
+from utils.load_prompt_test import load_prompt_test
 from prompt_eval.prompt_judge import judge_answer
 from rag_app.generate_response import generate_response
 from rag_app.retrieval_for_prompt_eval import retrieve_docs_for_question
-
-
-#def call_rag_assistant(question: str) -> str:
-#    docs = retrieve_docs_for_question(question)
-#    return generate_response(question, docs)
+from typing import List, Dict, Any
 
 def call_rag_assistant(question: str, session_id: str, request_id: str) -> str:
-    # A retrieve_docs_for_question-nek is fel kell készülnie ezek fogadására!
     docs = retrieve_docs_for_question(question, session_id=session_id, request_id=request_id)
-    return generate_response(question, docs)
-
+    # A generate_response-nak is át KELL adni, különben újat generál magának!
+    return generate_response(
+        question, 
+        docs, 
+        session_id=session_id, 
+        request_id=request_id
+    )
 
 def eval_single_case(case: Dict[str, Any],session_id: str) -> Dict[str, Any]:
     qid = case["id"]
@@ -49,7 +47,7 @@ def eval_single_case(case: Dict[str, Any],session_id: str) -> Dict[str, Any]:
 
 
 def run_all_cases() -> List[Dict[str, Any]]:
-    tests = load_prompt_tests(PROMPT_TESTS_PATH)
+    tests = load_prompt_test(PROMPT_TESTS_PATH)
     return [eval_single_case(case) for case in tests]
 
 

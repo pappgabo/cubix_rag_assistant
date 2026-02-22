@@ -73,6 +73,7 @@ RAG_TOP_K = 5
 PROMPT_TESTS_PATH = Path("prompt_eval/prompt_tests.json")
 PROMPT_EVAL_RESULTS_PATH = Path("prompt_eval/prompt_eval_results.json")
 PROMPT_EVAL_JUDGE_PROMPT_PATH = Path("prompt_eval/prompt_eval_judge_system.txt")
+PROMPT_EVAL_JUDGE_USER_PATH = Path("prompt_eval/prompt_eval_judge_user_p.txt")
 
 # ------------------------------------------------------------
 # Beszélgetések és judge eredmények
@@ -85,8 +86,4 @@ JUDGE_RESULTS_PATH = PROJECT_ROOT / "outputs/judge_results.json"
 # ------------------------------------------------------------
 BATCH_CONFIG_PATH = PROJECT_ROOT / "conversation_eval" / "batch_config.yaml"
 
-# ------------------------------------------------------------
-# LLM pricing (USD / 1M tokens)
-# ------------------------------------------------------------
-GPT41_MINI_IN_PER_M = 0.40
-GPT41_MINI_OUT_PER_M = 1.60
+

@@ -2,6 +2,9 @@
 from typing import List, Dict
 from config import RERANKER_MODEL
 from sentence_transformers import CrossEncoder
+from monitoring.log_llm_usage import log_llm_usage
+import uuid, time
+from datetime import datetime, timezone
 
 
 # A CrossEncoder egy olyan modell, amely NEM embeddingeket ad vissza,
@@ -10,11 +13,12 @@ from sentence_transformers import CrossEncoder
 # és figyelembe veszi a kontextust, a jelentést, a kapcsolódást.
 reranker_model = CrossEncoder(RERANKER_MODEL)
 
-
 def rerank_chunks(
     query: str,
     chunks: List[Dict],
     top_n: int,
+    session_id: str = None,
+    request_id: str = None,
 ) -> List[Dict]:
     """
     A pgvector által visszaadott találatokat (chunks) újrarendezi egy CrossEncoder segítségével.
@@ -43,20 +47,47 @@ def rerank_chunks(
     if not chunks:
         return []
 
-    # 1. Query–chunk párok létrehozása.
-    # A modell így tudja megítélni, mennyire releváns egy chunk a kérdéshez.
-    pairs = [[query, c["text"]] for c in chunks]
+    # 1. Időmérés indítása
+    start = time.perf_counter()
+    success = True
+    error_msg = None
+    reranked = []
 
-    # 2. A modell minden párra ad egy pontszámot (float).
-    # Minél magasabb, annál relevánsabb a chunk.
-    scores = reranker_model.predict(pairs)
+    try:
+        # 2. Relevancia pontozás
+        pairs = [[query, c["text"]] for c in chunks]
+        scores = reranker_model.predict(pairs)
 
-    # 3. A pontszámokat visszaírjuk a chunkok mellé.
-    for c, s in zip(chunks, scores):
-        c["rerank_score"] = float(s)
+        for c, s in zip(chunks, scores):
+            c["rerank_score"] = float(s)
 
-    # 4. A chunkokat a relevancia pontszám alapján rendezzük (csökkenő sorrend).
-    reranked = sorted(chunks, key=lambda x: x["rerank_score"], reverse=True)
+        # 3. Rendezés
+        reranked = sorted(chunks, key=lambda x: x["rerank_score"], reverse=True)
 
-    # 5. Visszaadjuk a legjobb top_n chunkot.
+    except Exception as e:
+        success = False
+        error_msg = str(e)
+        print(f"❌ Reranker error: {error_msg}")
+        
+
+    finally:
+        # 4. Látencia számítása és logolás
+        latency_ms = int((time.perf_counter() - start) * 1000)
+        
+        log_llm_usage({
+            "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            "sessionId": session_id,
+            "requestId": request_id or str(uuid.uuid4()),
+            "component": "rag-rerank",
+            "model": RERANKER_MODEL,
+            "provider": "local",
+            "promptTokens": 0,
+            "completionTokens": 0,
+            "totalTokens": 0,
+            "costUsd": 0.0,
+            "latencyMs": latency_ms,
+            "success": success,
+            "errorMessage": error_msg
+        })
+
     return reranked[:top_n]

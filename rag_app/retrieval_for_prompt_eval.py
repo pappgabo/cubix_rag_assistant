@@ -1,8 +1,6 @@
 # rag_app/retrieval_for_prompt_eval.py
-
-from typing import List
 import psycopg
-
+from typing import List
 from config import PG_DSN, RAG_TOP_K
 from rag_eval.retrieval import retrieve_baseline_or_chunked
 

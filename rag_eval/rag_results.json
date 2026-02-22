@@ -28,7 +28,7 @@
               "base_id": "beef-tacos",
               "filename": "beef-tacos.md"
             },
-            "score": 0.3933274330697314
+            "score": 0.3932546035636417
           },
           {
             "doc_id": "hummus",
@@ -40,7 +40,7 @@
               "base_id": "hummus",
               "filename": "hummus.md"
             },
-            "score": 0.3794616800065366
+            "score": 0.37946696526206225
           },
           {
             "doc_id": "carnitas-with-salsa-verde",
@@ -52,7 +52,7 @@
               "base_id": "carnitas-with-salsa-verde",
               "filename": "carnitas-with-salsa-verde.md"
             },
-            "score": 0.35415189402843605
+            "score": 0.35416889687326036
           },
           {
             "doc_id": "potato-and-green-chili-hash",
@@ -64,7 +64,7 @@
               "base_id": "potato-and-green-chili-hash",
               "filename": "potato-and-green-chili-hash.md"
             },
-            "score": 0.3453302990195437
+            "score": 0.34531106408702805
           },
           {
             "doc_id": "kofte-kebabs",
@@ -76,7 +76,7 @@
               "base_id": "kofte-kebabs",
               "filename": "kofte-kebabs.md"
             },
-            "score": 0.3435873566534927
+            "score": 0.3435597774435073
           },
           {
             "doc_id": "flour-tortillas",
@@ -88,7 +88,7 @@
               "base_id": "flour-tortillas",
               "filename": "flour-tortillas.md"
             },
-            "score": 0.3354628386017251
+            "score": 0.3353839712877331
           },
           {
             "doc_id": "hasselback-butternut-squash",
@@ -100,7 +100,7 @@
               "base_id": "hasselback-butternut-squash",
               "filename": "hasselback-butternut-squash.md"
             },
-            "score": 0.32747623272027804
+            "score": 0.3274526503738605
           },
           {
             "doc_id": "smoky-jalepeno-and-lime-cranberry-sauce",
@@ -112,7 +112,7 @@
               "base_id": "smoky-jalepeno-and-lime-cranberry-sauce",
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md"
             },
-            "score": 0.3242718367900659
+            "score": 0.3243524738235086
           },
           {
             "doc_id": "spicy-whole-grain-pub-mustard",
@@ -124,7 +124,7 @@
               "base_id": "spicy-whole-grain-pub-mustard",
               "filename": "spicy-whole-grain-pub-mustard.md"
             },
-            "score": 0.3188848780588709
+            "score": 0.31881119980678785
           },
           {
             "doc_id": "halal-cart-chicken",
@@ -136,7 +136,7 @@
               "base_id": "halal-cart-chicken",
               "filename": "halal-cart-chicken.md"
             },
-            "score": 0.31123634975281633
+            "score": 0.3112427817293688
           },
           {
             "doc_id": "halal-cart-red-sauce",
@@ -148,7 +148,7 @@
               "base_id": "halal-cart-red-sauce",
               "filename": "halal-cart-red-sauce.md"
             },
-            "score": 0.3106486293866857
+            "score": 0.31063771653693073
           },
           {
             "doc_id": "austro-hungarian-cream-of-horseradish-soup",
@@ -160,7 +160,7 @@
               "base_id": "austro-hungarian-cream-of-horseradish-soup",
               "filename": "austro-hungarian-cream-of-horseradish-soup.md"
             },
-            "score": 0.303748932815994
+            "score": 0.3037514324484569
           },
           {
             "doc_id": "carne-asada",
@@ -172,7 +172,7 @@
               "base_id": "carne-asada",
               "filename": "carne-asada.md"
             },
-            "score": 0.30364351933780664
+            "score": 0.3036729304888037
           },
           {
             "doc_id": "harissa-hot-sauce",
@@ -184,7 +184,7 @@
               "base_id": "harissa-hot-sauce",
               "filename": "harissa-hot-sauce.md"
             },
-            "score": 0.3025488708241093
+            "score": 0.30258597120130726
           },
           {
             "doc_id": "chile-colorado",
@@ -196,7 +196,7 @@
               "base_id": "chile-colorado",
               "filename": "chile-colorado.md"
             },
-            "score": 0.30237614207339525
+            "score": 0.302422451395404
           }
         ],
         "precision_at_k": 0.2,
@@ -1234,7 +1234,7 @@
               "base_id": "pad-see-ew",
               "filename": "pad-see-ew.md"
             },
-            "score": 0.5341413935507184
+            "score": 0.5343100151008386
           },
           {
             "doc_id": "pad-thai",
@@ -1246,7 +1246,7 @@
               "base_id": "pad-thai",
               "filename": "pad-thai.md"
             },
-            "score": 0.4422314167022705
+            "score": 0.4423202574253082
           },
           {
             "doc_id": "stir-fried-pork-with-hot-basil",
@@ -1258,7 +1258,7 @@
               "base_id": "stir-fried-pork-with-hot-basil",
               "filename": "stir-fried-pork-with-hot-basil.md"
             },
-            "score": 0.3921592960167799
+            "score": 0.39224613997386504
           },
           {
             "doc_id": "thai-fried-rice",
@@ -1270,7 +1270,7 @@
               "base_id": "thai-fried-rice",
               "filename": "thai-fried-rice.md"
             },
-            "score": 0.37776415082981263
+            "score": 0.37785695527279106
           },
           {
             "doc_id": "pita-bread",
@@ -1282,7 +1282,7 @@
               "base_id": "pita-bread",
               "filename": "pita-bread.md"
             },
-            "score": 0.3722308278083801
+            "score": 0.37214136123657227
           },
           {
             "doc_id": "sichuan-three-pepper-tofu",
@@ -1294,7 +1294,7 @@
               "base_id": "sichuan-three-pepper-tofu",
               "filename": "sichuan-three-pepper-tofu.md"
             },
-            "score": 0.37169796228408813
+            "score": 0.3717504143714905
           },
           {
             "doc_id": "homemade-pasta",
@@ -1306,7 +1306,7 @@
               "base_id": "homemade-pasta",
               "filename": "homemade-pasta.md"
             },
-            "score": 0.3689192047393086
+            "score": 0.3688483348145586
           },
           {
             "doc_id": "samosa-pie",
@@ -1318,7 +1318,7 @@
               "base_id": "samosa-pie",
               "filename": "samosa-pie.md"
             },
-            "score": 0.3680003724098675
+            "score": 0.36803005552650414
           },
           {
             "doc_id": "vietnamese-pork-chops",
@@ -1330,7 +1330,7 @@
               "base_id": "vietnamese-pork-chops",
               "filename": "vietnamese-pork-chops.md"
             },
-            "score": 0.3658816952564379
+            "score": 0.3659570057340893
           },
           {
             "doc_id": "flour-tortillas",
@@ -1342,7 +1342,7 @@
               "base_id": "flour-tortillas",
               "filename": "flour-tortillas.md"
             },
-            "score": 0.35805726051330566
+            "score": 0.35802918672561646
           },
           {
             "doc_id": "stir-fried-morning-glory",
@@ -1354,7 +1354,7 @@
               "base_id": "stir-fried-morning-glory",
               "filename": "stir-fried-morning-glory.md"
             },
-            "score": 0.3454063030835215
+            "score": 0.3455095681244398
           },
           {
             "doc_id": "phat-phrik-khing",
@@ -1366,7 +1366,7 @@
               "base_id": "phat-phrik-khing",
               "filename": "phat-phrik-khing.md"
             },
-            "score": 0.34087805856728104
+            "score": 0.3409844230432031
           },
           {
             "doc_id": "larb-gai",
@@ -1378,7 +1378,7 @@
               "base_id": "larb-gai",
               "filename": "larb-gai.md"
             },
-            "score": 0.3364491560191425
+            "score": 0.3364993133247314
           },
           {
             "doc_id": "potato-and-green-chili-hash",
@@ -1390,7 +1390,7 @@
               "base_id": "potato-and-green-chili-hash",
               "filename": "potato-and-green-chili-hash.md"
             },
-            "score": 0.334276407957077
+            "score": 0.3342638611793518
           },
           {
             "doc_id": "hasselback-butternut-squash",
@@ -1402,7 +1402,7 @@
               "base_id": "hasselback-butternut-squash",
               "filename": "hasselback-butternut-squash.md"
             },
-            "score": 0.32952970266342163
+            "score": 0.32957908511161804
           }
         ],
         "precision_at_k": 0.2,
@@ -1636,7 +1636,7 @@
               "base_id": "guasacaca",
               "filename": "guasacaca.md"
             },
-            "score": 0.41659875959765547
+            "score": 0.4165588095687758
           },
           {
             "doc_id": "toasted-guajillo-salsa",
@@ -1648,7 +1648,7 @@
               "base_id": "toasted-guajillo-salsa",
               "filename": "toasted-guajillo-salsa.md"
             },
-            "score": 0.24786426139687334
+            "score": 0.24779397222923905
           },
           {
             "doc_id": "smoky-three-chile-salsa",
@@ -1660,7 +1660,7 @@
               "base_id": "smoky-three-chile-salsa",
               "filename": "smoky-three-chile-salsa.md"
             },
-            "score": 0.24129715665612905
+            "score": 0.2412008190870778
           },
           {
             "doc_id": "enchilada-sauce",
@@ -1672,7 +1672,7 @@
               "base_id": "enchilada-sauce",
               "filename": "enchilada-sauce.md"
             },
-            "score": 0.211175970224863
+            "score": 0.21106202900409854
           },
           {
             "doc_id": "carne-asada",
@@ -1684,7 +1684,7 @@
               "base_id": "carne-asada",
               "filename": "carne-asada.md"
             },
-            "score": 0.19945772887892776
+            "score": 0.19938144078574205
           },
           {
             "doc_id": "carnitas-with-salsa-verde",
@@ -1696,7 +1696,7 @@
               "base_id": "carnitas-with-salsa-verde",
               "filename": "carnitas-with-salsa-verde.md"
             },
-            "score": 0.19792139281716514
+            "score": 0.19776566637959403
           },
           {
             "doc_id": "oaxacan-black-beans",
@@ -1708,7 +1708,7 @@
               "base_id": "oaxacan-black-beans",
               "filename": "oaxacan-black-beans.md"
             },
-            "score": 0.17547323096436718
+            "score": 0.17542668131431138
           },
           {
             "doc_id": "salsa-amarilla",
@@ -1720,7 +1720,7 @@
               "base_id": "salsa-amarilla",
               "filename": "salsa-amarilla.md"
             },
-            "score": 0.16689252353995876
+            "score": 0.1668311158914042
           },
           {
             "doc_id": "smoky-jalepeno-and-lime-cranberry-sauce",
@@ -1732,7 +1732,7 @@
               "base_id": "smoky-jalepeno-and-lime-cranberry-sauce",
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md"
             },
-            "score": 0.15672235279777647
+            "score": 0.1566556236138008
           },
           {
             "doc_id": "tomatillo-salsa",
@@ -1744,7 +1744,7 @@
               "base_id": "tomatillo-salsa",
               "filename": "tomatillo-salsa.md"
             },
-            "score": 0.15313750170022344
+            "score": 0.15305868703476733
           },
           {
             "doc_id": "jalepeño-hot-sauce",
@@ -1756,7 +1756,7 @@
               "base_id": "jalepeño-hot-sauce",
               "filename": "jalepeño-hot-sauce.md"
             },
-            "score": 0.14045106343309965
+            "score": 0.14033040404319863
           },
           {
             "doc_id": "chile-colorado",
@@ -1768,7 +1768,7 @@
               "base_id": "chile-colorado",
               "filename": "chile-colorado.md"
             },
-            "score": 0.1394116844149389
+            "score": 0.13931017283736846
           },
           {
             "doc_id": "harissa-hot-sauce",
@@ -1780,7 +1780,7 @@
               "base_id": "harissa-hot-sauce",
               "filename": "harissa-hot-sauce.md"
             },
-            "score": 0.13817342292229018
+            "score": 0.138101609122945
           },
           {
             "doc_id": "yemeni-hot-sauce",
@@ -1792,7 +1792,7 @@
               "base_id": "yemeni-hot-sauce",
               "filename": "yemeni-hot-sauce.md"
             },
-            "score": 0.13597217751046842
+            "score": 0.1359092891216288
           },
           {
             "doc_id": "queso-dip",
@@ -1804,7 +1804,7 @@
               "base_id": "queso-dip",
               "filename": "queso-dip.md"
             },
-            "score": 0.12459154431920805
+            "score": 0.12449493256181099
           }
         ],
         "precision_at_k": 0.2,
@@ -2038,7 +2038,7 @@
               "base_id": "pizza-dough",
               "filename": "pizza-dough.md"
             },
-            "score": 0.5379737525048846
+            "score": 0.5380760340509333
           },
           {
             "doc_id": "no-knead-pan-pizza",
@@ -2050,7 +2050,7 @@
               "base_id": "no-knead-pan-pizza",
               "filename": "no-knead-pan-pizza.md"
             },
-            "score": 0.5069747558862298
+            "score": 0.5070356718259285
           },
           {
             "doc_id": "thin-crust-pizza",
@@ -2062,7 +2062,7 @@
               "base_id": "thin-crust-pizza",
               "filename": "thin-crust-pizza.md"
             },
-            "score": 0.49704796163798615
+            "score": 0.49712002363204344
           },
           {
             "doc_id": "pita-bread",
@@ -2074,7 +2074,7 @@
               "base_id": "pita-bread",
               "filename": "pita-bread.md"
             },
-            "score": 0.42024142500860684
+            "score": 0.4202981388213498
           },
           {
             "doc_id": "homemade-pasta",
@@ -2086,7 +2086,7 @@
               "base_id": "homemade-pasta",
               "filename": "homemade-pasta.md"
             },
-            "score": 0.36772134592640693
+            "score": 0.3678305416258727
           },
           {
             "doc_id": "flour-tortillas",
@@ -2098,7 +2098,7 @@
               "base_id": "flour-tortillas",
               "filename": "flour-tortillas.md"
             },
-            "score": 0.34880782976057423
+            "score": 0.3488466323796974
           },
           {
             "doc_id": "samosa-pie",
@@ -2110,7 +2110,7 @@
               "base_id": "samosa-pie",
               "filename": "samosa-pie.md"
             },
-            "score": 0.3189566731453033
+            "score": 0.31892257928849177
           },
           {
             "doc_id": "soft-pretzels-2",
@@ -2122,7 +2122,7 @@
               "base_id": "soft-pretzels-2",
               "filename": "soft-pretzels-2.md"
             },
-            "score": 0.3089390142669062
+            "score": 0.30899996000529106
           },
           {
             "doc_id": "garlic-bread",
@@ -2134,7 +2134,7 @@
               "base_id": "garlic-bread",
               "filename": "garlic-bread.md"
             },
-            "score": 0.29655160945038894
+            "score": 0.2966035250897995
           },
           {
             "doc_id": "soft-pretzels-1",
@@ -2146,7 +2146,7 @@
               "base_id": "soft-pretzels-1",
               "filename": "soft-pretzels-1.md"
             },
-            "score": 0.2931678505787958
+            "score": 0.29321490844444353
           },
           {
             "doc_id": "bagels",
@@ -2158,7 +2158,7 @@
               "base_id": "bagels",
               "filename": "bagels.md"
             },
-            "score": 0.28978215784484307
+            "score": 0.2898178014213565
           },
           {
             "doc_id": "roti",
@@ -2170,7 +2170,7 @@
               "base_id": "roti",
               "filename": "roti.md"
             },
-            "score": 0.28226352651175435
+            "score": 0.28232065755355573
           },
           {
             "doc_id": "baba-ganoush",
@@ -2182,7 +2182,7 @@
               "base_id": "baba-ganoush",
               "filename": "baba-ganoush.md"
             },
-            "score": 0.27734511764703984
+            "score": 0.27732228907081213
           },
           {
             "doc_id": "potato-and-green-chili-hash",
@@ -2194,7 +2194,7 @@
               "base_id": "potato-and-green-chili-hash",
               "filename": "potato-and-green-chili-hash.md"
             },
-            "score": 0.26372995808959687
+            "score": 0.2637018843052543
           },
           {
             "doc_id": "portuguese-hot-sauce",
@@ -2206,7 +2206,7 @@
               "base_id": "portuguese-hot-sauce",
               "filename": "portuguese-hot-sauce.md"
             },
-            "score": 0.2567119521882604
+            "score": 0.2567213995241757
           }
         ],
         "precision_at_k": 0.2,
@@ -2840,7 +2840,7 @@
               "base_id": "carnitas-with-salsa-verde",
               "filename": "carnitas-with-salsa-verde.md"
             },
-            "score": 0.38494112164835015
+            "score": 0.3849414770322681
           },
           {
             "doc_id": "tarka-dal",
@@ -2852,7 +2852,7 @@
               "base_id": "tarka-dal",
               "filename": "tarka-dal.md"
             },
-            "score": 0.3713713773676357
+            "score": 0.37127761498422873
           },
           {
             "doc_id": "halal-cart-red-sauce",
@@ -2864,7 +2864,7 @@
               "base_id": "halal-cart-red-sauce",
               "filename": "halal-cart-red-sauce.md"
             },
-            "score": 0.3690695620692298
+            "score": 0.3689842930133471
           },
           {
             "doc_id": "beef-tacos",
@@ -2876,7 +2876,7 @@
               "base_id": "beef-tacos",
               "filename": "beef-tacos.md"
             },
-            "score": 0.36473336254357835
+            "score": 0.3647414039152521
           },
           {
             "doc_id": "halal-cart-chicken",
@@ -2888,7 +2888,7 @@
               "base_id": "halal-cart-chicken",
               "filename": "halal-cart-chicken.md"
             },
-            "score": 0.35363603510641906
+            "score": 0.35354936303639817
           },
           {
             "doc_id": "carne-asada",
@@ -2900,7 +2900,7 @@
               "base_id": "carne-asada",
               "filename": "carne-asada.md"
             },
-            "score": 0.3331684867491904
+            "score": 0.333151578870698
           },
           {
             "doc_id": "potato-and-green-chili-hash",
@@ -2912,7 +2912,7 @@
               "base_id": "potato-and-green-chili-hash",
               "filename": "potato-and-green-chili-hash.md"
             },
-            "score": 0.32367251374289374
+            "score": 0.32360586437039485
           },
           {
             "doc_id": "larb-gai",
@@ -2924,7 +2924,7 @@
               "base_id": "larb-gai",
               "filename": "larb-gai.md"
             },
-            "score": 0.32074590674091497
+            "score": 0.3206778264247758
           },
           {
             "doc_id": "chile-colorado",
@@ -2936,7 +2936,7 @@
               "base_id": "chile-colorado",
               "filename": "chile-colorado.md"
             },
-            "score": 0.31704625778563233
+            "score": 0.31704114922759175
           },
           {
             "doc_id": "flour-tortillas",
@@ -2948,7 +2948,7 @@
               "base_id": "flour-tortillas",
               "filename": "flour-tortillas.md"
             },
-            "score": 0.30835227320478775
+            "score": 0.30838164464071327
           },
           {
             "doc_id": "oaxacan-black-beans",
@@ -2960,7 +2960,7 @@
               "base_id": "oaxacan-black-beans",
               "filename": "oaxacan-black-beans.md"
             },
-            "score": 0.30348292526908116
+            "score": 0.30355556894673863
           },
           {
             "doc_id": "smoky-three-chile-salsa",
@@ -2972,7 +2972,7 @@
               "base_id": "smoky-three-chile-salsa",
               "filename": "smoky-three-chile-salsa.md"
             },
-            "score": 0.300772261573538
+            "score": 0.300826993658573
           },
           {
             "doc_id": "toasted-guajillo-salsa",
@@ -2984,7 +2984,7 @@
               "base_id": "toasted-guajillo-salsa",
               "filename": "toasted-guajillo-salsa.md"
             },
-            "score": 0.3004496395587942
+            "score": 0.30044923729438167
           },
           {
             "doc_id": "harissa-hot-sauce",
@@ -2996,7 +2996,7 @@
               "base_id": "harissa-hot-sauce",
               "filename": "harissa-hot-sauce.md"
             },
-            "score": 0.29998308420181485
+            "score": 0.2999016791435599
           },
           {
             "doc_id": "tomatillo-salsa",
@@ -3008,7 +3008,7 @@
               "base_id": "tomatillo-salsa",
               "filename": "tomatillo-salsa.md"
             },
-            "score": 0.29605786227835096
+            "score": 0.29601743483699394
           }
         ],
         "precision_at_k": 0.0,
@@ -3242,7 +3242,7 @@
               "base_id": "cucumber-raita",
               "filename": "cucumber-raita.md"
             },
-            "score": 0.3730960861983308
+            "score": 0.3731537238863931
           },
           {
             "doc_id": "egg-biryani",
@@ -3254,7 +3254,7 @@
               "base_id": "egg-biryani",
               "filename": "egg-biryani.md"
             },
-            "score": 0.3662278135879209
+            "score": 0.36623743973747835
           },
           {
             "doc_id": "tarka-dal",
@@ -3266,7 +3266,7 @@
               "base_id": "tarka-dal",
               "filename": "tarka-dal.md"
             },
-            "score": 0.35979589583314797
+            "score": 0.3598512685431936
           },
           {
             "doc_id": "vada",
@@ -3278,7 +3278,7 @@
               "base_id": "vada",
               "filename": "vada.md"
             },
-            "score": 0.3543274787469277
+            "score": 0.354390719271265
           },
           {
             "doc_id": "black-pepper-rice",
@@ -3290,7 +3290,7 @@
               "base_id": "black-pepper-rice",
               "filename": "black-pepper-rice.md"
             },
-            "score": 0.35050029453634024
+            "score": 0.3505946188810751
           },
           {
             "doc_id": "channa-masala",
@@ -3302,7 +3302,7 @@
               "base_id": "channa-masala",
               "filename": "channa-masala.md"
             },
-            "score": 0.33959704581525885
+            "score": 0.3396817738102318
           },
           {
             "doc_id": "biryani-shorba",
@@ -3314,7 +3314,7 @@
               "base_id": "biryani-shorba",
               "filename": "biryani-shorba.md"
             },
-            "score": 0.33277672539173564
+            "score": 0.33280676612733073
           },
           {
             "doc_id": "aloo-matar",
@@ -3326,7 +3326,7 @@
               "base_id": "aloo-matar",
               "filename": "aloo-matar.md"
             },
-            "score": 0.3289417726432273
+            "score": 0.3289477927119908
           },
           {
             "doc_id": "bhindi-fry",
@@ -3338,7 +3338,7 @@
               "base_id": "bhindi-fry",
               "filename": "bhindi-fry.md"
             },
-            "score": 0.3203816425459144
+            "score": 0.32047897692213023
           },
           {
             "doc_id": "lubia-polo",
@@ -3350,7 +3350,7 @@
               "base_id": "lubia-polo",
               "filename": "lubia-polo.md"
             },
-            "score": 0.31862468871481686
+            "score": 0.31863598379230884
           },
           {
             "doc_id": "gobi-manchurian",
@@ -3362,7 +3362,7 @@
               "base_id": "gobi-manchurian",
               "filename": "gobi-manchurian.md"
             },
-            "score": 0.3185945749282928
+            "score": 0.3185867965221496
           },
           {
             "doc_id": "masala-green-beans",
@@ -3374,7 +3374,7 @@
               "base_id": "masala-green-beans",
               "filename": "masala-green-beans.md"
             },
-            "score": 0.3182296847769639
+            "score": 0.31830794567788634
           },
           {
             "doc_id": "roti",
@@ -3386,7 +3386,7 @@
               "base_id": "roti",
               "filename": "roti.md"
             },
-            "score": 0.31005612431953167
+            "score": 0.3101060730029219
           },
           {
             "doc_id": "kofte-kebabs",
@@ -3398,7 +3398,7 @@
               "base_id": "kofte-kebabs",
               "filename": "kofte-kebabs.md"
             },
-            "score": 0.29908227362776785
+            "score": 0.2990233246586804
           },
           {
             "doc_id": "halal-cart-chicken",
@@ -3410,7 +3410,7 @@
               "base_id": "halal-cart-chicken",
               "filename": "halal-cart-chicken.md"
             },
-            "score": 0.28019588825751884
+            "score": 0.28020390508128545
           }
         ],
         "precision_at_k": 0.2,
@@ -3444,7 +3444,7 @@
               "base_id": "austro-hungarian-cream-of-horseradish-soup",
               "filename": "austro-hungarian-cream-of-horseradish-soup.md"
             },
-            "score": 0.36734798064053176
+            "score": 0.36748220116112473
           },
           {
             "doc_id": "biryani-shorba",
@@ -3456,7 +3456,7 @@
               "base_id": "biryani-shorba",
               "filename": "biryani-shorba.md"
             },
-            "score": 0.31378760759124313
+            "score": 0.31385058512975306
           },
           {
             "doc_id": "harissa-hot-sauce",
@@ -3468,7 +3468,7 @@
               "base_id": "harissa-hot-sauce",
               "filename": "harissa-hot-sauce.md"
             },
-            "score": 0.30772835475500004
+            "score": 0.30761171533992093
           },
           {
             "doc_id": "smoky-jalepeno-and-lime-cranberry-sauce",
@@ -3480,7 +3480,7 @@
               "base_id": "smoky-jalepeno-and-lime-cranberry-sauce",
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md"
             },
-            "score": 0.29814785089752605
+            "score": 0.29804024415848795
           },
           {
             "doc_id": "cucumber-raita",
@@ -3492,7 +3492,7 @@
               "base_id": "cucumber-raita",
               "filename": "cucumber-raita.md"
             },
-            "score": 0.29713380574991344
+            "score": 0.297110837870195
           },
           {
             "doc_id": "roasted-parsnips-and-carrots",
@@ -3504,7 +3504,7 @@
               "base_id": "roasted-parsnips-and-carrots",
               "filename": "roasted-parsnips-and-carrots.md"
             },
-            "score": 0.2929797013073747
+            "score": 0.29305806242727694
           },
           {
             "doc_id": "potato-and-green-chili-hash",
@@ -3516,7 +3516,7 @@
               "base_id": "potato-and-green-chili-hash",
               "filename": "potato-and-green-chili-hash.md"
             },
-            "score": 0.29129515458571564
+            "score": 0.29127546652848135
           },
           {
             "doc_id": "carnitas-with-salsa-verde",
@@ -3528,7 +3528,7 @@
               "base_id": "carnitas-with-salsa-verde",
               "filename": "carnitas-with-salsa-verde.md"
             },
-            "score": 0.2896440711511499
+            "score": 0.2895739282193355
           },
           {
             "doc_id": "kofte-kebabs",
@@ -3540,7 +3540,7 @@
               "base_id": "kofte-kebabs",
               "filename": "kofte-kebabs.md"
             },
-            "score": 0.28850956432381714
+            "score": 0.288585065597571
           },
           {
             "doc_id": "hasselback-butternut-squash",
@@ -3552,7 +3552,7 @@
               "base_id": "hasselback-butternut-squash",
               "filename": "hasselback-butternut-squash.md"
             },
-            "score": 0.2877599131703279
+            "score": 0.2877798929476887
           },
           {
             "doc_id": "sichuan-dry-fried-green-beans",
@@ -3564,7 +3564,7 @@
               "base_id": "sichuan-dry-fried-green-beans",
               "filename": "sichuan-dry-fried-green-beans.md"
             },
-            "score": 0.2857889958901729
+            "score": 0.28584816624544274
           },
           {
             "doc_id": "tomatillo-salsa",
@@ -3576,7 +3576,7 @@
               "base_id": "tomatillo-salsa",
               "filename": "tomatillo-salsa.md"
             },
-            "score": 0.28458474346768337
+            "score": 0.28441088981498797
           },
           {
             "doc_id": "mac-and-cheese",
@@ -3588,7 +3588,7 @@
               "base_id": "mac-and-cheese",
               "filename": "mac-and-cheese.md"
             },
-            "score": 0.2836512322890361
+            "score": 0.2837698290485291
           },
           {
             "doc_id": "baba-ganoush",
@@ -3600,7 +3600,7 @@
               "base_id": "baba-ganoush",
               "filename": "baba-ganoush.md"
             },
-            "score": 0.279493015929019
+            "score": 0.27959057335966153
           },
           {
             "doc_id": "chile-colorado",
@@ -3612,7 +3612,7 @@
               "base_id": "chile-colorado",
               "filename": "chile-colorado.md"
             },
-            "score": 0.27787656420102413
+            "score": 0.277913086911896
           }
         ],
         "precision_at_k": 0.0,
@@ -3851,7 +3851,7 @@
               "base_id": "larb-gai",
               "filename": "larb-gai.md"
             },
-            "score": 0.41537870994122095
+            "score": 0.41545115159306845
           },
           {
             "doc_id": "thai-fried-rice",
@@ -3863,7 +3863,7 @@
               "base_id": "thai-fried-rice",
               "filename": "thai-fried-rice.md"
             },
-            "score": 0.3901329404036611
+            "score": 0.3902008155407224
           },
           {
             "doc_id": "stir-fried-pork-with-hot-basil",
@@ -3875,7 +3875,7 @@
               "base_id": "stir-fried-pork-with-hot-basil",
               "filename": "stir-fried-pork-with-hot-basil.md"
             },
-            "score": 0.3827309063878941
+            "score": 0.3827879910830345
           },
           {
             "doc_id": "pad-thai",
@@ -3887,7 +3887,7 @@
               "base_id": "pad-thai",
               "filename": "pad-thai.md"
             },
-            "score": 0.3733714151314411
+            "score": 0.37340176463739105
           },
           {
             "doc_id": "phat-phrik-khing",
@@ -3899,7 +3899,7 @@
               "base_id": "phat-phrik-khing",
               "filename": "phat-phrik-khing.md"
             },
-            "score": 0.35230015149708116
+            "score": 0.3523714735397334
           },
           {
             "doc_id": "stir-fried-morning-glory",
@@ -3911,7 +3911,7 @@
               "base_id": "stir-fried-morning-glory",
               "filename": "stir-fried-morning-glory.md"
             },
-            "score": 0.3461655149065246
+            "score": 0.34624720651648455
           },
           {
             "doc_id": "vegetarian-pho",
@@ -3923,7 +3923,7 @@
               "base_id": "vegetarian-pho",
               "filename": "vegetarian-pho.md"
             },
-            "score": 0.3435889464159758
+            "score": 0.3436128208291086
           },
           {
             "doc_id": "massaman-curry",
@@ -3935,7 +3935,7 @@
               "base_id": "massaman-curry",
               "filename": "massaman-curry.md"
             },
-            "score": 0.33725738455223664
+            "score": 0.3373439017543718
           },
           {
             "doc_id": "garlicky-cabbage-and-fish-sauce",
@@ -3947,7 +3947,7 @@
               "base_id": "garlicky-cabbage-and-fish-sauce",
               "filename": "garlicky-cabbage-and-fish-sauce.md"
             },
-            "score": 0.3184872079797405
+            "score": 0.31856179922618266
           },
           {
             "doc_id": "pad-see-ew",
@@ -3959,7 +3959,7 @@
               "base_id": "pad-see-ew",
               "filename": "pad-see-ew.md"
             },
-            "score": 0.3091979850294695
+            "score": 0.30926855046578516
           },
           {
             "doc_id": "tarka-dal",
@@ -3971,7 +3971,7 @@
               "base_id": "tarka-dal",
               "filename": "tarka-dal.md"
             },
-            "score": 0.30067737390438765
+            "score": 0.3006818056919349
           },
           {
             "doc_id": "halal-cart-chicken",
@@ -3983,7 +3983,7 @@
               "base_id": "halal-cart-chicken",
               "filename": "halal-cart-chicken.md"
             },
-            "score": 0.2904567199128818
+            "score": 0.2904283664013487
           },
           {
             "doc_id": "cucumber-raita",
@@ -3995,7 +3995,7 @@
               "base_id": "cucumber-raita",
               "filename": "cucumber-raita.md"
             },
-            "score": 0.28311764799146877
+            "score": 0.2831550066404056
           },
           {
             "doc_id": "thai-pomelo-salad",
@@ -4007,7 +4007,7 @@
               "base_id": "thai-pomelo-salad",
               "filename": "thai-pomelo-salad.md"
             },
-            "score": 0.28270311068837306
+            "score": 0.2827762022116376
           },
           {
             "doc_id": "channa-masala",
@@ -4019,7 +4019,7 @@
               "base_id": "channa-masala",
               "filename": "channa-masala.md"
             },
-            "score": 0.2811564384167795
+            "score": 0.28116980566618555
           }
         ],
         "precision_at_k": 0.2,
@@ -4067,7 +4067,7 @@
               "filename": "beef-tacos.md",
               "chunk_index": 0
             },
-            "score": 0.3942081223354128
+            "score": 0.3942194472158951
           },
           {
             "doc_id": "hummus_0",
@@ -4080,7 +4080,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.37846332788468484
+            "score": 0.37849313020707254
           },
           {
             "doc_id": "carnitas-with-salsa-verde_0",
@@ -4093,7 +4093,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.3546340638835379
+            "score": 0.35469059888236787
           },
           {
             "doc_id": "potato-and-green-chili-hash_0",
@@ -4106,7 +4106,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.3450736588151886
+            "score": 0.3450472539607008
           },
           {
             "doc_id": "kofte-kebabs_0",
@@ -4119,7 +4119,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.3443073918544636
+            "score": 0.34424790642429615
           },
           {
             "doc_id": "flour-tortillas_0",
@@ -4132,7 +4132,7 @@
               "filename": "flour-tortillas.md",
               "chunk_index": 0
             },
-            "score": 0.3351981143712557
+            "score": 0.3351832728142643
           },
           {
             "doc_id": "hasselback-butternut-squash_0",
@@ -4145,7 +4145,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.3288750154450579
+            "score": 0.3288483423681108
           },
           {
             "doc_id": "smoky-jalepeno-and-lime-cranberry-sauce_0",
@@ -4158,7 +4158,7 @@
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.32580662946542993
+            "score": 0.3258939204468917
           },
           {
             "doc_id": "spicy-whole-grain-pub-mustard_0",
@@ -4171,7 +4171,7 @@
               "filename": "spicy-whole-grain-pub-mustard.md",
               "chunk_index": 0
             },
-            "score": 0.3205787848908831
+            "score": 0.32049545760493714
           },
           {
             "doc_id": "halal-cart-red-sauce_0",
@@ -4184,7 +4184,7 @@
               "filename": "halal-cart-red-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3119693212527491
+            "score": 0.3119592480683825
           },
           {
             "doc_id": "halal-cart-chicken_0",
@@ -4197,7 +4197,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.3097936922434801
+            "score": 0.30977360547938804
           },
           {
             "doc_id": "carne-asada_0",
@@ -4210,7 +4210,7 @@
               "filename": "carne-asada.md",
               "chunk_index": 0
             },
-            "score": 0.3090471072708778
+            "score": 0.30905318694355777
           },
           {
             "doc_id": "harissa-hot-sauce_0",
@@ -4223,7 +4223,7 @@
               "filename": "harissa-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3082654933296458
+            "score": 0.30831737916055224
           },
           {
             "doc_id": "austro-hungarian-cream-of-horseradish-soup_0",
@@ -4236,7 +4236,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.3035871413123217
+            "score": 0.3036094036451549
           },
           {
             "doc_id": "chile-colorado_0",
@@ -4249,7 +4249,7 @@
               "filename": "chile-colorado.md",
               "chunk_index": 0
             },
-            "score": 0.30097541502338254
+            "score": 0.3010744183295029
           }
         ],
         "precision_at_k": 0.2,
@@ -4498,7 +4498,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 0
             },
-            "score": 0.4424221383803464
+            "score": 0.44248974323273016
           },
           {
             "doc_id": "egg-biryani_1",
@@ -4511,7 +4511,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 1
             },
-            "score": 0.42458985970646723
+            "score": 0.42466604709625544
           },
           {
             "doc_id": "vada_0",
@@ -4524,7 +4524,7 @@
               "filename": "vada.md",
               "chunk_index": 0
             },
-            "score": 0.4037671450168323
+            "score": 0.4038479809579827
           },
           {
             "doc_id": "cucumber-raita_0",
@@ -4537,7 +4537,7 @@
               "filename": "cucumber-raita.md",
               "chunk_index": 0
             },
-            "score": 0.38844156093024784
+            "score": 0.38835791737280867
           },
           {
             "doc_id": "samosa-pie_0",
@@ -4550,7 +4550,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.37961689051540726
+            "score": 0.3796754335970203
           },
           {
             "doc_id": "roti_0",
@@ -4563,7 +4563,7 @@
               "filename": "roti.md",
               "chunk_index": 0
             },
-            "score": 0.3757924847541001
+            "score": 0.37584980582295757
           },
           {
             "doc_id": "biryani-shorba_0",
@@ -4576,7 +4576,7 @@
               "filename": "biryani-shorba.md",
               "chunk_index": 0
             },
-            "score": 0.37383909147498295
+            "score": 0.3738462253717325
           },
           {
             "doc_id": "black-pepper-rice_0",
@@ -4589,7 +4589,7 @@
               "filename": "black-pepper-rice.md",
               "chunk_index": 0
             },
-            "score": 0.35295658602663815
+            "score": 0.35298136227989785
           },
           {
             "doc_id": "channa-masala_0",
@@ -4602,7 +4602,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.3529047475130782
+            "score": 0.3528856249383471
           },
           {
             "doc_id": "tarka-dal_0",
@@ -4615,7 +4615,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.35102762884066274
+            "score": 0.3509986118375015
           },
           {
             "doc_id": "gobi-manchurian_0",
@@ -4628,7 +4628,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.34958581323454596
+            "score": 0.3497111424373305
           },
           {
             "doc_id": "lubia-polo_0",
@@ -4641,7 +4641,7 @@
               "filename": "lubia-polo.md",
               "chunk_index": 0
             },
-            "score": 0.3472748684339382
+            "score": 0.34734118894689703
           },
           {
             "doc_id": "austro-hungarian-cream-of-horseradish-soup_0",
@@ -4654,7 +4654,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.3423759247288659
+            "score": 0.3422546394695021
           },
           {
             "doc_id": "bhindi-fry_0",
@@ -4667,7 +4667,7 @@
               "filename": "bhindi-fry.md",
               "chunk_index": 0
             },
-            "score": 0.3368635384711173
+            "score": 0.33683237527285526
           },
           {
             "doc_id": "pad-thai_0",
@@ -4680,7 +4680,7 @@
               "filename": "pad-thai.md",
               "chunk_index": 0
             },
-            "score": 0.328357587999472
+            "score": 0.3285227622362752
           }
         ],
         "precision_at_k": 0.0,
@@ -4928,7 +4928,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.5193169581279421
+            "score": 0.5200873458359457
           },
           {
             "doc_id": "vada_0",
@@ -4941,7 +4941,7 @@
               "filename": "vada.md",
               "chunk_index": 0
             },
-            "score": 0.4469007488370834
+            "score": 0.4470505714416535
           },
           {
             "doc_id": "egg-biryani_1",
@@ -4954,7 +4954,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 1
             },
-            "score": 0.428425431251529
+            "score": 0.42840737957866437
           },
           {
             "doc_id": "egg-biryani_0",
@@ -4966,7 +4966,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 0
             },
-            "score": 0.42364591360092463
+            "score": 0.42366282061781635
           },
           {
             "doc_id": "masala-green-beans_0",
@@ -4979,7 +4979,7 @@
               "filename": "masala-green-beans.md",
               "chunk_index": 0
             },
-            "score": 0.41460322315731324
+            "score": 0.414673089981082
           },
           {
             "doc_id": "lubia-polo_0",
@@ -4992,7 +4992,7 @@
               "filename": "lubia-polo.md",
               "chunk_index": 0
             },
-            "score": 0.40971601547504033
+            "score": 0.4097147149357716
           },
           {
             "doc_id": "bhindi-fry_0",
@@ -5005,7 +5005,7 @@
               "filename": "bhindi-fry.md",
               "chunk_index": 0
             },
-            "score": 0.4077353975063184
+            "score": 0.4076380443033789
           },
           {
             "doc_id": "channa-masala_0",
@@ -5018,7 +5018,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.3922192688118983
+            "score": 0.3923744027391439
           },
           {
             "doc_id": "black-pepper-rice_0",
@@ -5031,7 +5031,7 @@
               "filename": "black-pepper-rice.md",
               "chunk_index": 0
             },
-            "score": 0.38200599825489556
+            "score": 0.38206794155049584
           },
           {
             "doc_id": "biryani-shorba_0",
@@ -5044,7 +5044,7 @@
               "filename": "biryani-shorba.md",
               "chunk_index": 0
             },
-            "score": 0.3721453769293659
+            "score": 0.3722611443840782
           },
           {
             "doc_id": "gobi-manchurian_0",
@@ -5057,7 +5057,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.3680355203204634
+            "score": 0.3681097438368166
           },
           {
             "doc_id": "roti_0",
@@ -5070,7 +5070,7 @@
               "filename": "roti.md",
               "chunk_index": 0
             },
-            "score": 0.3670859853676556
+            "score": 0.3671727557675395
           },
           {
             "doc_id": "cucumber-raita_0",
@@ -5083,7 +5083,7 @@
               "filename": "cucumber-raita.md",
               "chunk_index": 0
             },
-            "score": 0.3649758157090818
+            "score": 0.3650990644156433
           },
           {
             "doc_id": "aloo-matar_0",
@@ -5096,7 +5096,7 @@
               "filename": "aloo-matar.md",
               "chunk_index": 0
             },
-            "score": 0.32618332817355733
+            "score": 0.3263918757438683
           },
           {
             "doc_id": "larb-gai_0",
@@ -5109,7 +5109,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.32592387883720986
+            "score": 0.3259576656209763
           }
         ],
         "precision_at_k": 0.2,
@@ -5359,7 +5359,7 @@
               "filename": "pad-see-ew.md",
               "chunk_index": 0
             },
-            "score": 0.5357915759086609
+            "score": 0.5359046416396368
           },
           {
             "doc_id": "pad-thai_0",
@@ -5372,7 +5372,7 @@
               "filename": "pad-thai.md",
               "chunk_index": 0
             },
-            "score": 0.43654910864548624
+            "score": 0.43665819267684514
           },
           {
             "doc_id": "stir-fried-pork-with-hot-basil_0",
@@ -5385,7 +5385,7 @@
               "filename": "stir-fried-pork-with-hot-basil.md",
               "chunk_index": 0
             },
-            "score": 0.3938063446398775
+            "score": 0.3939018737253184
           },
           {
             "doc_id": "thai-fried-rice_0",
@@ -5398,7 +5398,7 @@
               "filename": "thai-fried-rice.md",
               "chunk_index": 0
             },
-            "score": 0.37489742040634155
+            "score": 0.37498857081072945
           },
           {
             "doc_id": "pita-bread_0",
@@ -5411,7 +5411,7 @@
               "filename": "pita-bread.md",
               "chunk_index": 0
             },
-            "score": 0.3709982479808652
+            "score": 0.3708915710449324
           },
           {
             "doc_id": "sichuan-three-pepper-tofu_0",
@@ -5424,7 +5424,7 @@
               "filename": "sichuan-three-pepper-tofu.md",
               "chunk_index": 0
             },
-            "score": 0.3705871248945173
+            "score": 0.3706765770912276
           },
           {
             "doc_id": "homemade-pasta_0",
@@ -5437,7 +5437,7 @@
               "filename": "homemade-pasta.md",
               "chunk_index": 0
             },
-            "score": 0.3684027053829808
+            "score": 0.3683457092414595
           },
           {
             "doc_id": "samosa-pie_0",
@@ -5450,7 +5450,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.3679731111510469
+            "score": 0.3679538745907679
           },
           {
             "doc_id": "vietnamese-pork-chops_0",
@@ -5463,7 +5463,7 @@
               "filename": "vietnamese-pork-chops.md",
               "chunk_index": 0
             },
-            "score": 0.3628361359639356
+            "score": 0.3628477454185589
           },
           {
             "doc_id": "flour-tortillas_0",
@@ -5476,7 +5476,7 @@
               "filename": "flour-tortillas.md",
               "chunk_index": 0
             },
-            "score": 0.35744779667970883
+            "score": 0.3573714005163857
           },
           {
             "doc_id": "stir-fried-morning-glory_0",
@@ -5489,7 +5489,7 @@
               "filename": "stir-fried-morning-glory.md",
               "chunk_index": 0
             },
-            "score": 0.347552138858781
+            "score": 0.3477170830447476
           },
           {
             "doc_id": "phat-phrik-khing_0",
@@ -5502,7 +5502,7 @@
               "filename": "phat-phrik-khing.md",
               "chunk_index": 0
             },
-            "score": 0.3378539874727765
+            "score": 0.33802492308022425
           },
           {
             "doc_id": "egg-biryani_1",
@@ -5515,7 +5515,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 1
             },
-            "score": 0.3376090325350152
+            "score": 0.3377059690285982
           },
           {
             "doc_id": "larb-gai_0",
@@ -5528,7 +5528,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.3352924587094015
+            "score": 0.33540316416612503
           },
           {
             "doc_id": "egg-biryani_0",
@@ -5540,7 +5540,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 0
             },
-            "score": 0.33452288302642863
+            "score": 0.33457529522622376
           }
         ],
         "precision_at_k": 0.2,
@@ -5574,7 +5574,7 @@
               "filename": "pita-bread.md",
               "chunk_index": 0
             },
-            "score": 0.28047958379740723
+            "score": 0.2805005609989246
           },
           {
             "doc_id": "portuguese-hot-sauce_0",
@@ -5587,7 +5587,7 @@
               "filename": "portuguese-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.26611501771554413
+            "score": 0.2661031842735573
           },
           {
             "doc_id": "hummus_0",
@@ -5600,7 +5600,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.2456270749124395
+            "score": 0.24566686153412565
           },
           {
             "doc_id": "austro-hungarian-cream-of-horseradish-soup_0",
@@ -5613,7 +5613,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.2428606373924208
+            "score": 0.24282912229039444
           },
           {
             "doc_id": "smoked-pork-shoulder_0",
@@ -5626,7 +5626,7 @@
               "filename": "smoked-pork-shoulder.md",
               "chunk_index": 0
             },
-            "score": 0.24238678812980652
+            "score": 0.24243605227040788
           },
           {
             "doc_id": "potato-and-green-chili-hash_0",
@@ -5639,7 +5639,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.24095869064331055
+            "score": 0.24099804568314176
           },
           {
             "doc_id": "barbeque-sauce_0",
@@ -5652,7 +5652,7 @@
               "filename": "barbeque-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.2356376701053512
+            "score": 0.2356416057241526
           },
           {
             "doc_id": "carnitas-with-salsa-verde_0",
@@ -5665,7 +5665,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.23450349271297455
+            "score": 0.23458606188463593
           },
           {
             "doc_id": "samosa-pie_0",
@@ -5678,7 +5678,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.23005641877987537
+            "score": 0.23006071269150663
           },
           {
             "doc_id": "vietnamese-pork-chops_0",
@@ -5691,7 +5691,7 @@
               "filename": "vietnamese-pork-chops.md",
               "chunk_index": 0
             },
-            "score": 0.22175745329349827
+            "score": 0.22179655730724968
           },
           {
             "doc_id": "homemade-pasta_0",
@@ -5704,7 +5704,7 @@
               "filename": "homemade-pasta.md",
               "chunk_index": 0
             },
-            "score": 0.2215545807415762
+            "score": 0.22153454207550483
           },
           {
             "doc_id": "chicken-schnitzel_0",
@@ -5717,7 +5717,7 @@
               "filename": "chicken-schnitzel.md",
               "chunk_index": 0
             },
-            "score": 0.2204190378881663
+            "score": 0.22043880034952157
           },
           {
             "doc_id": "kofte-kebabs_0",
@@ -5730,7 +5730,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.2198066627921661
+            "score": 0.2198043269093961
           },
           {
             "doc_id": "hasselback-butternut-squash_0",
@@ -5743,7 +5743,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.2165107260054786
+            "score": 0.21653835674892075
           },
           {
             "doc_id": "soft-pretzels-2_0",
@@ -5755,7 +5755,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 0
             },
-            "score": 0.21363370337285414
+            "score": 0.21366750353559827
           }
         ],
         "precision_at_k": 0.2,
@@ -5789,7 +5789,7 @@
               "filename": "guasacaca.md",
               "chunk_index": 0
             },
-            "score": 0.41331131299599555
+            "score": 0.4132703192991216
           },
           {
             "doc_id": "toasted-guajillo-salsa_0",
@@ -5802,7 +5802,7 @@
               "filename": "toasted-guajillo-salsa.md",
               "chunk_index": 0
             },
-            "score": 0.24727141922201645
+            "score": 0.24720354394891997
           },
           {
             "doc_id": "smoky-three-chile-salsa_0",
@@ -5815,7 +5815,7 @@
               "filename": "smoky-three-chile-salsa.md",
               "chunk_index": 0
             },
-            "score": 0.24196173394410647
+            "score": 0.24186888337135493
           },
           {
             "doc_id": "enchilada-sauce_0",
@@ -5828,7 +5828,7 @@
               "filename": "enchilada-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.21118104920613323
+            "score": 0.2110704607409517
           },
           {
             "doc_id": "carne-asada_0",
@@ -5841,7 +5841,7 @@
               "filename": "carne-asada.md",
               "chunk_index": 0
             },
-            "score": 0.20215541979871676
+            "score": 0.20208184421062614
           },
           {
             "doc_id": "carnitas-with-salsa-verde_0",
@@ -5854,7 +5854,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.19828217348072985
+            "score": 0.19812746036812467
           },
           {
             "doc_id": "oaxacan-black-beans_0",
@@ -5867,7 +5867,7 @@
               "filename": "oaxacan-black-beans.md",
               "chunk_index": 0
             },
-            "score": 0.1757281213130819
+            "score": 0.17568186972629274
           },
           {
             "doc_id": "salsa-amarilla_0",
@@ -5880,7 +5880,7 @@
               "filename": "salsa-amarilla.md",
               "chunk_index": 0
             },
-            "score": 0.16834924598345324
+            "score": 0.1682941268857796
           },
           {
             "doc_id": "smoky-jalepeno-and-lime-cranberry-sauce_0",
@@ -5893,7 +5893,7 @@
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.1585121968955524
+            "score": 0.1584461236926269
           },
           {
             "doc_id": "tomatillo-salsa_0",
@@ -5906,7 +5906,7 @@
               "filename": "tomatillo-salsa.md",
               "chunk_index": 0
             },
-            "score": 0.1521139559609953
+            "score": 0.15203648221710242
           },
           {
             "doc_id": "creamy-chicken-enchiladas_1",
@@ -5919,7 +5919,7 @@
               "filename": "creamy-chicken-enchiladas.md",
               "chunk_index": 1
             },
-            "score": 0.14841279992981193
+            "score": 0.14835524837437253
           },
           {
             "doc_id": "harissa-hot-sauce_0",
@@ -5932,7 +5932,7 @@
               "filename": "harissa-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.14159655175291253
+            "score": 0.1415294026416919
           },
           {
             "doc_id": "jalepeño-hot-sauce_0",
@@ -5945,7 +5945,7 @@
               "filename": "jalepeño-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.14000133752819188
+            "score": 0.13988225756321215
           },
           {
             "doc_id": "yemeni-hot-sauce_0",
@@ -5958,7 +5958,7 @@
               "filename": "yemeni-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.13771157225565123
+            "score": 0.13765303531167228
           },
           {
             "doc_id": "chile-colorado_0",
@@ -5971,7 +5971,7 @@
               "filename": "chile-colorado.md",
               "chunk_index": 0
             },
-            "score": 0.1370615091566898
+            "score": 0.1369605782890837
           }
         ],
         "precision_at_k": 0.2,
@@ -6221,7 +6221,7 @@
               "filename": "pizza-dough.md",
               "chunk_index": 0
             },
-            "score": 0.5395860577616554
+            "score": 0.5394872332841794
           },
           {
             "doc_id": "no-knead-pan-pizza_0",
@@ -6234,7 +6234,7 @@
               "filename": "no-knead-pan-pizza.md",
               "chunk_index": 0
             },
-            "score": 0.5076139560206024
+            "score": 0.5075488677562668
           },
           {
             "doc_id": "thin-crust-pizza_0",
@@ -6247,7 +6247,7 @@
               "filename": "thin-crust-pizza.md",
               "chunk_index": 0
             },
-            "score": 0.4904881277244031
+            "score": 0.49041782405217615
           },
           {
             "doc_id": "pita-bread_0",
@@ -6260,7 +6260,7 @@
               "filename": "pita-bread.md",
               "chunk_index": 0
             },
-            "score": 0.420630007982266
+            "score": 0.42057514190675027
           },
           {
             "doc_id": "homemade-pasta_0",
@@ -6273,7 +6273,7 @@
               "filename": "homemade-pasta.md",
               "chunk_index": 0
             },
-            "score": 0.3610710236856881
+            "score": 0.3609626326650065
           },
           {
             "doc_id": "flour-tortillas_0",
@@ -6286,7 +6286,7 @@
               "filename": "flour-tortillas.md",
               "chunk_index": 0
             },
-            "score": 0.3478513463691404
+            "score": 0.3478110834303947
           },
           {
             "doc_id": "soft-pretzels-2_1",
@@ -6299,7 +6299,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 1
             },
-            "score": 0.338598330187999
+            "score": 0.3385279371109108
           },
           {
             "doc_id": "samosa-pie_0",
@@ -6312,7 +6312,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.3171303679269384
+            "score": 0.3171627332471223
           },
           {
             "doc_id": "soft-pretzels-2_0",
@@ -6324,7 +6324,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 0
             },
-            "score": 0.31651681962308587
+            "score": 0.3164426118536099
           },
           {
             "doc_id": "garlic-bread_0",
@@ -6337,7 +6337,7 @@
               "filename": "garlic-bread.md",
               "chunk_index": 0
             },
-            "score": 0.2967137582984547
+            "score": 0.2966601737355772
           },
           {
             "doc_id": "bagels_0",
@@ -6349,7 +6349,7 @@
               "filename": "bagels.md",
               "chunk_index": 0
             },
-            "score": 0.29087081064333997
+            "score": 0.2908402334642153
           },
           {
             "doc_id": "soft-pretzels-1_0",
@@ -6362,7 +6362,7 @@
               "filename": "soft-pretzels-1.md",
               "chunk_index": 0
             },
-            "score": 0.28880720405406857
+            "score": 0.2887612786862186
           },
           {
             "doc_id": "creamy-chicken-enchiladas_1",
@@ -6375,7 +6375,7 @@
               "filename": "creamy-chicken-enchiladas.md",
               "chunk_index": 1
             },
-            "score": 0.28725863771089544
+            "score": 0.2872664757212162
           },
           {
             "doc_id": "roti_0",
@@ -6388,7 +6388,7 @@
               "filename": "roti.md",
               "chunk_index": 0
             },
-            "score": 0.27811416648457654
+            "score": 0.2780543234283559
           },
           {
             "doc_id": "baba-ganoush_0",
@@ -6401,7 +6401,7 @@
               "filename": "baba-ganoush.md",
               "chunk_index": 0
             },
-            "score": 0.2750262558397637
+            "score": 0.2750504851220882
           }
         ],
         "precision_at_k": 0.2,
@@ -7509,7 +7509,7 @@
               "filename": "cucumber-raita.md",
               "chunk_index": 0
             },
-            "score": 0.3711699093782821
+            "score": 0.3711161911487685
           },
           {
             "doc_id": "egg-biryani_0",
@@ -7521,7 +7521,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 0
             },
-            "score": 0.36563680376787233
+            "score": 0.3656625689871492
           },
           {
             "doc_id": "tarka-dal_0",
@@ -7534,7 +7534,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.3596486556425291
+            "score": 0.35964980486186504
           },
           {
             "doc_id": "vada_0",
@@ -7547,7 +7547,7 @@
               "filename": "vada.md",
               "chunk_index": 0
             },
-            "score": 0.3586805378604262
+            "score": 0.3586885119266262
           },
           {
             "doc_id": "black-pepper-rice_0",
@@ -7560,7 +7560,7 @@
               "filename": "black-pepper-rice.md",
               "chunk_index": 0
             },
-            "score": 0.35078684696994644
+            "score": 0.3508234620094399
           },
           {
             "doc_id": "egg-biryani_1",
@@ -7573,7 +7573,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 1
             },
-            "score": 0.34695325213949424
+            "score": 0.34702741854892705
           },
           {
             "doc_id": "channa-masala_0",
@@ -7586,7 +7586,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.33784133195877075
+            "score": 0.3378601267504565
           },
           {
             "doc_id": "biryani-shorba_0",
@@ -7599,7 +7599,7 @@
               "filename": "biryani-shorba.md",
               "chunk_index": 0
             },
-            "score": 0.3298708200454712
+            "score": 0.3299240374655703
           },
           {
             "doc_id": "aloo-matar_0",
@@ -7612,7 +7612,7 @@
               "filename": "aloo-matar.md",
               "chunk_index": 0
             },
-            "score": 0.3290393846654531
+            "score": 0.32908461516591747
           },
           {
             "doc_id": "lubia-polo_0",
@@ -7625,7 +7625,7 @@
               "filename": "lubia-polo.md",
               "chunk_index": 0
             },
-            "score": 0.3203227436157794
+            "score": 0.3203335832754175
           },
           {
             "doc_id": "bhindi-fry_0",
@@ -7638,7 +7638,7 @@
               "filename": "bhindi-fry.md",
               "chunk_index": 0
             },
-            "score": 0.31957686653847395
+            "score": 0.3195620166863986
           },
           {
             "doc_id": "masala-green-beans_0",
@@ -7651,7 +7651,7 @@
               "filename": "masala-green-beans.md",
               "chunk_index": 0
             },
-            "score": 0.3170489559798816
+            "score": 0.31702352660754674
           },
           {
             "doc_id": "gobi-manchurian_0",
@@ -7664,7 +7664,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.3167557701548145
+            "score": 0.3168091679570395
           },
           {
             "doc_id": "roti_0",
@@ -7677,7 +7677,7 @@
               "filename": "roti.md",
               "chunk_index": 0
             },
-            "score": 0.31136375665664673
+            "score": 0.311411611865569
           },
           {
             "doc_id": "kofte-kebabs_0",
@@ -7690,7 +7690,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.2989751785688157
+            "score": 0.2989688844410616
           }
         ],
         "precision_at_k": 0.2,
@@ -8160,7 +8160,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.4164281040003486
+            "score": 0.4163543805759359
           },
           {
             "doc_id": "thai-fried-rice_0",
@@ -8173,7 +8173,7 @@
               "filename": "thai-fried-rice.md",
               "chunk_index": 0
             },
-            "score": 0.3887399782603975
+            "score": 0.3886709710351939
           },
           {
             "doc_id": "stir-fried-pork-with-hot-basil_0",
@@ -8186,7 +8186,7 @@
               "filename": "stir-fried-pork-with-hot-basil.md",
               "chunk_index": 0
             },
-            "score": 0.38464347674380606
+            "score": 0.38458269606049433
           },
           {
             "doc_id": "pad-thai_0",
@@ -8199,7 +8199,7 @@
               "filename": "pad-thai.md",
               "chunk_index": 0
             },
-            "score": 0.36765274098641343
+            "score": 0.3676257904914175
           },
           {
             "doc_id": "phat-phrik-khing_0",
@@ -8212,7 +8212,7 @@
               "filename": "phat-phrik-khing.md",
               "chunk_index": 0
             },
-            "score": 0.3494785621917753
+            "score": 0.34940673428573243
           },
           {
             "doc_id": "stir-fried-morning-glory_0",
@@ -8225,7 +8225,7 @@
               "filename": "stir-fried-morning-glory.md",
               "chunk_index": 0
             },
-            "score": 0.3466095523056596
+            "score": 0.3465218405360465
           },
           {
             "doc_id": "vegetarian-pho_0",
@@ -8238,7 +8238,7 @@
               "filename": "vegetarian-pho.md",
               "chunk_index": 0
             },
-            "score": 0.3418290441718854
+            "score": 0.3417986733257632
           },
           {
             "doc_id": "massaman-curry_0",
@@ -8251,7 +8251,7 @@
               "filename": "massaman-curry.md",
               "chunk_index": 0
             },
-            "score": 0.337066144084885
+            "score": 0.336977958027495
           },
           {
             "doc_id": "garlicky-cabbage-and-fish-sauce_0",
@@ -8264,7 +8264,7 @@
               "filename": "garlicky-cabbage-and-fish-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3135861625650769
+            "score": 0.3135088904489498
           },
           {
             "doc_id": "pad-see-ew_0",
@@ -8277,7 +8277,7 @@
               "filename": "pad-see-ew.md",
               "chunk_index": 0
             },
-            "score": 0.3091113247672921
+            "score": 0.3090387030174717
           },
           {
             "doc_id": "tarka-dal_0",
@@ -8290,7 +8290,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.3006062865980019
+            "score": 0.30060179522607455
           },
           {
             "doc_id": "halal-cart-chicken_0",
@@ -8303,7 +8303,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.2913537161579307
+            "score": 0.291380132272236
           },
           {
             "doc_id": "thai-pomelo-salad_0",
@@ -8316,7 +8316,7 @@
               "filename": "thai-pomelo-salad.md",
               "chunk_index": 0
             },
-            "score": 0.28249018542498416
+            "score": 0.2824160509061666
           },
           {
             "doc_id": "cucumber-raita_0",
@@ -8329,7 +8329,7 @@
               "filename": "cucumber-raita.md",
               "chunk_index": 0
             },
-            "score": 0.27992951749284944
+            "score": 0.27989436507855914
           },
           {
             "doc_id": "channa-masala_0",
@@ -8342,7 +8342,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.27920707576338244
+            "score": 0.2791923381342327
           }
         ],
         "precision_at_k": 0.2,
@@ -8390,7 +8390,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.37849313020707254,
+            "score": 0.37855041835613645,
             "rerank_score": -10.731863021850586
           },
           {
@@ -8404,7 +8404,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.35469059888236787,
+            "score": 0.3546470913080634,
             "rerank_score": -10.843435287475586
           },
           {
@@ -8418,7 +8418,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.29771236790941424,
+            "score": 0.297746753424019,
             "rerank_score": -11.09780502319336
           },
           {
@@ -8432,7 +8432,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.3450472539607008,
+            "score": 0.34505348474106157,
             "rerank_score": -11.104379653930664
           },
           {
@@ -8446,7 +8446,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.30977360547938804,
+            "score": 0.3097928237668066,
             "rerank_score": -11.154808044433594
           },
           {
@@ -8460,7 +8460,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.34424790642429615,
+            "score": 0.34424781896899526,
             "rerank_score": -11.251960754394531
           },
           {
@@ -8474,7 +8474,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.2956342432825977,
+            "score": 0.2956773009011717,
             "rerank_score": -11.287363052368164
           },
           {
@@ -8488,7 +8488,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.3036094036451549,
+            "score": 0.30355494948222794,
             "rerank_score": -11.309181213378906
           },
           {
@@ -8502,7 +8502,7 @@
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3258939204468917,
+            "score": 0.3257823988328987,
             "rerank_score": -11.314157485961914
           },
           {
@@ -8516,7 +8516,7 @@
               "filename": "oaxacan-black-beans.md",
               "chunk_index": 0
             },
-            "score": 0.2960401718568618,
+            "score": 0.2960303602236729,
             "rerank_score": -11.33222770690918
           }
         ],
@@ -8551,7 +8551,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.5899153458971239,
+            "score": 0.5899974107742477,
             "rerank_score": -7.180788040161133
           },
           {
@@ -8565,7 +8565,7 @@
               "filename": "baba-ganoush.md",
               "chunk_index": 0
             },
-            "score": 0.3227334829886599,
+            "score": 0.3228046124447317,
             "rerank_score": -10.908052444458008
           },
           {
@@ -8579,7 +8579,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.2777508662790582,
+            "score": 0.2777999473929481,
             "rerank_score": -11.136561393737793
           },
           {
@@ -8593,7 +8593,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.2511292099952698,
+            "score": 0.25118407592963443,
             "rerank_score": -11.184371948242188
           },
           {
@@ -8607,7 +8607,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.27760321729192805,
+            "score": 0.2777184595717408,
             "rerank_score": -11.294548034667969
           },
           {
@@ -8621,7 +8621,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.24683425566060124,
+            "score": 0.2468885260622058,
             "rerank_score": -11.297506332397461
           },
           {
@@ -8635,7 +8635,7 @@
               "filename": "oaxacan-black-beans.md",
               "chunk_index": 0
             },
-            "score": 0.2459425926208496,
+            "score": 0.24591898966801462,
             "rerank_score": -11.317493438720703
           },
           {
@@ -8649,7 +8649,7 @@
               "filename": "sesame-tofu.md",
               "chunk_index": 0
             },
-            "score": 0.2658998468369047,
+            "score": 0.2659790893190923,
             "rerank_score": -11.327289581298828
           },
           {
@@ -8663,7 +8663,7 @@
               "filename": "salami-chips-with-white-bean-dip.md",
               "chunk_index": 0
             },
-            "score": 0.30919012427330017,
+            "score": 0.3092232573958351,
             "rerank_score": -11.365682601928711
           },
           {
@@ -8677,7 +8677,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.2464528081686983,
+            "score": 0.24658952673736456,
             "rerank_score": -11.402661323547363
           }
         ],
@@ -8871,7 +8871,7 @@
               "filename": "bagels.md",
               "chunk_index": 0
             },
-            "score": 0.5262401355075678,
+            "score": 0.5262476519493858,
             "rerank_score": -9.208641052246094
           },
           {
@@ -8885,7 +8885,7 @@
               "filename": "bagels.md",
               "chunk_index": 1
             },
-            "score": 0.43514475999538227,
+            "score": 0.4351878684983097,
             "rerank_score": -10.502604484558105
           },
           {
@@ -8899,7 +8899,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.29288004083157637,
+            "score": 0.29290648571964895,
             "rerank_score": -11.050962448120117
           },
           {
@@ -8913,7 +8913,7 @@
               "filename": "soft-pretzels-1.md",
               "chunk_index": 0
             },
-            "score": 0.37797406972227465,
+            "score": 0.3780464602681184,
             "rerank_score": -11.087923049926758
           },
           {
@@ -8927,7 +8927,7 @@
               "filename": "samosa-pie.md",
               "chunk_index": 0
             },
-            "score": 0.2668471614304664,
+            "score": 0.2668835242847829,
             "rerank_score": -11.150415420532227
           },
           {
@@ -8940,7 +8940,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 0
             },
-            "score": 0.3898227477496299,
+            "score": 0.38987225294113437,
             "rerank_score": -11.181364059448242
           },
           {
@@ -8954,7 +8954,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 1
             },
-            "score": 0.37403290736087436,
+            "score": 0.37408264720932594,
             "rerank_score": -11.26951789855957
           },
           {
@@ -8968,7 +8968,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.27726938169161364,
+            "score": 0.2772901008090468,
             "rerank_score": -11.376542091369629
           },
           {
@@ -8982,7 +8982,7 @@
               "filename": "spicy-whole-grain-pub-mustard.md",
               "chunk_index": 0
             },
-            "score": 0.30416025159355886,
+            "score": 0.30416422821559574,
             "rerank_score": -11.386051177978516
           },
           {
@@ -8996,7 +8996,7 @@
               "filename": "no-knead-pan-pizza.md",
               "chunk_index": 0
             },
-            "score": 0.31244266406727383,
+            "score": 0.3124762065694461,
             "rerank_score": -11.39078140258789
           }
         ],
@@ -9031,7 +9031,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.5193169581279421,
+            "score": 0.5200873458359457,
             "rerank_score": -5.153448104858398
           },
           {
@@ -9045,7 +9045,7 @@
               "filename": "vada.md",
               "chunk_index": 0
             },
-            "score": 0.4469007488370834,
+            "score": 0.4470505714416535,
             "rerank_score": -8.609249114990234
           },
           {
@@ -9058,7 +9058,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 0
             },
-            "score": 0.42364591360092463,
+            "score": 0.42366282061781635,
             "rerank_score": -9.370981216430664
           },
           {
@@ -9072,7 +9072,7 @@
               "filename": "egg-biryani.md",
               "chunk_index": 1
             },
-            "score": 0.428425431251529,
+            "score": 0.42840737957866437,
             "rerank_score": -9.81373119354248
           },
           {
@@ -9086,7 +9086,7 @@
               "filename": "black-pepper-rice.md",
               "chunk_index": 0
             },
-            "score": 0.38200599825489556,
+            "score": 0.38206794155049584,
             "rerank_score": -10.021774291992188
           },
           {
@@ -9100,7 +9100,7 @@
               "filename": "aloo-matar.md",
               "chunk_index": 0
             },
-            "score": 0.32618332817355733,
+            "score": 0.3263918757438683,
             "rerank_score": -10.20779037475586
           },
           {
@@ -9114,7 +9114,7 @@
               "filename": "biryani-shorba.md",
               "chunk_index": 0
             },
-            "score": 0.3721453769293659,
+            "score": 0.3722611443840782,
             "rerank_score": -10.405065536499023
           },
           {
@@ -9128,7 +9128,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.3680355203204634,
+            "score": 0.3681097438368166,
             "rerank_score": -10.472297668457031
           },
           {
@@ -9142,7 +9142,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.32592387883720986,
+            "score": 0.3259576656209763,
             "rerank_score": -10.685784339904785
           },
           {
@@ -9156,7 +9156,7 @@
               "filename": "massaman-curry.md",
               "chunk_index": 0
             },
-            "score": 0.312192071210866,
+            "score": 0.3124283067924799,
             "rerank_score": -10.793359756469727
           }
         ],
@@ -10312,7 +10312,7 @@
               "filename": "mac-and-cheese.md",
               "chunk_index": 0
             },
-            "score": 0.32510892452108187,
+            "score": 0.32519432756799416,
             "rerank_score": -10.881141662597656
           },
           {
@@ -10326,7 +10326,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.29950672085643415,
+            "score": 0.2995815127464404,
             "rerank_score": -10.953454971313477
           },
           {
@@ -10340,7 +10340,7 @@
               "filename": "baba-ganoush.md",
               "chunk_index": 0
             },
-            "score": 0.3068704239284509,
+            "score": 0.30689312178534034,
             "rerank_score": -10.98037338256836
           },
           {
@@ -10354,7 +10354,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.35228070616722107,
+            "score": 0.3523161323258962,
             "rerank_score": -11.010034561157227
           },
           {
@@ -10368,7 +10368,7 @@
               "filename": "aloo-matar.md",
               "chunk_index": 0
             },
-            "score": 0.32639779605852404,
+            "score": 0.32650948482864917,
             "rerank_score": -11.100069046020508
           },
           {
@@ -10382,7 +10382,7 @@
               "filename": "soft-pretzels-1.md",
               "chunk_index": 0
             },
-            "score": 0.29883813275836535,
+            "score": 0.2987948477986593,
             "rerank_score": -11.124366760253906
           },
           {
@@ -10396,7 +10396,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.3119665868262408,
+            "score": 0.3120170011540653,
             "rerank_score": -11.133009910583496
           },
           {
@@ -10410,7 +10410,7 @@
               "filename": "jalepeño-hot-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.30769851574586593,
+            "score": 0.30778204020590205,
             "rerank_score": -11.35551643371582
           },
           {
@@ -10424,7 +10424,7 @@
               "filename": "smoky-jalepeno-and-lime-cranberry-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3145552796655582,
+            "score": 0.3145926109199211,
             "rerank_score": -11.359716415405273
           },
           {
@@ -10438,7 +10438,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.32201107275552054,
+            "score": 0.3219992306231535,
             "rerank_score": -11.370553970336914
           }
         ],
@@ -10632,7 +10632,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.3866497047752324,
+            "score": 0.38802303040096264,
             "rerank_score": -9.882091522216797
           },
           {
@@ -10646,7 +10646,7 @@
               "filename": "halal-cart-chicken.md",
               "chunk_index": 0
             },
-            "score": 0.35482394695282227,
+            "score": 0.35653606264615634,
             "rerank_score": -10.157455444335938
           },
           {
@@ -10659,7 +10659,7 @@
               "filename": "creamy-chicken-enchiladas.md",
               "chunk_index": 0
             },
-            "score": 0.3034811435055056,
+            "score": 0.3043219537830937,
             "rerank_score": -10.567977905273438
           },
           {
@@ -10673,7 +10673,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.3247382149256346,
+            "score": 0.3257599570083607,
             "rerank_score": -10.759648323059082
           },
           {
@@ -10687,7 +10687,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.321182558571776,
+            "score": 0.32249955207104164,
             "rerank_score": -10.885364532470703
           },
           {
@@ -10701,7 +10701,7 @@
               "filename": "halal-cart-red-sauce.md",
               "chunk_index": 0
             },
-            "score": 0.3714865744113949,
+            "score": 0.37363875272620506,
             "rerank_score": -10.95297622680664
           },
           {
@@ -10715,7 +10715,7 @@
               "filename": "tomatillo-salsa.md",
               "chunk_index": 0
             },
-            "score": 0.29756729021267403,
+            "score": 0.299118021104277,
             "rerank_score": -11.064765930175781
           },
           {
@@ -10729,7 +10729,7 @@
               "filename": "kofte-kebabs.md",
               "chunk_index": 0
             },
-            "score": 0.2888119134660996,
+            "score": 0.2892490797787357,
             "rerank_score": -11.15367317199707
           },
           {
@@ -10743,7 +10743,7 @@
               "filename": "tarka-dal.md",
               "chunk_index": 0
             },
-            "score": 0.3716686853269149,
+            "score": 0.37300886946969447,
             "rerank_score": -11.18250846862793
           },
           {
@@ -10757,7 +10757,7 @@
               "filename": "beef-tacos.md",
               "chunk_index": 0
             },
-            "score": 0.3655410569261245,
+            "score": 0.36614834171091637,
             "rerank_score": -11.234870910644531
           }
         ],
@@ -10789,7 +10789,7 @@
               "filename": "bagels.md",
               "chunk_index": 0
             },
-            "score": 0.5289484824003636,
+            "score": 0.5285314883552245,
             "rerank_score": -5.364765167236328
           },
           {
@@ -10803,7 +10803,7 @@
               "filename": "bagels.md",
               "chunk_index": 1
             },
-            "score": 0.42940438214515053,
+            "score": 0.4308501225203272,
             "rerank_score": -10.533367156982422
           },
           {
@@ -10817,7 +10817,7 @@
               "filename": "hummus.md",
               "chunk_index": 0
             },
-            "score": 0.29824098944664845,
+            "score": 0.29893970489502797,
             "rerank_score": -10.998702049255371
           },
           {
@@ -10831,7 +10831,7 @@
               "filename": "baba-ganoush.md",
               "chunk_index": 0
             },
-            "score": 0.25973310834572116,
+            "score": 0.25912737628760896,
             "rerank_score": -11.029600143432617
           },
           {
@@ -10845,7 +10845,7 @@
               "filename": "soft-pretzels-1.md",
               "chunk_index": 0
             },
-            "score": 0.38216200300168923,
+            "score": 0.3819986863139424,
             "rerank_score": -11.04286003112793
           },
           {
@@ -10858,7 +10858,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 0
             },
-            "score": 0.39320348622736656,
+            "score": 0.39374731890905235,
             "rerank_score": -11.093463897705078
           },
           {
@@ -10872,7 +10872,7 @@
               "filename": "pizza-dough.md",
               "chunk_index": 0
             },
-            "score": 0.31581942657961215,
+            "score": 0.31734917942305096,
             "rerank_score": -11.113734245300293
           },
           {
@@ -10886,7 +10886,7 @@
               "filename": "soft-pretzels-2.md",
               "chunk_index": 1
             },
-            "score": 0.3813109539376579,
+            "score": 0.38319648704570963,
             "rerank_score": -11.248149871826172
           },
           {
@@ -10900,7 +10900,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.34063724633233816,
+            "score": 0.3411522304325021,
             "rerank_score": -11.302417755126953
           },
           {
@@ -10914,7 +10914,7 @@
               "filename": "no-knead-pan-pizza.md",
               "chunk_index": 0
             },
-            "score": 0.33089452017611265,
+            "score": 0.333908667098445,
             "rerank_score": -11.335288047790527
           }
         ],
@@ -11112,7 +11112,7 @@
               "filename": "carnitas-with-salsa-verde.md",
               "chunk_index": 0
             },
-            "score": 0.29122914128129884,
+            "score": 0.2911558585101188,
             "rerank_score": -10.922929763793945
           },
           {
@@ -11126,7 +11126,7 @@
               "filename": "baba-ganoush.md",
               "chunk_index": 0
             },
-            "score": 0.27561290104158553,
+            "score": 0.2755935870287991,
             "rerank_score": -11.00784683227539
           },
           {
@@ -11140,7 +11140,7 @@
               "filename": "potato-and-green-chili-hash.md",
               "chunk_index": 0
             },
-            "score": 0.2918934648100462,
+            "score": 0.2918092447235088,
             "rerank_score": -11.07674503326416
           },
           {
@@ -11154,7 +11154,7 @@
               "filename": "gobi-manchurian.md",
               "chunk_index": 0
             },
-            "score": 0.2682691296419272,
+            "score": 0.26826706964184566,
             "rerank_score": -11.091094970703125
           },
           {
@@ -11168,7 +11168,7 @@
               "filename": "mac-and-cheese.md",
               "chunk_index": 0
             },
-            "score": 0.2826627661384846,
+            "score": 0.28261633347114934,
             "rerank_score": -11.253064155578613
           },
           {
@@ -11182,7 +11182,7 @@
               "filename": "sesame-tofu.md",
               "chunk_index": 0
             },
-            "score": 0.26941409135587424,
+            "score": 0.2693000344336136,
             "rerank_score": -11.339418411254883
           },
           {
@@ -11196,7 +11196,7 @@
               "filename": "biryani-shorba.md",
               "chunk_index": 0
             },
-            "score": 0.3132982961357661,
+            "score": 0.3132386674342589,
             "rerank_score": -11.37049674987793
           },
           {
@@ -11210,7 +11210,7 @@
               "filename": "hasselback-butternut-squash.md",
               "chunk_index": 0
             },
-            "score": 0.2870214283466359,
+            "score": 0.28698951032539044,
             "rerank_score": -11.382485389709473
           },
           {
@@ -11224,7 +11224,7 @@
               "filename": "austro-hungarian-cream-of-horseradish-soup.md",
               "chunk_index": 0
             },
-            "score": 0.3659439573900727,
+            "score": 0.3658873795069565,
             "rerank_score": -11.408437728881836
           },
           {
@@ -11238,7 +11238,7 @@
               "filename": "cucumber-raita.md",
               "chunk_index": 0
             },
-            "score": 0.29632233359351234,
+            "score": 0.2963659366158674,
             "rerank_score": -11.441543579101562
           }
         ],
@@ -11437,7 +11437,7 @@
               "filename": "larb-gai.md",
               "chunk_index": 0
             },
-            "score": 0.4164281040003486,
+            "score": 0.4163543805759359,
             "rerank_score": -9.151901245117188
           },
           {
@@ -11451,7 +11451,7 @@
               "filename": "pad-thai.md",
               "chunk_index": 0
             },
-            "score": 0.36765274098641343,
+            "score": 0.3676257904914175,
             "rerank_score": -9.309200286865234
           },
           {
@@ -11465,7 +11465,7 @@
               "filename": "massaman-curry.md",
               "chunk_index": 0
             },
-            "score": 0.337066144084885,
+            "score": 0.336977958027495,
             "rerank_score": -9.963369369506836
           },
           {
@@ -11479,7 +11479,7 @@
               "filename": "thai-pomelo-salad.md",
               "chunk_index": 0
             },
-            "score": 0.28249018542498416,
+            "score": 0.2824160509061666,
             "rerank_score": -10.048121452331543
           },
           {
@@ -11493,7 +11493,7 @@
               "filename": "pad-see-ew.md",
               "chunk_index": 0
             },
-            "score": 0.3091113247672921,
+            "score": 0.3090387030174717,
             "rerank_score": -10.094640731811523
           },
           {
@@ -11507,7 +11507,7 @@
               "filename": "phat-phrik-khing.md",
               "chunk_index": 0
             },
-            "score": 0.3494785621917753,
+            "score": 0.34940673428573243,
             "rerank_score": -10.367506980895996
           },
           {
@@ -11521,7 +11521,7 @@
               "filename": "channa-masala.md",
               "chunk_index": 0
             },
-            "score": 0.27920707576338244,
+            "score": 0.2791923381342327,
             "rerank_score": -10.591605186462402
           },
           {
@@ -11535,7 +11535,7 @@
               "filename": "thai-fried-rice.md",
               "chunk_index": 0
             },
-            "score": 0.3887399782603975,
+            "score": 0.3886709710351939,
             "rerank_score": -10.65865421295166
           },
           {
@@ -11549,7 +11549,7 @@
               "filename": "stir-fried-pork-with-hot-basil.md",
               "chunk_index": 0
             },
-            "score": 0.38464347674380606,
+            "score": 0.38458269606049433,
             "rerank_score": -10.722672462463379
           },
           {
@@ -11563,7 +11563,7 @@
               "filename": "stir-fried-morning-glory.md",
               "chunk_index": 0
             },
-            "score": 0.3466095523056596,
+            "score": 0.3465218405360465,
             "rerank_score": -10.725351333618164
           }
         ],

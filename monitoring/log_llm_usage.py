@@ -12,36 +12,49 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+from collections import OrderedDict
 
-# A logok könyvtára a projekt futtatási helyéhez képest
 LOGS_DIR = Path(os.getcwd()) / "logs"
-
-# A konkrét logfájl útvonala
 LOG_FILE = LOGS_DIR / "llm-usage.log"
 
+# Egységes árlista a TS oldallal
+MODEL_PRICES = {
+    "gpt-4.1-mini": {"input": 0.00015, "output": 0.0006},
+    "text-embedding-3-small": {"input": 0.00002, "output": 0.0},
+}
+
+def calc_cost_usd(model: str, prompt_tokens: int, completion_tokens: int) -> float:
+    prices = MODEL_PRICES.get(model)
+    if not prices: return 0.0
+    cost = (prompt_tokens / 1000) * prices["input"] + (completion_tokens / 1000) * prices["output"]
+    return float(f"{cost:.8f}") # Kényszerített 8 tizedes
 
 def log_llm_usage(entry: dict) -> None:
-    """
-    Egy LLM-hívás metaadatait (latency, költség, komponens stb.)
-    kiírja a logfájlba.
+    # 1. Időbélyeg pótlása, ha hiányzik
+    ts = entry.get("timestamp") or (datetime.utcnow().isoformat() + "Z")
 
-    A bejegyzés formátuma:
-        [LLM_USAGE] {"component": "...", "latencyMs": ..., "costUsd": ...}
+    # 2. OrderedDict használata a FIX sorrendért
+    ordered = OrderedDict([
+        ("timestamp", ts),
+        ("sessionId", entry.get("sessionId")),
+        ("requestId", entry.get("requestId")),
+        ("component", entry.get("component")),
+        ("model", entry.get("model")),
+        ("provider", entry.get("provider", "openai")),
+        ("promptTokens", entry.get("promptTokens", 0)),
+        ("completionTokens", entry.get("completionTokens", 0)),
+        ("totalTokens", entry.get("totalTokens", 0)),
+        ("costUsd", entry.get("costUsd", 0.0)),
+        ("latencyMs", entry.get("latencyMs", 0)),
+        ("success", entry.get("success", True)),
+        ("errorMessage", entry.get("errorMessage"))
+    ])
 
-    - Ha nincs timestamp, automatikusan hozzáadjuk (UTC ISO formátumban).
-    - A logfájl és a könyvtár automatikusan létrejön, ha nem létezik.
-    """
-
-    # Gondoskodunk róla, hogy a logs/ könyvtár létezzen
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # JAVÍTOTT json.dumps: az 'ordered' objektumot szerializáljuk!
+    line = f"[LLM_USAGE] {json.dumps(ordered, ensure_ascii=False)}\n"
 
-    # Ha nincs timestamp, generálunk egyet
-    if "timestamp" not in entry:
-        entry["timestamp"] = datetime.utcnow().isoformat() + "Z"
-
-    # A log sor formátuma: prefix + JSON
-    line = f"[LLM_USAGE] {json.dumps(entry, ensure_ascii=False)}\n"
-
-    # Hozzáfűzés a logfájlhoz
     with LOG_FILE.open("a", encoding="utf-8") as f:
         f.write(line)
+    print(line.strip())

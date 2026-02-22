@@ -2,21 +2,25 @@ import os
 import json
 from typing import List, Dict, Any
 from openai import OpenAI
-from config import OPENAI_API_KEY, JUDGE_MODEL, CONVERSATIONS_PATH, JUDGE_RESULTS_PATH, GPT41_MINI_IN_PER_M, GPT41_MINI_OUT_PER_M
-from monitoring.log_llm_usage import log_llm_usage
+from config import (
+    OPENAI_API_KEY,
+    JUDGE_MODEL,
+    CONVERSATIONS_PATH,
+    JUDGE_RESULTS_PATH,
+)
+from monitoring.log_llm_usage import log_llm_usage, calc_cost_usd
 import time
 import uuid
-#config.py már meghívta a load_dotenv()-et és beolvassa a .env-et
+import datetime
 
+# config.py már meghívta a load_dotenv()-et és beolvassa a .env-et
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY nincs beállítva a .env fájlban")
 
 # ===== OpenAI kliens =====
-
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # ===== System prompt a judge-hoz =====
-
 JUDGE_SYSTEM_PROMPT = """
 Te egy független értékelő vagy, aki többkörös (multi-turn) receptajánló beszélgetéseket értékel.
 
@@ -29,30 +33,16 @@ Feladatod:
 
 Skála:
 - 0 = teljes kudarc
-  - goal_completion: a beszélgetés végén nincs használható recept / megoldás, vagy a bot teljesen félremegy (pl. allergiát figyelmen kívül hagy, korpuszon kívüli dolgokat talál ki).
-  - answer_quality: a válaszok többnyire hibásak, irrelevánsak vagy nagyon zavarosak.
 - 1 = gyenge
-  - goal_completion: valamennyire közelebb jut, de a felhasználó számára nem igazán alkalmazható a javaslat (pl. hiányzó hozzávalókra nem reagál, időkorlátot nem tartja).
-  - answer_quality: vegyes minőség, több pontatlanság vagy irreleváns rész; a felhasználónak sokat kellene improvizálnia.
 - 2 = jó
-  - goal_completion: a beszélgetés végére kap a felhasználó egy alapvetően használható receptet vagy megoldást, ami illeszkedik a personához és a goal-hoz, kisebb hiányosságokkal.
-  - answer_quality: a válaszok többnyire helyesek és relevánsak, a fontos korlátokat (idő, alapanyag, allergén) többnyire betartja, a lépések nagyjából követhetőek.
 - 3 = kiváló
-  - goal_completion: a beszélgetés világosan elvezet egy jól definiált, reálisan elkészíthető recepthez / megoldáshoz, amely teljesen megfelel a persona céljainak és korlátainak.
-  - answer_quality: a válaszok végig pontosak, relevánsak, nincsenek ellentmondások, a bot következetesen emlékszik az előző körökre (pl. allergénekre, eszközökre, időkeretre), és a lépések érthetőek.
 
-Fontos:
-- Ha a korpuszban nincs desszert, de a felhasználó desszertet kér, magasabb pont jár azért, ha a bot NEM talál ki desszert receptet, hanem korrekt fallbacket ad (korpuszkorlát jelzése, alternatíva javaslata).
-- Mindig a TELJES beszélgetés alapján dönts, ne csak az első válasz alapján.
-- A persona stílusát is vedd figyelembe: pl. türelmetlen kezdőnek érték, ha a bot rövid és lépésről lépésre magyaráz; haladó gasztrofanatikusnál fontosabbak a technikai részletek.
-
-Kimenet:
-Mindig CSAK a következő JSON-t add vissza, további magyarázó szöveg nélkül:
+Mindig CSAK a következő JSON-t add vissza:
 
 {
   "goal_completion": 0-3 egész szám,
   "answer_quality": 0-3 egész szám,
-  "explanation": "rövid, 2-4 mondatos indoklás magyarul, konkrét hivatkozásokkal a beszélgetés kulcsmomentumaival"
+  "explanation": "rövid, 2-4 mondatos indoklás magyarul"
 }
 """
 
@@ -73,9 +63,15 @@ def format_conversation(turns: List[Dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
-def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], session_id: str) -> Dict[str, Any]:
+def judge_conversation(
+    persona: str,
+    goal: str,
+    turns: List[Dict[str, str]],
+    session_id: str
+) -> Dict[str, Any]:
     """
-    A beszélgetés értékelése LLM-mel, részletes logolással és hibakezeléssel.
+    Egyetlen beszélgetés értékelése LLM-mel.
+    Egységes logolás, hibakezelés, költségszámítás.
     """
 
     conversation_text = format_conversation(turns)
@@ -90,7 +86,6 @@ def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], ses
     # ---- LLM hívás + logolás ----
     start = time.perf_counter()
     request_id = str(uuid.uuid4())
-    #session_id = f"judge-eval-{uuid.uuid4().hex[:6]}"
 
     # Alapértelmezett értékek hiba esetére
     prompt_tokens = 0
@@ -120,10 +115,8 @@ def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], ses
         completion_tokens = usage.completion_tokens
         total_tokens = usage.total_tokens
 
-        cost_usd = (
-            prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 +
-            completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000
-        )
+        # Egységes költségszámítás (TS oldallal megegyező)
+        cost_usd = calc_cost_usd(JUDGE_MODEL, prompt_tokens, completion_tokens)
 
         success = True
 
@@ -135,12 +128,13 @@ def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], ses
     finally:
         latency_ms = int((time.perf_counter() - start) * 1000)
 
-        # 2) Logolás (külön try-ban)
+        # ---- Egységesített logolás ----
         try:
             log_llm_usage({
-                "requestId": request_id,
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
                 "sessionId": session_id,
-                "component": "judge",
+                "requestId": request_id,
+                "component": "eval-judge",  
                 "model": JUDGE_MODEL,
                 "provider": "openai",
                 "promptTokens": prompt_tokens,
@@ -149,7 +143,7 @@ def judge_conversation(persona: str, goal: str, turns: List[Dict[str, str]], ses
                 "costUsd": cost_usd,
                 "latencyMs": latency_ms,
                 "success": success,
-                "error": error_msg,
+                "errorMessage": error_msg,  # <-- TS kompatibilis mezőnév
             })
         except Exception as log_err:
             print(f"⚠️ Logging failed in judge_conversation: {log_err}")
@@ -203,27 +197,29 @@ def main():
     total_goal = 0
     total_quality = 0
 
+    # 🔥 Egyetlen sessionId a teljes futásra
     session_id = f"judge-eval-{uuid.uuid4().hex[:6]}"
 
     for conv in conversations:
-        # ÚJ: az új JSON-struktúrához igazítva
         conv_id = conv.get("session_id", "unknown")
         persona_id = conv.get("persona_id", "")
         goal_id = conv.get("goal_id", "")
 
-
-        # Ha van külön persona/goal leíró szöveg, itt tudod beolvasni,
-        # de most használhatod simán az ID-kat is:
         persona = persona_id
         goal = goal_id
 
         conversation_block = conv.get("conversation", {})
-        # Itt a messages lista már {role, content, ...} formában van
         turns = conversation_block.get("messages", [])
 
         print(f"Értékelés: {conv_id} ...")
 
-        result = judge_conversation(persona, goal, turns, session_id = session_id)
+        result = judge_conversation(
+            persona,
+            goal,
+            turns,
+            session_id=session_id
+        )
+
         goal_score = int(result.get("goal_completion", 0))
         quality_score = int(result.get("answer_quality", 0))
 
@@ -258,4 +254,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

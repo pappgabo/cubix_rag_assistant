@@ -1,0 +1,6 @@
+Kérdés: {query}
+
+Kontextus (receptek részletei):
+{documents}
+
+Válaszolj magyarul, a fenti szabályok szerint.

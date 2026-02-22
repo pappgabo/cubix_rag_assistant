@@ -1,248 +1,248 @@
 {
   "summary": {
     "num_cases": 18,
-    "avg_latency_ms": 8999.173788888987,
-    "avg_context_relevance": 3.7777777777777777,
-    "avg_answer_quality": 3.8333333333333335,
+    "avg_latency_ms": 5293.524277778892,
+    "avg_context_relevance": 4.222222222222222,
+    "avg_answer_quality": 4.222222222222222,
     "faithfulness_counts": {
       "none": 0,
-      "partial": 3,
-      "strong": 15
+      "partial": 0,
+      "strong": 18
     }
   },
   "cases": [
     {
       "id": "q1",
-      "request_id": "req-q1-ba02455d",
+      "request_id": "req-q1-900459bd",
       "question": "Hogyan készítsek marhahúsos tacót?",
-      "answer": "A marhahúsos taco elkészítéséhez kövesd az alábbi lépéseket:\n\n1. Melegíts fel olajat egy öntöttvas serpenyőben közepes hőfokon, majd add hozzá az 1 font darált marhahúst, és süsd, amíg elkezd barnulni.\n2. Add hozzá a fűszereket: 1 teáskanál őrölt köményt, 1 teáskanál füstölt paprikát, 1/2 teáskanál fokhagymaport, 1/2 teáskanál chiliport, 1/2 teáskanál sót és 1/2 teáskanál fekete borsot. Keverd össze, és süsd, amíg a hús teljesen meg nem fő.\n3. Adj hozzá 1 evőkanál vizet, hogy a hús kicsit szaftosabb legyen, és keverd össze.\n\nEzután tálald a tacókat tortillával és a kívánt feltétekkel!",
-      "latency_ms": 8797.043399998074,
+      "answer": "A marhahúsos taco elkészítéséhez a következőket tedd:\n\n1. Melegíts olajat egy öntöttvas serpenyőben közepes lángon, add hozzá az 1 font darált marhahúst, és süsd, amíg elkezd barnulni.\n2. Add hozzá az 1 teáskanál őrölt köményt, 1 teáskanál füstölt paprikát, 1/2 teáskanál fokhagymaport, 1/2 teáskanál chiliport, 1/2 teáskanál sót és 1/2 teáskanál fekete borsot, keverd össze, és süsd készre a húst.\n3. Adj hozzá 1 evőkanál vizet, hogy a hús egy kicsit szaftosabb legyen, keverd össze.\n\nEz kb. 15 perc alatt elkészül, és 2 adag lesz belőle. Jó étvágyat!",
+      "latency_ms": 9484.690600002068,
       "judge": {
         "context_relevance": 4,
         "faithfulness": "strong",
         "answer_quality": 4,
-        "explanation": "A válasz releváns, mivel a receptgyűjteményben hasonló marhahúsos taco elkészítési mód található. Nincsenek nyilvánvaló hallucinációk, és a lépések érthetőek, segítőkészek. Az értékelés azért nem maximális, mert hiányoznak részletesebb tippek és a pontos fűszerezési arányok a felhasznált recept teljes kontextusához képest."
+        "explanation": "A válasz részletesen leírja a marhahúsos taco elkészítésének lépéseit, megfelelő fűszerekkel és elkészítési idővel, ami releváns és pontos. Az instrukciók érthetőek és hasznosak a felhasználó számára, bár egyéb összetevők (pl. taco héj, feltétek) említése hiányzik."
       }
     },
     {
       "id": "q2",
-      "request_id": "req-q2-23a9dc79",
+      "request_id": "req-q2-2e82aa44",
       "question": "Milyen alapanyagok kellenek a hummuszhoz?",
-      "answer": "A hummuszhoz a következő alapanyagok kellenek:\n\n- 1/2 lb szárított csicseriborsó\n- 1 tsp szódabikarbóna\n- 2 tbsp kosher só\n- 6 csésze hideg víz\n\nA tahinihoz:\n- 1 egész fej fokhagyma, egyesével hámozott gerezdekre bontva\n- 2/3 csésze friss citromlé (kb. 3–4 citrom)\n- 1/2 tsp őrölt kömény\n- 1 csésze tahini paszta (kb. 10 oz)\n\nA hummuszhoz:\n- 1 tsp szódabikarbóna\n- 1 tbsp só\n- 1 kis hagyma, félbevágva\n- 1 szál zeller\n- 1 sárgarépa\n- 2 közepes fokhagymagerezd\n- 2 babérlevél\n- 6 csésze víz\n- 1.5 csésze tahini (a fentiek szerint)\n- Olívaolaj, za'tar és/vagy paprika a tálaláshoz.",
-      "latency_ms": 7269.413300000451,
+      "answer": "A hummuszhoz az alábbi alapanyagok kellenek:\n\n- 1/2 lb szárított csicseriborsó  \n- 1 teáskanál szódabikarbóna  \n- 2 evőkanál kóser só  \n- 6 csésze hideg víz  \n\nA tahinihez:  \n- 1 egész fokhagyma fej, gerezdekre törve, hámozás nélkül  \n- 2/3 csésze friss citromlé (kb. 3-4 citrom)  \n- 1/2 teáskanál őrölt kömény  \n- 1 csésze tahini paszta (kb. 10 oz)  \n\nA hummusz főzéséhez:  \n- 1 teáskanál szódabikarbóna  \n- 1 evőkanál só  \n- 1 kis hagyma, félbevágva  \n- 1 szár zeller  \n- 1 sárgarépa  \n- 2 közepes gerezd fokhagyma  \n- 2 babérlevél  \n- 6 csésze víz  \n- 1,5 csésze tahini (lásd fent)  \n- Olívaolaj, za'atar és/vagy paprika a tálaláshoz  \n\nRemélem, segítettem!",
+      "latency_ms": 6358.275999999023,
       "judge": {
         "context_relevance": 4,
-        "faithfulness": "partial",
-        "answer_quality": 3,
-        "explanation": "A válasz viszonylag részletes alapanyaglistát ad a hummuszhoz, de néhány összetevő nem tipikus a hagyományos hummuszban (pl. zeller, sárgarépa, babérlevél, za'tar), ami részben hallucinációnak tekinthető. A válasz érthető, de a felesleges vagy eltérő összetevők miatt kevésbé hasznos."
+        "faithfulness": "strong",
+        "answer_quality": 4,
+        "explanation": "A válasz részletesen felsorolja a hummuszhoz szükséges alapanyagokat, beleértve a csicseriborsót, tahinit és fűszereket, ami releváns és pontos. Az összetevők listája kissé bővebb a szokásosnál, de nem tartalmaz nyilvánvaló hibákat. Az információ hasznos és érthető a felhasználó számára."
       }
     },
     {
       "id": "q3",
-      "request_id": "req-q3-284f06e7",
+      "request_id": "req-q3-c57cfa0c",
       "question": "Hogyan készül az indiai padlizsánkrém?",
       "answer": "Sajnos erről nincs információm a recepttáramban.",
-      "latency_ms": 5116.505699999834,
+      "latency_ms": 2322.9714000044623,
       "judge": {
         "context_relevance": 1,
         "faithfulness": "strong",
-        "answer_quality": 2,
-        "explanation": "A válasz nem használ semmilyen releváns kontextust a receptgyűjteményből, ezért a context_relevance nagyon alacsony. Ugyanakkor nem ad téves információt, így a faithfulness magas (strong). Az answer_quality alacsony, mert nem nyújt segítséget a felhasználónak, csak a hiányra hivatkozik."
+        "answer_quality": 1,
+        "explanation": "Az asszisztens nem adott választ, mert nem talált releváns információt a recepttárban, így elkerülte a téves vagy kitalált információt, de a felhasználó számára nem volt hasznos."
       }
     },
     {
       "id": "q4",
-      "request_id": "req-q4-54eb1517",
+      "request_id": "req-q4-e87d2a7a",
       "question": "Van receptetek házi bagelre?",
-      "answer": "Igen, van receptünk házi bagelre! \n\n**Hozzávalók:**\n- 14.66 oz kenyérliszt\n- 4 tsp vital búzagluten (opcionális)\n- 2 tsp instant élesztő\n- 9 oz hideg víz\n- 1–2 tbsp maláta szirup (vagy méz)\n- 2 tsp só\n- Kukoricadara\n- 1/4 csésze szódabikarbóna\n- Olívaolaj\n\n**Elkészítés lépései:**\n1. A robotgépben keverd össze a lisztet, búzaglutenet és élesztőt.\n2. Add hozzá a vizet és maláta szirupot, keverd 20 másodpercig.\n3. Hagyd a tésztát 20 percig pihenni.\n4. Add hozzá a sót, és keverd 90 másodpercig.\n5. Vedd ki a tésztát, és gyúrd körülbelül egy percig.\n6. Oszd nyolc gombócba (vagy hatba a nagyobb bagelhez).\n7. Formázz kerek gombócokat, takard le, és hagyd pihenni 15 percig.\n8. Olajozz meg egy tepsit, majd szórd meg kukoricadarával.\n9. Formázz bagel alakúra a gombócokat, és helyezd a tepsire.\n10. Takard le, és hagyd állni egy órát, majd tedd a hűtőbe 12–24 órára.\n\n**Sütés:**\n1. Forralj fel egy fazék vizet, és add hozzá a szódabikarbónát.\n2. Közben melegítsd",
-      "latency_ms": 11274.820999999065,
+      "answer": "Igen, van receptünk házi bagelre. A recept szerint lisztet, élesztőt, vízet, malátszirupot vagy mézet, sót, kukoricakeményítőt, szódabikarbónát és olívaolajat használsz. A tésztát először összekevered, majd pihenteted, formázod, keleszted, majd forró vízben szódabikarbónával főzod rövid ideig, végül sütőben megsütöd. A részletes lépéseket és arányokat a Dokumentum 1-ben találod. Ha szeretnéd, szívesen segítek a pontos lépésekben is!",
+      "latency_ms": 4016.417899998487,
       "judge": {
-        "context_relevance": 5,
+        "context_relevance": 4,
         "faithfulness": "strong",
         "answer_quality": 4,
-        "explanation": "A válasz részletes, valószínű receptkönyvi kontextus alapján íródott, nincs nyilvánvaló téves információ, bár a sütési lépések befejezetlenek, ami kicsit csökkenti a használhatóságot."
+        "explanation": "A válasz releváns összetevőket és lépéseket említ a házi bagel készítéséhez, ami megfelel a receptgyűjtemény tipikus tartalmának. Nem tartalmaz nyilvánvaló hibákat vagy téves információkat, és érthetően foglalja össze a folyamatot, bár a pontos arányokat nem közli, csak utal rájuk."
       }
     },
     {
       "id": "q5",
-      "request_id": "req-q5-b992f7a6",
+      "request_id": "req-q5-01f0fe94",
       "question": "Hogyan kell indiai lencsét (tarka dal) főzni?",
-      "answer": "A tarka dal (indiai lencse) főzéséhez kövesd az alábbi lépéseket:\n\n1. Helyezd a lencsét és a vizet egy lábasba, keverd össze, majd forrald fel.\n2. Skimeld le a habot, ami a víz felszínén képződik.\n3. Fedd le, és csökkentsd a hőt, hogy lassú tűzön főzzön, rendszeresen kevergetve, 35-40 percig, amíg a lencse éppen megpuhul, szükség esetén adj hozzá több vizet.\n4. Közben melegíts olajat egy másik serpenyőben közepes hőmérsékleten.\n5. Add hozzá a kömény magokat, és pirítsd 20-30 másodpercig, amíg illatos nem lesz.\n6. Tedd bele a hagymát, a chiliket és a gyömbért, és főzd 4-5 percig, amíg aranybarnára nem pirul.\n7. Turmixold össze a fokhagymát és a paradicsomot, majd add a serpenyőhöz, és keverd össze.\n8. Add hozzá a fűszereket és 100 ml vizet, keverd össze.\n9. Ízesítsd sóval, és főzd közepes hőmérsékleten 15-20 percig, amíg az olaj a szósz felszínére nem emelkedik.\n10. Amikor a lencse megfőtt, használj habverőt, hogy pépesítsd, és tedd félre hűlni.\n11. Add a szószt a lencséhez, szükség esetén adj hozzá több vizet.\n",
-      "latency_ms": 17509.35870000103,
+      "answer": "Az indiai lencse (Tarka Dal) főzésének lépései a következők:\n\n1. Öblítsd le a chana dal-t tiszta vízben, majd tedd egy lábasba a 900 ml vízzel, keverd össze és forrald fel.\n2. A víz felszínén képződő habot szedd le.\n3. Fedd le, csökkentsd a hőt, és lassú tűzön főzd 35-40 percig, vagy amíg a lencse megpuhul, közben időnként keverd meg, és szükség esetén adj hozzá még vizet.\n4. Közben egy serpenyőben melegítsd az olajat közepes lángon.\n5. Add hozzá a köménymagot, és pirítsd 20-30 másodpercig, amíg illatos lesz.\n6. Tedd bele a felaprított hagymát, a zöld chiliket és a gyömbért, és süsd 4-5 percig, amíg aranybarna nem lesz.\n7. Turmixold össze a fokhagymát és a paradicsomokat, majd add a serpenyőhöz, keverd össze.\n8. Szórd bele a fűszereket (kurkuma, garam masala, koriander), adj hozzá 100 ml vizet, keverd össze.\n9. Ízesítsd sóval, és főzd közepes lángon 15-20 percig, amíg az olaj a szósz felszínére nem emelkedik.\n10. Amikor a lencse megfőtt, habverővel törd össze kissé, majd tedd félre hűlni.\n11. Add a szószt a lencséhez,",
+      "latency_ms": 8143.839600001229,
       "judge": {
-        "context_relevance": 4,
+        "context_relevance": 5,
         "faithfulness": "strong",
-        "answer_quality": 5,
-        "explanation": "A válasz részletesen leírja a tarka dal főzésének lépéseit, követi a tradicionális receptekhez hasonló folyamatot, így kontextusban releváns. Nincsenek hallucinációk vagy hibák, és a leírás érthető, jól használható a felhasználó számára."
+        "answer_quality": 4,
+        "explanation": "A válasz részletesen és pontosan leírja az indiai tarka dal főzésének lépéseit, beleértve a lencse főzését és a fűszeres szósz elkészítését, ami megfelel a receptgyűjteményből származó tipikus instrukcióknak. A válasz jól követhető és hasznos, bár a befejezés kissé hiányos, mert a 11. pont nem teljesen zárul le."
       }
     },
     {
       "id": "q6",
-      "request_id": "req-q6-d931ba2f",
+      "request_id": "req-q6-d5677e22",
       "question": "Milyen összetevők kellenek a thai sült rizshez?",
-      "answer": "A thai sült rizshez a következő összetevők kellenek:\n\n- 2 evőkanál olaj\n- 2 csésze másnapos jázmin rizs\n- 1/2 font zöldbab, 3/4 hüvelykes darabokra vágva\n- 1/4 csésze vékonyra szeletelt salotta hagyma\n- 2 újhagyma, vékonyra szeletelve\n- 1 evőkanál apróra vágott fokhagyma\n- 2-3 thai chili, vékonyra szeletelve\n- 1 teáskanál szójaszósz\n- 1 evőkanál halszósz\n- 1 teáskanál granulált cukor\n- Csipetnyi őrölt fehér bors ízlés szerint\n- 1-2 nagy tojás\n- 1 uncia thai bazsalikom, durvára tépve\n\nDíszítéshez:\n- Lime, cikkekre vágva\n- Uborka, vékonyra szeletelve",
-      "latency_ms": 11014.810599997872,
+      "answer": "A thai sült rizshez (Thai fried rice with green beans and basil) a következő összetevők kellenek:\n\n- 2 evőkanál olaj, elosztva\n- 2 csésze előző napi jázmin rizs\n- 1/2 font zöldbab, kb. 2 cm-es darabokra vágva\n- 1/4 csésze vékonyra szeletelt mogyoróhagyma\n- 2 újhagyma, vékonyra szeletelve\n- 1 evőkanál aprított fokhagyma\n- 2–3 thai chili, vékonyra szeletelve\n- 1 teáskanál szójaszósz\n- 1 evőkanál halszósz\n- 1 teáskanál kristálycukor\n- Csipet fehér bors ízlés szerint\n- 1–2 nagy tojás\n- 28 g thai bazsalikom, durván tépve\n\nDíszítéshez: lime szeletek és vékonyra szeletelt uborka.\n\nHa szeretnél még kérdezni, szívesen segítek!",
+      "latency_ms": 5665.605199988931,
       "judge": {
-        "context_relevance": 4,
+        "context_relevance": 5,
         "faithfulness": "strong",
-        "answer_quality": 4,
-        "explanation": "A válasz részletes összetevőlistával szolgál, és megfelel a thai sült rizshez szokásos hozzávalóknak. Néhány összetevő kicsit szokatlan (pl. zöldbab), de nem helytelen, és nincs nyilvánvaló téves állítás. Az összefoglaló érthető és hasznos a felhasználó számára."
+        "answer_quality": 5,
+        "explanation": "A válasz részletesen felsorolja a thai sült rizshez szükséges összetevőket, amelyek megfelelnek a tipikus receptnek, és relevánsak a kérdés szempontjából. Nincsenek benne téves vagy kitalált információk, és a válasz jól érthető, hasznos a felhasználó számára."
       }
     },
     {
       "id": "q7",
-      "request_id": "req-q7-cd3f430e",
+      "request_id": "req-q7-dcbc4567",
       "question": "Hogyan kell Pad See Ew tésztát főzni?",
-      "answer": "Sajnos erről nincs információm a recepttáramban.",
-      "latency_ms": 6018.350100002863,
+      "answer": "A Pad See Ew tészta főzésének lépései a következők:\n\n1. Ha húsos változatot készítesz, a húst keverd össze a pác hozzávalóival és hagyd állni.\n2. Keverd össze a szósz összetevőit egy kis tálban.\n3. Melegíts 1 evőkanál olajat közepes-magas hőfokon, süsd meg a húst, majd tedd félre és tisztítsd meg a serpenyőt.\n4. Adj 1,5 evőkanál olajat és a fokhagymát a serpenyőbe, pirítsd illatosra.\n5. Üsd bele a tojásokat, törd össze a sárgáját, és süsd félig meg, majd keverd össze.\n6. Add hozzá a kínai brokkolit, és forgasd át az olajban.\n7. Tedd bele a friss rizstésztát (kb. 8 uncia), a szósz keveréket (4 teáskanál) és a cukrot (2 teáskanál).\n8. Emeld a hőt magasra, és keverd össze alaposan, hogy a tészta egyenletesen bevonódjon.\n9. Terítsd szét a tésztát a serpenyőben, hagyd 15-30 másodpercig pirulni az alját.\n10. Fordítsd meg, és ismételd meg a pirítást a másik oldalon.\n11. Add vissza a húst a serpenyőbe (kerüld a levet), és keverd össze.\n12. Tálald, majd készítsd el a második adagot ugyanígy.\n\nHa a tészta hűtőben volt",
+      "latency_ms": 7874.415300000692,
       "judge": {
-        "context_relevance": 1,
+        "context_relevance": 4,
         "faithfulness": "strong",
-        "answer_quality": 2,
-        "explanation": "A válasz nem tartalmaz kontextuális információt, de nem is hallucinál, és világosan jelzi, hogy nincs információ a recepttárban. Ez hasznos lehet, de nem nyújt választ a kérdésre."
+        "answer_quality": 4,
+        "explanation": "A válasz részletesen leírja a Pad See Ew tészta elkészítésének lépéseit, beleértve a hozzávalók előkészítését és a főzési folyamatot, ami releváns és pontos. Az utolsó mondat félbemarad, de a lényegi információk megvannak, így a válasz hasznos és érthető a felhasználó számára."
       }
     },
     {
       "id": "q8",
-      "request_id": "req-q8-078a7f34",
+      "request_id": "req-q8-4f3c4524",
       "question": "Hogyan süssek házi pitát?",
-      "answer": "A házi pita sütéséhez kövesd az alábbi lépéseket:\n\n1. Egy stand mixerben vagy kenyérsütő gépben add hozzá az összes hozzávalót (víz, olívaolaj, cukor, élesztő, só, teljes kiőrlésű liszt és sima liszt), majd dagaszd a tésztát sima és rugalmas állagúra, körülbelül 15-20 percig.\n2. Fedd le a tésztát, és hagyd meleg helyen állni egy órán át.\n3. Nyomd le a tésztát, és vágd 8 darabra (ha nagyobb pitákat szeretnél, vágd 6 darabra); formázz belőlük golyókat, fedd le egy nedves törölközővel, és pihentesd 10 percig.\n4. Nyújtsd ki a tésztát vékony körökre (maximum 1/4\" vastagságúra); helyezd lisztezett felületre, és fedd le egy nedves törölközővel 30 percig, amíg kissé megpuhul.\n5. Melegíts egy öntöttvas serpenyőt magas hőfokon, egy kis olajjal.\n6. Süsd a pitákat egyesével, amíg kissé meg nem pirulnak, majd fordítsd meg.\n\nJó étvágyat!",
-      "latency_ms": 13499.380100001872,
+      "answer": "A házi pita sütéséhez kövesd az alábbi lépéseket:\n\n1. Keverd össze az összes hozzávalót (víz, olívaolaj, cukor, instant élesztő, só, teljes kiőrlésű liszt, sima liszt) egy dagasztógépben vagy kenyérsütő gépben, és dagaszd sima, rugalmas tésztává kb. 15–20 percig.  \n2. Hagyd a tésztát meleg helyen, letakarva egy órán át kelni.  \n3. Üsd le a tésztát, oszd 8 darabra (vagy 6-ra, ha nagyobb pitákat szeretnél), gömbölyítsd őket, takard le nedves törölközővel, és pihentesd 10 percig.  \n4. Nyújtsd ki a tésztadarabokat vékony körökké (max. 1/4 hüvelyk vastagra), lisztezett felületen tedd őket, takard le nedves törölközővel, és hagyd kelni 30 percig, amíg kissé megpuffadnak.  \n5. Hevíts fel egy öntöttvas serpenyőt magas hőfokon, kevés olajjal.  \n6. Süsd a pitákat egyenként, megfordítva, amikor enyhén megpirulnak.\n\nJó étvágyat!",
+      "latency_ms": 6692.918200002168,
       "judge": {
-        "context_relevance": 4,
+        "context_relevance": 5,
         "faithfulness": "strong",
-        "answer_quality": 4,
-        "explanation": "A válasz jól leképezi a házi pita sütéséhez szükséges lépéseket, valószínűséggel hasonló receptekből származó eljárást mutat be. Nincs benne nyilvánvaló hiba vagy hallucináció, a recept érthető és praktikus. Egyes apró részletek, mint a pontos sütési idő vagy hőfok hiányoznak, ezért nem kap teljes 5-öst."
+        "answer_quality": 5,
+        "explanation": "A válasz részletes, lépésről lépésre bemutatja a házi pita sütésének folyamatát, helyesen használja a hozzávalókat és a technikákat, így teljes mértékben megfelel a felhasználói kérdésnek és a receptgyűjteményből származó kontextusnak."
       }
     },
     {
       "id": "q9",
-      "request_id": "req-q9-36589e1c",
+      "request_id": "req-q9-c268cf8c",
       "question": "Milyen mártogatós a guasacaca?",
-      "answer": "A guasacaca egy krémes, venezuelai guacamole-szerű mártogatós, amely avokádót, hagymát, zöldpaprikát, jalapeñót, fokhagymát, koriandert, petrezselymet, fehér ecetet, lime levet és olívaolajat tartalmaz.",
-      "latency_ms": 4397.68400000321,
+      "answer": "A guasacaca egy krémes, venezuelai, guacamole-szerű mártogatós szósz. Összetevői között van avokádó, hagyma, zöldpaprika, jalapeño, fokhagyma, koriander, petrezselyem, fehér ecet, lime lé és olívaolaj. Általában turmixgéppel készül, és sóval, borssal ízesítik. Kiváló reggeli hash vagy sült yuca mellé.",
+      "latency_ms": 4022.5837000034517,
       "judge": {
         "context_relevance": 4,
-        "faithfulness": "partial",
+        "faithfulness": "strong",
         "answer_quality": 4,
-        "explanation": "A válasz releváns, és általános összetevőket sorol fel, azonban a guasacaca jellemzően nem tartalmaz avokádót, így van egy kisebb pontatlanság (hallucináció). A válasz érthető és hasznos a felhasználó számára."
+        "explanation": "A válasz jól leírja a guasacaca mártogatós jellegét és összetevőit, amelyek megfelelnek a receptgyűjteményből származó információknak. A leírás érthető és hasznos, bár a 'reggeli hash vagy sült yuca mellé' kifejezés kissé specifikus, de nem téves."
       }
     },
     {
       "id": "q10",
-      "request_id": "req-q10-baaeb98c",
+      "request_id": "req-q10-709b374f",
       "question": "Milyen fűszerezésű a Massaman curry?",
-      "answer": "A Massaman curry fűszerezése a következőkből áll: vörös curry paszta, pirított koriander mag, pirított kömény mag, őrölt fahéj, őrölt szegfűszeg, őrölt szerecsendió és egész kardamom hüvelyek.",
-      "latency_ms": 6652.059399999416,
+      "answer": "A Massaman curry fűszerezése a következőkből áll: pirított koriandermag, pirított köménymag, őrölt fahéj, őrölt szegfűszeg, őrölt szerecsendió és egész kardamom hüvelyek, melyeket egy boltban vásárolt piros curry pasztához adnak. Ezzel a fűszerkeverékkel készül a curry paszta.",
+      "latency_ms": 3743.7972000043374,
       "judge": {
         "context_relevance": 4,
         "faithfulness": "strong",
         "answer_quality": 4,
-        "explanation": "A válasz helyesen sorolja fel a Massaman curry jellemző fűszereit, és nem tartalmaz nyilvánvaló hibákat. A vörös curry paszta általánosan használt, bár nem minden receptben kötelező, így a kontextuális pontszám nem maximális. A válasz világos és hasznos a kérdező számára."
+        "explanation": "A válasz pontosan és részletesen felsorolja a Massaman curry jellegzetes fűszereit, amelyek a receptgyűjteményekben is megtalálhatók, így releváns és hiteles információt nyújt. Az érthetőség és hasznosság is jó, bár egy kis magyarázat a fűszerek szerepéről még javíthatta volna a választ."
       }
     },
     {
       "id": "q11",
-      "request_id": "req-q11-566d3b58",
+      "request_id": "req-q11-0ba12a36",
       "question": "Hogyan készül a klasszikus pizza tésztája?",
-      "answer": "A klasszikus pizza tésztája a következőképpen készül:\n\n1. Egy nagy tálban keverd össze a lisztet, a sót és az élesztőt.\n2. Add hozzá az olajat és a vizet, majd kézzel keverd, amíg sima tésztát nem kapsz, ami elválik a tál oldalától.\n3. Gyúrd a tésztát egy lisztezett felületen, amíg rugalmas és elasztikus nem lesz, és 50-55°F (10-13°C) hőmérsékletet ér el.\n4. Kenj meg egy sütőlapot olívaolajjal, majd oszd a tésztát hat egyenlő részre, formázz belőlük golyókat, és helyezd a sütőlapra.\n5. Kend meg a golyókat olajjal, és fedd le szorosan műanyag fóliával.\n6. Tedd a hűtőbe, és hagyd pihenni egy éjszakán át.\n7. Két órával a pizza készítése előtt, egy lisztezett felületen lapítsd a tésztát 1/2\" vastag korongokká.\n8. Szórd meg liszttel, és lazán fedd le műanyag fóliával; hagyd állni.\n9. Körülbelül 45 perccel a sütés előtt helyezd a követ a sütőbe, és melegítsd elő a sütőt a lehető legforróbbra.\n10. Nyújtsd ki a tésztát, és készíts pizzákat!\n\nHa a tészta nem nyúlik ki, hagyd pihenni 5-20 percig, majd próbáld újra",
-      "latency_ms": 18967.329099999915,
+      "answer": "A klasszikus pizza tésztája a következőképpen készül (Dokumentum 1 alapján):\n\nHozzávalók:\n- 4,5 csésze liszt (lehetőleg magas gluténtartalmú vagy kenyérliszt)\n- 1,75 teáskanál só\n- 1 teáskanál instant élesztő\n- 1/4 csésze olívaolaj\n- 1,75 csésze jéghideg víz (kb. 40ºF, azaz kb. 4-5°C)\n- durumbúzadara vagy kukoricakeményítő a szóráshoz\n\nElkészítés lépései:\n1. Keverd össze a lisztet, sót és élesztőt egy nagy tálban.\n2. Add hozzá az olajat és a vizet, majd kézzel kevergesd körkörösen, amíg sima tésztát kapsz, ami elválik a tál oldalától.\n3. Gyúrd a tésztát a pulton, amíg rugalmas és ruganyos lesz, kb. 50–55ºF (10–13ºC) hőmérsékletű.\n4. Olajozz meg egy sütőlapot, oszd a tésztát 6 egyenlő részre, gömbölyítsd őket, és helyezd a sütőlapra.\n5. Kend meg mindegyik tésztagombócot olajjal, majd fóliázd le szorosan.\n6. Tedd a hűtőbe pihenni egy éjszakára.\n7. Kb. két órával a sütés előtt lisztezett felületen lapítsd ki fél hüvelyk vastag korongokra,",
+      "latency_ms": 6007.5680000009015,
       "judge": {
-        "context_relevance": 4,
-        "faithfulness": "partial",
-        "answer_quality": 4,
-        "explanation": "A válasz részletesen bemutatja a pizza tészta készítésének lépéseit, de a hőmérsékleti javaslatok (50-55°F) nem egyeztethetők a recepttárból származó általánosan ismert receptekkel, ami bizonyos mértékű tévedést jelenthet. Általánosságban a válasz jól használható és érthető."
+        "context_relevance": 5,
+        "faithfulness": "strong",
+        "answer_quality": 5,
+        "explanation": "A válasz részletesen és pontosan ismerteti a klasszikus pizza tészta elkészítésének lépéseit és hozzávalóit, a receptgyűjteményből származó kontextust használva, és nem tartalmaz téves információkat. A leírás érthető és hasznos a felhasználó számára."
       }
     },
     {
       "id": "q12",
-      "request_id": "req-q12-065d72b3",
+      "request_id": "req-q12-bda3c117",
       "question": "Milyen indiai étel az aloo matar?",
-      "answer": "Az aloo matar egy indiai étel, amely burgonyából (aloo) és zöld borsóból (matar) készül. Ez egy fűszeres curry, amelyet különböző fűszerekkel, például gyömbérrel, fokhagymával és garam masalával ízesítenek. Az étel általában más indiai ételekkel együtt tálalva fogyasztják.",
-      "latency_ms": 11977.072699999553,
+      "answer": "Az aloo matar egy indiai étel, amely burgonyából (aloo) és zöldborsóból (matar) készül. Egy fűszeres curry, amelyhez paradicsom, fokhagyma, gyömbér, fahéj, szegfűszeg, kardamom, kömény, hagyma, chilipaprika, koriander, kurkuma, chili por, garam masala és kasuri methi (száraz görögszéna levél) is tartozik. Az étel kb. 45 perc alatt elkészíthető, és általában más fogásokkal együtt tálalják. A burgonyát és a borsót fűszeres paradicsomos szószban főzik meg, majd korianderrel díszítik.",
+      "latency_ms": 5530.477600012091,
       "judge": {
-        "context_relevance": 4,
+        "context_relevance": 5,
         "faithfulness": "strong",
-        "answer_quality": 4,
-        "explanation": "A válasz pontosan és helyesen írja le az aloo matar ételt, amely burgonya és zöldborsó felhasználásával készül, fűszeres curry formájában. A válasz releváns és hű a kontextusban szereplő receptekhez, valamint érthető és hasznos a felhasználó számára."
+        "answer_quality": 5,
+        "explanation": "A válasz pontosan és részletesen ismerteti az aloo matar összetevőit és elkészítési módját, megfelel az indiai receptgyűjteményekben található információknak, és jól érthető a felhasználó számára."
       }
     },
     {
       "id": "q13",
-      "request_id": "req-q13-4058b9b1",
+      "request_id": "req-q13-553231ff",
       "question": "Milyen recept van okrával?",
       "answer": "Sajnos erről nincs információm a recepttáramban.",
-      "latency_ms": 2764.753200000996,
-      "judge": {
-        "context_relevance": 5,
-        "faithfulness": "strong",
-        "answer_quality": 4,
-        "explanation": "A válasz konkrétan jelzi, hogy a recepttárban nincs okrával kapcsolatos recept, ami pontos és hiteles. Bár nem segít új recepttel, őszinte és releváns információt ad."
-      }
-    },
-    {
-      "id": "q14",
-      "request_id": "req-q14-f12bf2c1",
-      "question": "Hogyan készül a görög citromos tahini szósz?",
-      "answer": "A görög citromos tahini szósz elkészítése a következőképpen történik:\n\n1. Keverd össze a hozzávalókat: 1/2 csésze tahini, 2/3–3/4 csésze víz (igény szerint), 3 evőkanál citromlé, 1 gerezd fokhagyma (finomra vágva), 1 evőkanál olívaolaj, 3/4 teáskanál tengeri só és bors.\n2. Az összes hozzávalót keverd össze, kezdve a 2/3 csésze vízzel, és adj hozzá többet, ha szükséges.\n3. A szósz 5 napig eltartható a hűtőben.\n\nJó étvágyat!",
-      "latency_ms": 5628.077599998505,
-      "judge": {
-        "context_relevance": 5,
-        "faithfulness": "strong",
-        "answer_quality": 5,
-        "explanation": "A válasz pontosan, részletesen és konzisztensen mutatja be a görög citromos tahini szósz elkészítését, a receptgyűjteményhez illeszkedve, nem tartalmaz hallucinációkat, és érthető, hasznos."
-      }
-    },
-    {
-      "id": "q17_multi",
-      "request_id": "req-q17_multi-46bfe835",
-      "question": "Milyen indiai ételeket találok a listában?",
-      "answer": "Az indiai ételek közül a következőket találod a listában:\n\n1. Cucumber Raita\n2. Egg Biryani\n3. Tarka Dal\n4. Vada\n5. Milagu Sadam (Indian Black Pepper Rice)\n6. Channa Masala\n7. Biryani Shorba\n8. Aloo Matar\n9. Bhindi Fry\n10. Gobi Manchurian (Dry)\n11. Masala Green Beans\n12. Roti\n\nEzek mind indiai ételek, amelyek különböző ízeket és elkészítési módokat képviselnek.",
-      "latency_ms": 5826.47630000065,
-      "judge": {
-        "context_relevance": 5,
-        "faithfulness": "strong",
-        "answer_quality": 5,
-        "explanation": "A válasz pontosan felsorolja az indiai ételeket a listából, helyesen azonosítva azokat és mellékelve egy rövid összefoglalót, ami releváns és hasznos a felhasználó számára."
-      }
-    },
-    {
-      "id": "q18_spec",
-      "request_id": "req-q18_spec-62777d45",
-      "question": "Melyik receptben használunk csicseriborsót?",
-      "answer": "Sajnos erről nincs információm a recepttáramban.",
-      "latency_ms": 5598.294100000203,
+      "latency_ms": 2204.221099993447,
       "judge": {
         "context_relevance": 1,
         "faithfulness": "strong",
         "answer_quality": 2,
-        "explanation": "A válasz nem tartalmaz kontextuális információt, de helyesen jelzi, hogy nincs adat a kérdésre, ezért nem hallucinál. Azonban nem túl hasznos a felhasználó számára."
+        "explanation": "A válasz hűen tükrözi a rendelkezésre álló információ hiányát az okráról szóló receptek tekintetében, de nem nyújt alternatív megoldást vagy további tájékoztatást, így korlátozottan hasznos."
       }
     },
     {
-      "id": "q19_spec",
-      "request_id": "req-q19_spec-9e838349",
-      "question": "Milyen tésztaféléket vagy kenyereket tudok sütni?",
-      "answer": "A recepttáramban a következő tésztaféléket és kenyereket tudod sütni:\n\n1. **Tortilla** - Finom, vékony lapok, amelyeket a tésztából készíthetsz.\n2. **Pita kenyér** - Puha, kerek kenyér, amely jól tölthető.\n3. **Bagel** - Kerek, lyukas kenyér, amelyet forró vízben főznek, majd sütnek.\n4. **Roti** - Indiai lapos kenyér, amely gyorsan elkészíthető.\n5. **Pizza tészta** - Különböző pizzákhoz használható tészta.\n6. **Pan pizza** - Vastagabb, serpenyőben sült pizza tészta.\n7. **Lágy perec** - Különböző ízesítésekkel készíthető, puha perec.\n\nEzek közül bármelyiket elkészítheted!",
-      "latency_ms": 13919.443899998441,
-      "judge": {
-        "context_relevance": 4,
-        "faithfulness": "strong",
-        "answer_quality": 4,
-        "explanation": "A válasz releváns recepttípusokat sorol fel, amelyeket a receptgyűjtemény alapján sütni lehet. Nincs nyilvánvaló téves állítás vagy hallucináció. Az információ hasznos és érthető, bár nem túl részletes."
-      }
-    },
-    {
-      "id": "q20_spec",
-      "request_id": "req-q20_spec-027327e8",
-      "question": "Milyen thai ételek vannak a gyűjteményben?",
-      "answer": "A gyűjteményben a következő thai ételek találhatók:\n\n1. Larb Gai (Thai csirke- és fűszer saláta)\n2. Thai sült rizs zöldbabbal és bazsalikommal (Khao Phat Muu)\n3. Kai Kaphrao Khai Dao (Pirított sertés forró bazsalikommal)\n4. Pad Thai\n5. Phat Phrik Khing (Thai száraz curry pirított tofuval és hosszú babbal)\n6. Pad Pak Boong (Thai pirított reggeli dicsőség)\n7. Yum Som-O (Thai pomelo saláta)\n8. Pad See Ew\n\nHa további információra van szükséged, szívesen segítek!",
-      "latency_ms": 5754.25499999983,
+      "id": "q14",
+      "request_id": "req-q14-1fd1fdb7",
+      "question": "Hogyan készül a görög citromos tahini szósz?",
+      "answer": "A görög citromos tahini szósz (Lemon Tahini Dressing) elkészítése a következő:\n\nHozzávalók:\n- 1/2 csésze tahini\n- 2/3–3/4 csésze víz (szükség szerint)\n- 3 evőkanál citromlé\n- 1 gerezd fokhagyma, aprítva\n- 1 evőkanál olívaolaj\n- 3/4 teáskanál tengeri só\n- fekete bors ízlés szerint\n\nElkészítés:\n1. Keverd össze a hozzávalókat egy tálban, kezdve 2/3 csésze vízzel, majd adj hozzá még vizet, ha szükséges, hogy megfelelő állagot kapj.\n2. Hűtőben 5 napig eltartható.\n\nEgyszerű és gyors recept, kb. 5 perc alatt elkészíthető.",
+      "latency_ms": 5019.613299999037,
       "judge": {
         "context_relevance": 5,
         "faithfulness": "strong",
         "answer_quality": 5,
-        "explanation": "A válasz részletesen felsorolja a gyűjteményben szereplő thai ételeket, helyesen és relevánsan a kérdéshez kapcsolódva, és elkerüli a hallucinációkat, így nagyon hasznos a felhasználó számára."
+        "explanation": "A válasz pontosan és részletesen leírja a görög citromos tahini szósz elkészítését, a hozzávalókat és az elkészítési lépéseket, megfelel a receptgyűjteményből származó tipikus recepteknek, és jól érthető a felhasználó számára."
+      }
+    },
+    {
+      "id": "q17_multi",
+      "request_id": "req-q17_multi-811464e0",
+      "question": "Milyen indiai ételeket találok a listában?",
+      "answer": "A listában az alábbi indiai ételeket találod:\n\n- Cucumber Raita  \n- Egg Biryani  \n- Tarka Dal  \n- Vada  \n- Milagu Sadam (Indian Black Pepper Rice)  \n- Channa Masala  \n- Biryani Shorba  \n- Aloo Matar  \n- Bhindi Fry  \n- Masala Green Beans (Masala Barbatti Sabji)  \n- Roti  \n\nEzek mind indiai eredetű vagy indiai konyhára jellemző receptek. Ha szeretnél részletesebb információt valamelyikről, szólj nyugodtan!",
+      "latency_ms": 3589.362800004892,
+      "judge": {
+        "context_relevance": 5,
+        "faithfulness": "strong",
+        "answer_quality": 5,
+        "explanation": "A válasz pontosan felsorolja az indiai ételeket a listából, amelyek valóban indiai eredetűek vagy az indiai konyhára jellemzőek, így releváns, hiteles és hasznos a felhasználó számára."
+      }
+    },
+    {
+      "id": "q18_spec",
+      "request_id": "req-q18_spec-9fafe23d",
+      "question": "Melyik receptben használunk csicseriborsót?",
+      "answer": "A megadott receptek között nincs olyan, amelyben csicseriborsót használnánk.",
+      "latency_ms": 2576.4227000036044,
+      "judge": {
+        "context_relevance": 5,
+        "faithfulness": "strong",
+        "answer_quality": 5,
+        "explanation": "A válasz közvetlenül a kérdésre reagál, és helyesen állítja, hogy a megadott receptek között nincs csicseriborsót tartalmazó recept, így releváns, pontos és hasznos."
+      }
+    },
+    {
+      "id": "q19_spec",
+      "request_id": "req-q19_spec-64a1311a",
+      "question": "Milyen tésztaféléket vagy kenyereket tudok sütni?",
+      "answer": "A recepttáramban a következő tésztaféléket és kenyereket tudsz sütni:\n\n- Flour Tortillas (lapos tortillák)\n- Pita Bread (pita kenyér)\n- Soft Pretzels (puha perec)\n- Homemade Pasta (házi tészta)\n- Thin-Crust Pizza (vékony tésztás pizza)\n- No-Knead Pan Pizza (kelesztés nélküli serpenyős pizza)\n- Pizza Dough (pizza tészta)\n- Bagels (bejgliszerű, lyukas kenyér)\n- Roti (indiai lapos kenyér)\n\nEzek közül többféle lapos kenyér, kelt tészta és friss tészta is szerepel a receptjeim között. Ha valamelyikről részletes receptet szeretnél, szólj nyugodtan!",
+      "latency_ms": 7038.032700002077,
+      "judge": {
+        "context_relevance": 5,
+        "faithfulness": "strong",
+        "answer_quality": 5,
+        "explanation": "A válasz konkrét, a receptgyűjteményből származó tésztaféléket és kenyereket sorol fel, elkerüli a téves állításokat, és hasznos, érthető információt nyújt a felhasználónak."
+      }
+    },
+    {
+      "id": "q20_spec",
+      "request_id": "req-q20_spec-1ee5e75f",
+      "question": "Milyen thai ételek vannak a gyűjteményben?",
+      "answer": "A gyűjteményben a következő thai ételek találhatók:\n\n1. Larb Gai (Thai csirke és gyógynövény saláta)\n2. Thai fried rice with green beans and basil (Khao Phat Muu)\n3. Kai Kaphrao Khai Dao (Sült sertéshús csípős bazsalikommal)\n4. Pad Thai\n5. Phat Phrik Khing (Thai száraz curry tofuval és hosszú babbal)\n6. Pad Pak Boong (Thai sült reggeli dicsőség, vízispán)\n7. Yum Som-O (Thai pomelo saláta)\n8. Massaman Curry\n9. Pad See Ew\n\nHa szeretnél részletesebb információt valamelyik recepthez, szólj nyugodtan!",
+      "latency_ms": 4992.223699999158,
+      "judge": {
+        "context_relevance": 5,
+        "faithfulness": "strong",
+        "answer_quality": 5,
+        "explanation": "A válasz pontosan felsorolja a gyűjteményben található thai ételeket, releváns és helyes információkat ad, valamint felajánlja a további részletek megadását, ami hasznos a felhasználó számára."
       }
     }
   ]

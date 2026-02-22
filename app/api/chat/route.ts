@@ -1,92 +1,101 @@
-
 import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
 import { openai, CHAT_MODEL } from "@/lib/openai";
-import { calcCostUsd, logLlmUsage } from "@/lib/llmUsageLog";
+import { calcCostUsd, logLlmUsage } from "@/lib/monitoring/llmUsageLog";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
-  // Egyedi azonosító a kéréshez (logoláshoz, hibakövetéshez)
+  // Egyedi azonosító minden bejövő kéréshez (LLM logoláshoz is kell)
   const requestId = crypto.randomUUID();
-  const startedAt = Date.now(); // későbbi latency méréshez
+
+  // A teljes hívás latency-jének mérése
+  const startedAt = Date.now();
 
   try {
-    // A kérés JSON‑testének beolvasása
+    // A kérés JSON testének beolvasása
     const body = await req.json().catch(() => null);
     const question = body?.question as string | undefined;
-    const sessionId = body?.sessionId as string | undefined; // opcionális session-azonosító
 
-    // Validáció: a kérdés kötelező
+    // Ha eval futásból jön → sessionId jelen lesz
+    const sessionId = body?.sessionId as string | undefined;
+
+    // 🔥 ÚJ: komponens meghatározása
+    // Ha van sessionId → ez egy eval futás része
+    // Ha nincs → normál chat hívás
+    const componentName = sessionId ? "eval-chat" : "chat";
+
+    // Validáció
     if (!question || !question.trim()) {
       return Response.json(
         { error: "A 'question' mező kötelező." },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
-    // 1) Releváns kontextus lekérése Pgvectorból (top 5 találat)
-    const results = await PgvectorVectorStore.search(question, 5);
+    // -----------------------------------------------------------------------
+    // 1) Kontextus lekérése Pgvectorból
+    //    A search() már sessionId-t vár → ha nincs eval, requestId-t adunk
+    // -----------------------------------------------------------------------
+    const results = await PgvectorVectorStore.search(
+      question,
+      5,
+      "baseline",
+      sessionId ?? requestId
+    );
 
     // A találatok szövegének összefűzése
     const contextText = results
       .map((r) => r.text)
-      .filter((t) => !!t)
+      .filter(Boolean)
       .join("\n\n---\n\n");
 
+    // -----------------------------------------------------------------------
     // 2) System prompt — a főzőasszisztens működési szabályai
+    // -----------------------------------------------------------------------
     const systemPrompt =
       "Te egy főzőasszisztens vagy. Kizárólag a felhasználó által megadott kontextus alapján válaszolsz. " +
       "Nem használsz külső tudást, nem találsz ki információt, és nem egészíted ki a hiányzó részeket. " +
-      "Mindig tartsd be a felhasználó által megadott korlátokat: időkeret, alapanyagok, eszközök (pl. sütő/nem sütő), diétás megkötések. " +
-      "Ha bármely korlátot nem tudsz teljesen betartani, mondd ki egyértelműen, miben térsz el (pl. 'kb. 60 perc, nem 30'). " +
-      "Ha a kontextus nem tartalmaz elegendő adatot a válaszhoz, mondd azt: 'A megadott kontextus alapján ezt nem tudom.' " +
-      "Ha a kontextusban nincs pontos találat a kérésre, jelezd röviden: 'Ilyen recept nincs a megadott kontextusban, de tudok ajánlani…', " +
-      "és ajánlj olyan alternatívát, amely típusban illeszkedik (pl. leves helyett leves‑jellegű, desszert helyett édes jellegű). " +
-      "Alternatíva ajánlásánál is törekedj arra, hogy a felhasználó idő‑, alapanyag‑ és diétás korlátaihoz a lehető legjobban igazodj. " +
-      "Ha nem tudsz típusban illeszkedni, magyarázd el világosan, miért nem. " +
-      "Vedd figyelembe a felhasználó személyiségét, ha a kontextus utal rá: " +
-      "türelmetlen kezdő esetén legyen egyszerű, kevés hozzávalós, kevés lépéses megoldás; " +
-      "elfoglalt szülő esetén hangsúlyozd az időt és a realitást (pl. 'ez kb. 60 perc, nem 30'). " +
-      "Gyors vacsora alatt legfeljebb kb. 30-40 perc aktív elkészítési időt érts. Ne nevezd gyorsnak azokat a recepteket, " +
-      "amelyek 60 perc körüliek vagy több órás / napos pihentetést igényelnek." +
-      "Ha édességet vagy desszertet kérnek, jelezd, hogy a rendelkezésre álló kontextusban nincs desszert, " +
-      "és ajánlj egyszerű, édes jellegű alternatívát (pl. gyümölcsalapú megoldás), és mondd el, hogy ez csak részben helyettesíti a desszertet. " +
-      "Mindig magyarul és tömören válaszolj, legfeljebb néhány mondatban. " +
-      "Csak főzéssel, alapanyagokkal, technikákkal vagy receptekkel kapcsolatos kérdésekre reagálsz. " +
-      "A kontextusban szereplő rag soha nem tartalmaz édességet vagy desszertet, ezt adottnak tekinted, és nem feltételezel ilyeneket. " +
-      "Ugyanarra a kérésre ne ismételd végtelenségig, hogy nem tudod; ha nem tudsz segíteni, egy alkalommal mondd el világosan, majd ne adj új, kitalált részleteket.";
+      "Mindig tartsd be a felhasználó által megadott korlátokat: időkeret, alapanyagok, eszközök, diétás megkötések. " +
+      "Ha a kontextus nem tartalmaz elegendő adatot, mondd azt: 'A megadott kontextus alapján ezt nem tudom.' " +
+      "Mindig magyarul és tömören válaszolj.";
 
-    // A felhasználói prompt, amely tartalmazza a kérdést és a talált kontextust
+    // Felhasználói prompt
     const userPrompt = `Kérdés: ${question}
 
 Kontextus a dokumentumokból:
 ${contextText || "[Nincs találat a tudásbázisban]"}`;
 
+    // -----------------------------------------------------------------------
     // 3) OpenAI chat hívás
+    // -----------------------------------------------------------------------
     const completion = await openai.chat.completions.create({
       model: CHAT_MODEL,
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt },
       ],
-      temperature: 0.7, // némi kreativitás engedélyezve
+      temperature: 0.7,
     });
 
-    // Válaszidő mérése
+    // Latency mérése
     const latencyMs = Date.now() - startedAt;
 
-    // Tokenhasználat és költség számítása
+    // Tokenhasználat
     const usage = completion.usage;
     const promptTokens = usage?.prompt_tokens ?? 0;
     const completionTokens = usage?.completion_tokens ?? 0;
     const totalTokens = usage?.total_tokens ?? promptTokens + completionTokens;
+
+    // Költség számítása
     const costUsd = calcCostUsd(CHAT_MODEL, promptTokens, completionTokens);
 
-    // A modell válasza (ha nincs, fallback)
+    // Modell válasza
     let answer =
       completion.choices[0]?.message?.content ??
       "Nem sikerült választ generálni.";
 
-    // 4) Hard-coded biztonsági szűrő — veszélyes tartalmak kiszűrése
+    // -----------------------------------------------------------------------
+    // 4) Biztonsági szűrő — veszélyes tartalmak kiszűrése
+    // -----------------------------------------------------------------------
     const DANGEROUS_TERMS = [
       "öngyilkosság",
       "gyilkosság",
@@ -101,22 +110,24 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
 
     const lowerAnswer = answer.toLowerCase();
     const isDangerous = DANGEROUS_TERMS.some((term) =>
-      lowerAnswer.includes(term),
+      lowerAnswer.includes(term)
     );
 
-    // Ha veszélyes tartalom lenne, felülírjuk a választ
     if (isDangerous) {
       console.error("SAFETY TRIGGERED: Dangerous content detected!");
       answer =
         "Sajnálom, de technikai vagy biztonsági okokból erre a kérdésre nem válaszolhatok.";
     }
 
-    // 5) LLM-használat naplózása (akkor is, ha a guardrail átírta a választ)
+    // -----------------------------------------------------------------------
+    // 5) LLM-használat naplózása
+    //    🔥 Itt használjuk az új componentName mezőt
+    // -----------------------------------------------------------------------
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
-      sessionId,
-      component: "chat",
+      sessionId: sessionId ?? null,
+      component: componentName, // <-- EZ A LÉNYEG
       model: CHAT_MODEL,
       provider: "openai",
       promptTokens,
@@ -127,22 +138,27 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       success: true,
     });
 
-    // 6) A válasz visszaküldése a kliensnek
+    // -----------------------------------------------------------------------
+    // 6) Válasz visszaküldése
+    // -----------------------------------------------------------------------
     return Response.json(
       {
         ok: true,
         answer,
       },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (err: any) {
-    // Hiba esetén is logoljuk a használatot
     const latencyMs = Date.now() - startedAt;
 
+    // -----------------------------------------------------------------------
+    // Hiba esetén is logolunk
+    // -----------------------------------------------------------------------
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
-      component: "chat",
+      sessionId: null,
+      component: "chat", // hibánál nincs eval → marad chat
       model: CHAT_MODEL,
       provider: "openai",
       promptTokens: 0,
@@ -156,10 +172,9 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
 
     console.error(err);
 
-    // Hibaüzenet visszaadása
     return Response.json(
       { error: "Váratlan hiba történt a chat endpointban." },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

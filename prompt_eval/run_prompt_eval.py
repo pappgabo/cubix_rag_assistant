@@ -1,9 +1,9 @@
-import json
+import json, time
 from typing import Dict, Any, List
 from config import PROMPT_TESTS_PATH, PROMPT_EVAL_RESULTS_PATH
-from prompt_eval.test_case_loader import load_prompt_tests
+from utils.prompt_utils import load_prompt_tests
 from prompt_eval.eval_engine import eval_single_case, compute_summary
-import time
+
 
 RESULTS_PATH = PROMPT_EVAL_RESULTS_PATH
 

@@ -2,13 +2,13 @@ from typing import List, Dict, Any, Tuple
 import psycopg
 from psycopg import sql
 from openai import OpenAI
-from config import OPENAI_API_KEY, EMBEDDING_MODEL, GPT41_MINI_IN_PER_M, GPT41_MINI_OUT_PER_M
+from config import OPENAI_API_KEY, EMBEDDING_MODEL
+from monitoring.log_llm_usage import log_llm_usage, calc_cost_usd
 from rag_eval.metrics import unique_base_ids_in_order
-import json
+import datetime, json, time, uuid 
 from dataclasses import dataclass
 from monitoring.log_llm_usage import log_llm_usage
-import time
-import uuid
+
 
 
 # ------------------------------------------------------------
@@ -52,41 +52,33 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # 1) EMBEDDING GENERÁLÁSA
 # ------------------------------------------------------------
 def embed_text(text: str, session_id=None, request_id=None) -> List[float]:
-    """
-    Egy szöveget embedding vektorrá alakít az OpenAI embedding API segítségével.
-    A hívásról részletes LLM-usage log készül (latency, tokenek, modell stb.).
-    """
     start = time.perf_counter()
     r_id = request_id or str(uuid.uuid4())
     s_id = session_id or f"rag-eval-fallback-{uuid.uuid4().hex[:6]}"
-    
-
-
 
     resp = client.embeddings.create(
         model=EMBEDDING_MODEL,
-        input=[text],           # egyetlen szöveg → listában kell átadni
-        encoding_format="float" # float32 vektorokat kérünk
+        input=[text],
+        encoding_format="float"
     )
 
     prompt_tokens = resp.usage.prompt_tokens
-    completion_tokens = 0 #Embedding modellek nem generálnak szöveget, ezért nincs completion.A költségszámítás is csak a prompt tokenekre vonatkozik.
-    total_tokens = resp.usage.total_tokens
-
-    cost_usd = (prompt_tokens * GPT41_MINI_IN_PER_M / 1_000_000 + 
-                completion_tokens * GPT41_MINI_OUT_PER_M / 1_000_000)
+    # Az új, közös függvény használata a 8 tizedesjegyes precízióért
+    cost_usd = calc_cost_usd(EMBEDDING_MODEL, prompt_tokens, 0)
+    
     latency_ms = int((time.perf_counter() - start) * 1000)
 
     log_llm_usage({
+        "timestamp":  datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
         "requestId": r_id,
         "sessionId": s_id,
         "component": "rag-embed",
         "model": EMBEDDING_MODEL,
         "provider": "openai",
         "promptTokens": prompt_tokens,
-        "completionTokens": completion_tokens,
-        "totalTokens": total_tokens,
-        "costUsd": cost_usd,
+        "completionTokens": 0,
+        "totalTokens": prompt_tokens,
+        "costUsd": cost_usd, 
         "latencyMs": latency_ms,
         "success": True,
     })
@@ -214,7 +206,7 @@ def retrieve_chunked_rerank(
     request_id=request_id)
 
     # 2) Reranking CrossEncoderrel
-    reranked = rerank_fn(question, candidates, top_n=top_k * 2)
+    reranked = rerank_fn(question, candidates, top_n=top_k * 2, session_id=session_id, request_id=request_id)
 
     # 3) Egyedi dokumentumok kiválasztása
     ids = unique_base_ids_in_order(reranked, top_k)
