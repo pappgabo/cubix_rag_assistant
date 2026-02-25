@@ -4,24 +4,31 @@ import { calcCostUsd, logLlmUsage } from "@/lib/monitoring/llmUsageLog";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
-  // Egyedi azonosító minden bejövő kéréshez (LLM logoláshoz is kell)
+  // Egyedi azonosító minden kéréshez
   const requestId = crypto.randomUUID();
-
-  // A teljes hívás latency-jének mérése
   const startedAt = Date.now();
 
   try {
-    // A kérés JSON testének beolvasása
+    // 1) Body beolvasása
     const body = await req.json().catch(() => null);
     const question = body?.question as string | undefined;
 
-    // Ha eval futásból jön → sessionId jelen lesz
-    const sessionId = body?.sessionId as string | undefined;
+    // 2) Eredeti sessionId kinyerése (eval futás esetén)
+    const incomingSessionId = body?.sessionId as string | undefined;
 
-    // 🔥 ÚJ: komponens meghatározása
-    // Ha van sessionId → ez egy eval futás része
-    // Ha nincs → normál chat hívás
-    const componentName = sessionId ? "eval-chat" : "chat";
+    // 3) DRÓTOZÁS:
+    //    - Ha van incomingSessionId → eval futás
+    //    - Ha nincs → prod hívás → kapjon prod- prefixet
+    let sessionId: string;
+    let componentName: string;
+
+    if (incomingSessionId) {
+      sessionId = incomingSessionId;
+      componentName = "eval-chat";
+    } else {
+      sessionId = `prod-${requestId}`;
+      componentName = "chat";
+    }
 
     // Validáció
     if (!question || !question.trim()) {
@@ -33,23 +40,21 @@ export async function POST(req: Request) {
 
     // -----------------------------------------------------------------------
     // 1) Kontextus lekérése Pgvectorból
-    //    A search() már sessionId-t vár → ha nincs eval, requestId-t adunk
     // -----------------------------------------------------------------------
     const results = await PgvectorVectorStore.search(
       question,
       5,
       "baseline",
-      sessionId ?? requestId
+      sessionId // mindig a közös sessionId-t adjuk át
     );
 
-    // A találatok szövegének összefűzése
     const contextText = results
       .map((r) => r.text)
       .filter(Boolean)
       .join("\n\n---\n\n");
 
     // -----------------------------------------------------------------------
-    // 2) System prompt — a főzőasszisztens működési szabályai
+    // 2) System prompt
     // -----------------------------------------------------------------------
     const systemPrompt =
       "Te egy főzőasszisztens vagy. Kizárólag a felhasználó által megadott kontextus alapján válaszolsz. " +
@@ -58,7 +63,6 @@ export async function POST(req: Request) {
       "Ha a kontextus nem tartalmaz elegendő adatot, mondd azt: 'A megadott kontextus alapján ezt nem tudom.' " +
       "Mindig magyarul és tömören válaszolj.";
 
-    // Felhasználói prompt
     const userPrompt = `Kérdés: ${question}
 
 Kontextus a dokumentumokból:
@@ -76,25 +80,21 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       temperature: 0.7,
     });
 
-    // Latency mérése
     const latencyMs = Date.now() - startedAt;
 
-    // Tokenhasználat
     const usage = completion.usage;
     const promptTokens = usage?.prompt_tokens ?? 0;
     const completionTokens = usage?.completion_tokens ?? 0;
     const totalTokens = usage?.total_tokens ?? promptTokens + completionTokens;
 
-    // Költség számítása
     const costUsd = calcCostUsd(CHAT_MODEL, promptTokens, completionTokens);
 
-    // Modell válasza
     let answer =
       completion.choices[0]?.message?.content ??
       "Nem sikerült választ generálni.";
 
     // -----------------------------------------------------------------------
-    // 4) Biztonsági szűrő — veszélyes tartalmak kiszűrése
+    // 4) Biztonsági szűrő
     // -----------------------------------------------------------------------
     const DANGEROUS_TERMS = [
       "öngyilkosság",
@@ -108,26 +108,20 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
       "kokain",
     ];
 
-    const lowerAnswer = answer.toLowerCase();
-    const isDangerous = DANGEROUS_TERMS.some((term) =>
-      lowerAnswer.includes(term)
-    );
-
-    if (isDangerous) {
+    if (DANGEROUS_TERMS.some((t) => answer.toLowerCase().includes(t))) {
       console.error("SAFETY TRIGGERED: Dangerous content detected!");
       answer =
         "Sajnálom, de technikai vagy biztonsági okokból erre a kérdésre nem válaszolhatok.";
     }
 
     // -----------------------------------------------------------------------
-    // 5) LLM-használat naplózása
-    //    🔥 Itt használjuk az új componentName mezőt
+    // 5) LLM logolás
     // -----------------------------------------------------------------------
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
-      sessionId: sessionId ?? null,
-      component: componentName, // <-- EZ A LÉNYEG
+      sessionId,
+      component: componentName,
       model: CHAT_MODEL,
       provider: "openai",
       promptTokens,
@@ -139,26 +133,17 @@ ${contextText || "[Nincs találat a tudásbázisban]"}`;
     });
 
     // -----------------------------------------------------------------------
-    // 6) Válasz visszaküldése
+    // 6) Válasz visszaadása
     // -----------------------------------------------------------------------
-    return Response.json(
-      {
-        ok: true,
-        answer,
-      },
-      { status: 200 }
-    );
+    return Response.json({ ok: true, answer }, { status: 200 });
   } catch (err: any) {
     const latencyMs = Date.now() - startedAt;
 
-    // -----------------------------------------------------------------------
-    // Hiba esetén is logolunk
-    // -----------------------------------------------------------------------
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
-      sessionId: null,
-      component: "chat", // hibánál nincs eval → marad chat
+      sessionId: `prod-${requestId}`,
+      component: "chat",
       model: CHAT_MODEL,
       provider: "openai",
       promptTokens: 0,

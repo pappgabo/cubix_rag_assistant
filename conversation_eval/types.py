@@ -47,7 +47,7 @@ class ConversationGoal(BaseModel):
     expected_turns: Optional[int] = None  # Várható párbeszéd-hossz (nem kötelező)
 
     # A beszélgetés témaköre
-    domain: Literal['technical', 'general', 'business', 'creative', 'educational']
+    domain: Literal['technical', 'general', 'business', 'creative', 'educational', 'gastronomy']
 
     # A cél komplexitása
     complexity: Literal['simple', 'moderate', 'complex']

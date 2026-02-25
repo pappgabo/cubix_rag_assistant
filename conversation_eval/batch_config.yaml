@@ -1,10 +1,27 @@
-personas:
-  - vague_communicator
-  - precise_questioner
-  - memory_heavy_user
+# batch_config.yaml
+# ---------------------------------------------------------------------------
+# RAG-ASSZISZTENS BATCH SZIMULÁCIÓ KONFIGURÁCIÓ
+# ---------------------------------------------------------------------------
 
+# A tesztelt felhasználói karakterek (definiálva a personas.py-ban)
+personas:
+  - budget_student            # Költségérzékeny, egyszerűséget keres
+  - health_conscious_foodie   # Egészségfókuszú, makrók és allergének érdeklik
+  - impatient_chef            # Profi, tömör és gyors válaszokat vár
+  - beginner_cook             # Kezdő, aki igényli a részletes vezetést
+
+# A tesztelt beszélgetési célok (definiálva a goals.py-ban)
 goals:
-  - vague_memory_recall
-  - specific_memory_recall
-  - memory_storage_test
-  - resist_clarification
+  - recipe_discovery          # Keresési képesség tesztelése (retrieval)
+  - ingredient_swap           # Kreativitás és szakmai logika tesztelése
+  - step_by_step_guide        # Kontextus-megőrzés (long conversation memory)
+  - dietary_filtering         # Pontosság és szűrési képesség
+  - recipe_variant_suggestion # Logikai módosítások a kontextus alapján
+  - menu_planning             # Összetett gondolkodás (multiple doc synthesis)
+
+# ---------------------------------------------------------------------------
+# MEGJEGYZÉSEK A FUTTATÁSHOZ:
+# - A szimuláció összesen 24 beszélgetést fog generálni (4 persona x 6 goal).
+# - A 'step_by_step_guide' miatt a max_turns értéket érdemes legalább 6-8-ra állítani 
+#   az orchestration.py-ban vagy a futtató scriptben.
+# ---------------------------------------------------------------------------

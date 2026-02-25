@@ -153,8 +153,8 @@ def retrieve_baseline_or_chunked(
     question: str,
     table_name: str,
     top_k: int,
-    session_id=None, # Új paraméter default értékkel
-    request_id=None  # Új paraméter default értékkel
+    session_id=None, 
+    request_id=None  
 ) -> Tuple[List[Dict[str, Any]], List[str]]:
     """
     Baseline vagy chunked pipeline lekérdezése pgvectorból.

@@ -1,126 +1,118 @@
-# scripts/summarize_llm_usage.py
-#
-# Ez a script az LLM-hívások naplófájljából (log) összegyűjti a
-# [LLM_USAGE] jelöléssel ellátott sorokat, majd statisztikát készít:
-# - összes hívás száma
-# - összköltség USD-ben
-# - átlagos és p95 latency
-# - komponensenkénti bontás (pl. RAG, chat, memory, judge)
-#
-# A log formátuma tipikusan így néz ki:
-#   [2025-01-01 12:00:00] [LLM_USAGE] {"component": "rag", "latencyMs": 123, "costUsd": 0.00045}
-#
-# A script futtatása:
-#   python scripts/summarize_llm_usage.py logs/llm-usage.log
-
 import json
 import sys
-from pathlib import Path
-from statistics import mean
+import os
+from collections import defaultdict
 
-
-# ---------------------------------------------------------------------------
-# LOGFÁJL BEOLVASÁSA
-# ---------------------------------------------------------------------------
-def read_log_file(path: str):
-    """
-    Beolvassa a logfájlt, és kinyeri belőle a [LLM_USAGE] sorok JSON tartalmát.
-
-    Működés:
-    - soronként olvas
-    - csak azokat a sorokat vizsgálja, amelyek tartalmazzák a "[LLM_USAGE]" jelölést
-    - a jelölés utáni JSON részt megpróbálja parse-olni
-    - hibás JSON esetén a sort kihagyja
-    """
-    entries = []
-    text = Path(path).read_text(encoding="utf-8")
-
-    for line in text.splitlines():
-        # Csak az LLM_USAGE sorok érdekesek
-        if "[LLM_USAGE]" not in line:
-            continue
-
-        # A jelölés utáni JSON rész kivágása
-        json_part = line.split("[LLM_USAGE]", 1)[1].strip()
-        if not json_part:
-            continue
-
-        # JSON parse
-        try:
-            entry = json.loads(json_part)
-            entries.append(entry)
-        except json.JSONDecodeError:
-            # Ha a JSON hibás, egyszerűen átugorjuk
-            continue
-
-    return entries
-
-
-# ---------------------------------------------------------------------------
-# STATISZTIKÁK KÉSZÍTÉSE
-# ---------------------------------------------------------------------------
-def summarize(entries):
-    """
-    Kiírja az LLM-hívások összesített statisztikáit.
-
-    Tartalmazza:
-    - összes hívás számát
-    - összköltséget USD-ben
-    - átlagos latency-t
-    - p95 latency-t
-    - komponensenkénti bontást
-    """
-    if not entries:
-        print("Nincs LLM_USAGE log bejegyzés.")
+def summarize_logs(log_file="logs/llm-usage.log"):
+    if not os.path.exists(log_file):
+        print(f"Hiba: A log fájl nem található: {log_file}")
         return
 
-    # Összköltség
-    total_cost = sum(e.get("costUsd", 0) for e in entries)
+    # Adatgyűjtők az összesítéshez
+    stats = defaultdict(lambda: {
+        "cost": 0.0, "p_tokens": 0, "c_tokens": 0, "count": 0, "latency": 0.0, "errors": 0
+    })
+    
+    # Adatgyűjtők a napi bontáshoz
+    daily_stats = defaultdict(lambda: defaultdict(lambda: {
+        "cost": 0.0, "p_tokens": 0, "c_tokens": 0, "count": 0, "latency": 0.0, "errors": 0
+    }))
 
-    # Latency statisztikák
-    latencies = [e.get("latencyMs", 0) for e in entries]
-    latencies_sorted = sorted(latencies)
-    avg_latency = mean(latencies_sorted)
-    p95_idx = int(len(latencies_sorted) * 0.95)
-    p95_latency = latencies_sorted[p95_idx] if latencies_sorted else 0
+    try:
+        with open(log_file, "r", encoding="utf-8") as f:
+            for line in f:
+                if "[LLM_USAGE]" not in line:
+                    continue
+                try:
+                    # JSON kinyerése a log sorból
+                    data = json.loads(line.split("[LLM_USAGE]")[1].strip())
+                    
+                    sid = data.get("sessionId") or ""
+                    rid = data.get("requestId") or ""
+                    comp = data.get("component") or ""
+                    dt = data.get("timestamp", "")[:10] or "Ismeretlen"
 
-    print("=== LLM Usage Summary ===")
-    print(f"Összes hívás: {len(entries)}")
-    print(f"Összes költség (USD): {total_cost:.6f}")
-    print(f"Átlag latency (ms): {avg_latency:.2f}, p95 latency (ms): {p95_latency}")
+                    # --- KATEGORIZÁLÁS ---
+                    if sid.startswith("prod-ingest-") or sid.startswith("ingest-"):
+                        cat = "SYSTEM (Ingest)"
+                    elif sid.startswith("prod-") or comp == "chat":
+                        cat = "PROD (User Chat)"
+                    elif sid.startswith("rag-eval-"):
+                        cat = "RAG-EVAL (Retrieval Test)"
+                    elif sid.startswith("sim_"):
+                        cat = "CONV-SIMULATION"
+                    elif "judge-eval" in sid or comp == "eval-judge":
+                        cat = "CONV-EVAL (Judge)"
+                    elif sid.startswith("eval-run-") and rid.startswith("req-"):
+                        cat = "PROMPT-EVAL (Batch Run)"
+                    elif comp == "rag-embed":
+                        # Beágyazások finomhangolt kezelése
+                        if sid.startswith("prod-"): 
+                            cat = "PROD (User Chat)"
+                        elif sid.startswith("rag-eval-"): 
+                            cat = "RAG-EVAL (Retrieval Test)"
+                        elif sid.startswith("ingest-"): 
+                            cat = "SYSTEM (Ingest)"
+                        else: 
+                            cat = "SYSTEM (Embeddings)"
+                    else:
+                        cat = f"OTHER ({comp})"
 
-    # Komponensenkénti bontás (pl. rag, chat, judge)
-    by_component = {}
-    for e in entries:
-        comp = e.get("component", "unknown")
-        bucket = by_component.setdefault(
-            comp, {"count": 0, "cost": 0.0, "latencies": []}
-        )
-        bucket["count"] += 1
-        bucket["cost"] += e.get("costUsd", 0)
-        bucket["latencies"].append(e.get("latencyMs", 0))
+                    # Adatok rögzítése
+                    for target in [daily_stats[dt][cat], stats[cat]]:
+                        target["cost"] += data.get("costUsd", 0)
+                        target["p_tokens"] += data.get("promptTokens", 0)
+                        target["c_tokens"] += data.get("completionTokens", 0)
+                        target["count"] += 1
+                        target["latency"] += data.get("latencyMs", 0)
+                        if not data.get("success", True):
+                            target["errors"] += 1
+                except:
+                    continue
 
-    print("\nKomponensenként:")
-    for comp, stats in by_component.items():
-        avg_comp_lat = mean(stats["latencies"]) if stats["latencies"] else 0
-        print(
-            f"  - {comp}: count={stats['count']}, "
-            f"cost={stats['cost']:.6f} USD, "
-            f"avgLatency={avg_comp_lat:.2f} ms"
-        )
+        # --- MEGJELENÍTÉS: DÁTUM SZERINTI BONTÁS ---
+        print("\n" + "="*95)
+        print(f"{'DÁTUM SZERINTI RÉSZLETES BONTÁS':^95}")
+        print("="*95)
+        
+        for day in sorted(daily_stats.keys()):
+            print(f"\n>>> NAP: {day}")
+            print(f"{'KATEGÓRIA':<25} | {'DB':<4} | {'TOKEN (P/C)':<15} | {'KÖLTSÉG ($)':<12} | {'ÁTL. IDŐ'}")
+            print("-" * 95)
+            for cat in sorted(daily_stats[day].keys()):
+                s = daily_stats[day][cat]
+                avg_lat = (s["latency"] / s["count"]) / 1000 if s["count"] > 0 else 0
+                tokens_str = f"{s['p_tokens']}/{s['c_tokens']}"
+                print(f"{cat:<25} | {s['count']:<4} | {tokens_str:<15} | {s['cost']:<12.6f} | {avg_lat:>7.2f}s")
 
+        # --- MEGJELENÍTÉS: VÉGLEGES ÖSSZESÍTÉS ---
+        print("\n" + "="*95)
+        print(f"{'VÉGLEGES ÖSSZESÍTÉS (MINDEN IDŐSZAK)':^95}")
+        print("="*95)
+        print(f"{'KATEGÓRIA':<25} | {'HÍVÁS':<6} | {'ÖSSZ TOKEN':<12} | {'ÖSSZ KÖLTSÉG ($)':<15} | {'ÁTL. IDŐ'}")
+        print("-" * 95)
+        
+        grand_total_cost = 0
+        grand_total_calls = 0
+        
+        for cat in sorted(stats.keys()):
+            s = stats[cat]
+            total_tokens = s["p_tokens"] + s["c_tokens"]
+            # Itt volt a hiba: most már bekerült az avg_lat a printbe!
+            avg_lat = (s["latency"] / s["count"]) / 1000 if s["count"] > 0 else 0
+            
+            grand_total_cost += s["cost"]
+            grand_total_calls += s["count"]
+            
+            print(f"{cat:<25} | {s['count']:<6} | {total_tokens:<12} | {s['cost']:<15.6f} | {avg_lat:>8.2f}s")
+            
+        print("-" * 95)
+        print(f"{'MINDÖSSZESEN':<25} | {grand_total_calls:<6} | {'':<12} | {grand_total_cost:<15.6f} |")
+        print("="*95 + "\n")
 
-# ---------------------------------------------------------------------------
-# FŐPROGRAM
-# ---------------------------------------------------------------------------
+    except Exception as e:
+        print(f"Váratlan hiba történt: {e}")
+
 if __name__ == "__main__":
-    # Ellenőrizzük, hogy megadtak-e logfájlt
-    if len(sys.argv) < 2:
-        print("Használat: python scripts/summarize_llm_usage.py logs/llm-usage.log")
-        sys.exit(1)
-
-    log_file = sys.argv[1]
-
-    # Log beolvasása és összegzés
-    entries = read_log_file(log_file)
-    summarize(entries)
+    target_file = sys.argv[1] if len(sys.argv) > 1 else "logs/llm-usage.log"
+    summarize_logs(target_file)

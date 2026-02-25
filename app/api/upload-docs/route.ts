@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     const { searchParams } = new URL(req.url);
     const strategy = searchParams.get("strategy") as "baseline" | "chunked";
     const finalStrategy = strategy || "baseline";
-
+    const ingestSessionId = `ingest-${crypto.randomUUID().slice(0, 8)}`;
     // ------------------------------------------------------------
     // 2) Request body beolvasása és validálása
     // ------------------------------------------------------------
@@ -95,12 +95,13 @@ export async function POST(req: Request) {
     }
 
     console.log(`>>> Ingest indítása: Stratégia = ${finalStrategy}`);
+    console.log(`>>> Ingest Session ID: ${ingestSessionId}`);
     console.log(`>>> Dokumentumok száma: ${docs.length}`);
 
     // ------------------------------------------------------------
     // 4) Dokumentumok indexelése pgvector-ba
     // ------------------------------------------------------------
-    await PgvectorVectorStore.indexDocuments(docs, finalStrategy);
+    await PgvectorVectorStore.indexDocuments(docs, finalStrategy, ingestSessionId);
 
     // ------------------------------------------------------------
     // 5) Sikeres válasz
@@ -108,6 +109,7 @@ export async function POST(req: Request) {
     return Response.json(
       {
         ok: true,
+        ingestSessionId,
         appliedStrategy: finalStrategy,
         receivedCount: body.length,
         validCount: docs.length,

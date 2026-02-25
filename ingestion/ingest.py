@@ -1,36 +1,20 @@
 import sys
 from pathlib import Path
-from ingestion.chunking import load_text_files
+import requests
+from config import API_URL, DATA_DIR
 
-# ---------------------------------------------------------------------------
-# A projekt gyökérkönyvtárának hozzáadása a sys.path-hoz
-#
-# A Python az importokat a futtatási könyvtárból próbálja feloldani.
-# Ha a scriptet nem a projekt gyökeréből futtatod, akkor a config.py
-# és más modulok nem lennének megtalálhatók.
-#
-# Ezért manuálisan hozzáadjuk a projekt gyökerét az import útvonalhoz.
-# ---------------------------------------------------------------------------
+# Ensure project root is importable when running the script from outside the repo root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-# ---------------------------------------------------------------------------
-# Külső importok
-# ---------------------------------------------------------------------------
-import requests
-from config import API_URL, DATA_DIR
 
-
-# ---------------------------------------------------------------------------
-# Szöveges fájlok beolvasása és dokumentumokká alakítása
-#
-# A data/ könyvtárból beolvassuk a .txt és .md fájlokat, majd
-# egységes dokumentum-objektumokká alakítjuk őket.
-# ---------------------------------------------------------------------------
 def load_baseline_docs():
+    """
+    Load all .txt and .md files from data/ and convert them into
+    a unified document structure for ingestion.
+    """
     docs = []
-    idx = 1
     patterns = ["*.txt", "*.md"]
 
     for pattern in patterns:
@@ -38,14 +22,14 @@ def load_baseline_docs():
             try:
                 text = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:
-                print(f"Nem sikerült beolvasni (kódolás hiba): {path}")
+                print(f"Kódolási hiba miatt kihagyva: {path}")
                 continue
 
             if not text.strip():
-                print(f"Üres fájl, kihagyom: {path.name}")
+                print(f"Üres fájl kihagyva: {path.name}")
                 continue
 
-            slug = Path(path.name).stem  # pl. "aloo-matar"
+            slug = path.stem
 
             docs.append({
                 "id": slug,
@@ -56,66 +40,41 @@ def load_baseline_docs():
                     "source": "local_markdown" if path.suffix == ".md" else "local_txt",
                 },
             })
-            idx += 1
 
     return docs
 
 
-# ---------------------------------------------------------------------------
-# Főprogram: fájlok beolvasása és elküldése a Next.js API-nak
-# ---------------------------------------------------------------------------
 def main():
-    print("Adatok betöltése a data/ mappából...")
+    print("Dokumentumok betöltése a data/ könyvtárból…")
     print("DATA_DIR:", DATA_DIR)
 
-    # 1. Dokumentumok beolvasása
     docs = load_baseline_docs()
-    print(f"Beolvasott érvényes dokumentumok száma: {len(docs)}")
+    print(f"Beolvasott dokumentumok: {len(docs)}")
 
     if not docs:
-        print("Nincs mit küldeni, nincs érvényes .txt fájl.")
+        print("Nincs érvényes dokumentum a küldéshez.")
         return
 
-    # -----------------------------------------------------------------------
-    # 2. STRATÉGIA KIVÁLASZTÁSA
-    #
-    # A Next.js API a ?strategy= paraméter alapján dönti el,
-    # hogy melyik PostgreSQL táblába indexeljen:
-    #
-    #   baseline  → documents_baseline
-    #   chunked   → documents_chunked
-    #
-    # Ez lehetővé teszi, hogy külön pipeline-okat építs és tesztelj.
-    # -----------------------------------------------------------------------
-    target_strategy = "baseline"   # <-- átírható "chunked"-re is
+    # Choose which ingestion strategy the Next.js API should use
+    target_strategy = "baseline"  # váltható: "chunked"
     url_with_strategy = f"{API_URL}?strategy={target_strategy}"
 
-    print(f"Küldés a(z) {target_strategy} táblába...")
+    print(f"Küldés a(z) {target_strategy} indexbe…")
     print("Cél URL:", url_with_strategy)
 
-    # -----------------------------------------------------------------------
-    # 3. Küldés a Next.js API-nak
-    #
-    # A dokumentumokat JSON formátumban küldjük el.
-    # A szerver oldalon az API endpoint fogja feldolgozni és indexelni őket.
-    # -----------------------------------------------------------------------
+    # Send documents to the Next.js ingestion endpoint
     try:
         response = requests.post(url_with_strategy, json=docs, timeout=30)
         print("Status code:", response.status_code)
 
-        # Megpróbáljuk JSON-ként értelmezni a választ
         try:
             print("Response JSON:", response.json())
         except Exception:
-            print("Nem sikerült JSON-ként értelmezni a választ:", response.text)
+            print("Nem JSON válasz:", response.text)
 
     except Exception as e:
-        # Ha a POST kérés közben hiba történik (pl. nincs kapcsolat)
-        print("Hiba történt a kérés közben:", e)
+        print("Hiba történt a POST kérés során:", e)
 
 
-# ---------------------------------------------------------------------------
-# Belépési pont
-# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     main()

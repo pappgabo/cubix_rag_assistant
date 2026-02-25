@@ -71,6 +71,88 @@ PREDEFINED_GOALS: Dict[str, ConversationGoal] = {
         domain='general',
         complexity='moderate',
     ),
+
+    # 1) Recept felfedezése homályos adatok alapján
+    'recipe_discovery': ConversationGoal(
+        id='recipe-discovery',
+        description='Homályos emlék alapján (pl. "valami thai tészta mogyoróval") az asszisztens segítsen beazonosítani a pontos receptet és adja meg az elkészítést.',
+        success_criteria=[
+            'Az asszisztens legalább 1-2 releváns receptet felajánl a leírás alapján.',
+            'A felhasználó választása után a teljes recept (hozzávalók + lépések) megjelenik.',
+        ],
+        expected_turns=3,
+        domain='gastronomy',
+        complexity='moderate',
+    ),
+
+    # 2) Alapanyag helyettesítés (költséghatékonyság vagy hiány miatt)
+    'ingredient_swap': ConversationGoal(
+        id='ingredient-swap',
+        description='Egy konkrét recept kiválasztása, majd rákérdezés egy hiányzó vagy drága alapanyag helyettesítésére (pl. budget alternatíva).',
+        success_criteria=[
+            'Az asszisztens azonosítja a receptet a gyűjteményben.',
+            'Szakmailag releváns és logikus helyettesítőt javasol (pl. parmezán helyett trappista vagy sörélesztőpehely).',
+        ],
+        expected_turns=3,
+        domain='gastronomy',
+        complexity='moderate',
+    ),
+
+    # 3) Lépésenkénti vezetés (interaktív főzés)
+    'step_by_step_guide': ConversationGoal(
+        id='step-by-step-guide',
+        description='Egy konkrét recept interaktív elkészítése, lépésenként haladva, technikai magyarázatokat kérve.',
+        success_criteria=[
+            'Az asszisztens azonosítja a pontos receptet.',
+            'Nem ömleszti rá a teljes szöveget a felhasználóra, követi a kért tempót.',
+            'Képes megmagyarázni a technikai részleteket (pl. mi az a "közepes láng").',
+        ],
+        expected_turns=6,
+        domain='gastronomy',
+        complexity='complex',
+    ),
+
+    # 4) Diétás szűrés (egészségtudatosság)
+    'dietary_filtering': ConversationGoal(
+        id='dietary-filtering',
+        description='Vacsora javaslat kérése szigorú megkötéssel: mogyoró-, gluténmentes vagy alacsony szénhidráttartalmú opció kell.',
+        success_criteria=[
+            'Az asszisztens nem javasol olyan ételt, ami tartalmazza az allergént.',
+            'Több opció esetén indokolja a választást (pl. "ez rostban gazdag").',
+        ],
+        expected_turns=3,
+        domain='gastronomy',
+        complexity='moderate',
+    ),
+
+    # 5) Recept variációk (pl. "light" vagy "vegan" verzió)
+    'recipe_variant_suggestion': ConversationGoal(
+        id='recipe-variant-suggestion',
+        description='Létező recepthez variációkat kér a user (pl. hogyan legyen vegán vagy kevésbé zsíros), az asszisztens konkrét módosításokat javasol.',
+        success_criteria=[
+            'Az asszisztens azonosítja az alapreceptet.',
+            'Követhető és szakmailag helyes módosításokat javasol.',
+            'A javaslatok illeszkednek az étel jellegéhez.',
+        ],
+        expected_turns=3,
+        domain='gastronomy',
+        complexity='moderate',
+    ),
+
+    # 6) Menütervezés (több dokumentum szintézise)
+    'menu_planning': ConversationGoal(
+        id='menu-planning',
+        description='Több fogásos menü összeállítása a korpuszból (pl. thai vacsora előétellel és főétellel).',
+        success_criteria=[
+            'Az asszisztens több, egymáshoz passzoló receptet javasol a gyűjteményből.',
+            'A javaslatok egy közös téma köré épülnek.',
+        ],
+        expected_turns=4,
+        domain='gastronomy',
+        complexity='complex',
+    ),
+
+
 }
 
 

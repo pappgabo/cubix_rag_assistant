@@ -37,7 +37,8 @@ PROMPT_EVAL_MODEL = "gpt-4.1-mini"
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
 # Reranker modell RAG-hoz
-RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-12-v2"
+#"cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 # User simulation modell-hez
 SIMULATED_USER_MODEL = "gpt-4.1-mini"

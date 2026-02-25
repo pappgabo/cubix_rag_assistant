@@ -17,6 +17,8 @@
   { "id": "q16_neg", "question": "Van gluténmentes bagel receptetek?", "expected_doc_ids": [] },
   { "id": "q17_multi", "question": "Milyen indiai ételeket találok a listában?", "expected_doc_ids": ["aloo-matar", "tarka-dal", "bhindi-fry"] },
   { "id": "q18_spec", "question": "Melyik receptben használunk csicseriborsót?", "expected_doc_ids": ["hummus", "channa-masala"] },
-  { "id": "q19_spec", "question": "Milyen tésztaféléket vagy kenyereket tudok sütni?", "expected_doc_ids": ["bagels", "pita-bread", "pizza-dough", "soft-pretzels-1", "soft-pretzels-2"] },
-  { "id": "q20_spec", "question": "Milyen thai ételek vannak a gyűjteményben?", "expected_doc_ids": ["thai-fried-rice", "pad-see-ew"] }
+  { "id": "q19_spec", "question": "Milyen tésztaféléket vagy kenyereket tudok sütni?", "expected_doc_ids": ["bagels", "pizza-dough", "no-knead-pan-pizza", "pita-bread", "flour-tortillas", "roti", "soft-pretzels-1", "soft-pretzels-2"] },
+  { "id": "q20_spec", "question": "Milyen thai ételek vannak a gyűjteményben?", "expected_doc_ids": ["thai-fried-rice", "pad-see-ew", "pad-thai", "thai-pomelo-salad", "phat-phrik-khing"] },
+  { "id": "q21_spec", "question": "Milyen közel-keleti mártogatókat vagy krémeket találok?", "expected_doc_ids": ["hummus", "baba-ganoush", "muhammara", "tzatziki"]},
+  { "id": "q22_spec", "question": "Vannak olyan saláták, amikben van valamilyen gabona vagy bab?", "expected_doc_ids": ["tabbouleh", "quinoa-salad", "chickpea-salad", "lentil-salad"]}
 ]

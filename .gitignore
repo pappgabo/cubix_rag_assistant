@@ -6,7 +6,6 @@ node_modules
 .env
 .env.local
 .next
-data/*
 !.gitkeep
 __pycache__/
 *.pyc
