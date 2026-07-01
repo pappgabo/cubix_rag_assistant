@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@qdrant/js-client-rest": "^1.16.2",
     "next": "16.1.1",
     "openai": "^6.15.0",
     "pg": "^8.16.3",

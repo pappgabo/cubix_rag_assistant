@@ -1,5 +1,6 @@
 import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
 import type { DocInput } from "@/lib/vectorstore/pgvector";
+import crypto from "crypto";
 
 /**
  * A fájlnévből készít egy base_id-t.

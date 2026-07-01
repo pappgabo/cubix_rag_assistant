@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict, Any, Literal
+from typing import List, Optional, Dict, Any, Literal, Protocol
 from datetime import datetime
 from pydantic import BaseModel, Field
 
@@ -53,17 +53,25 @@ class ConversationGoal(BaseModel):
     complexity: Literal['simple', 'moderate', 'complex']
 
 
-# Egy beszélgetési üzenet modellje.
-# A szimuláció minden egyes üzenetét ilyen objektum írja le.
 class Message(BaseModel):
-    role: Literal['user', 'assistant']  # Ki küldte az üzenetet
-    content: str  # Az üzenet szövege
-    timestamp: datetime  # Mikor jött létre
-    turn_number: int  # Hanyadik üzenet a beszélgetésben
+    role: Literal["user", "assistant"]
+    content: str
+    timestamp: datetime
+    turn_number: int
+    latency_ms: int = 0
+
+
+class SimulatedUserProtocol(Protocol):
+    satisfied: bool
+
+    def first_message(self) -> str: ...
+
+    def next_message(self, state: ConversationState) -> Optional[str]: ...
+
+    def is_satisfied(self) -> bool: ...
 
 
 # A beszélgetés aktuális állapotát leíró modell.
-# Ez tartalmazza az eddigi üzeneteket és a dinamikusan változó mutatókat.
 class ConversationState(BaseModel):
     messages: List[Message]  # A teljes üzenetlista
     current_turn: int  # Aktuális kör száma
@@ -109,9 +117,3 @@ class SimulationResult(BaseModel):
     duration: float  # Időtartam ezredmásodpercben
     errors: Optional[List[str]] = None  # Esetleges hibák listája
 
-class Message(BaseModel):
-    role: Literal["user", "assistant", "system"]
-    content: str
-    timestamp: datetime = Field(default_factory=datetime.now)
-    turn_number: int
-    latency_ms: float = 0.0

@@ -1,0 +1,4 @@
+Kérdés: {question}
+
+Kontextus a dokumentumokból:
+{context}

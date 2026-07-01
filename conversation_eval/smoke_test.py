@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 from conversation_eval.assistant_client import AssistantClient
-from conversation_eval.simulated_user_llm_old import SimulatedUserLLM
+from conversation_eval.simulated_user_llm import SimulatedUserLLM
 from conversation_eval.orchestration import ConversationOrchestrator
 from conversation_eval.types import UserPersona, ConversationGoal
 

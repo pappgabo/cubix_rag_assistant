@@ -5,8 +5,8 @@ import time
 from typing import List
 from datetime import datetime
 from .assistant_client import AssistantClient
-from .user_simulations import SimulatedUser 
-from .types import ConversationState, Message
+from .simulated_user_llm import SimulatedUserLLM
+from .types import ConversationState, Message, SimulatedUserProtocol
 
 
 class ConversationOrchestrator:
@@ -24,7 +24,7 @@ class ConversationOrchestrator:
     def __init__(
         self,
         client: AssistantClient,
-        user: SimulatedUser,
+        user: SimulatedUserProtocol,
         session_id: str,
         max_turns: int = 6,
     ) -> None:

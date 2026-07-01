@@ -20,7 +20,7 @@ from config import (
 
 # Szimulációs komponensek
 from conversation_eval.assistant_client import AssistantClient
-from conversation_eval.simulated_user_llm_old import SimulatedUserLLM
+from conversation_eval.simulated_user_llm import SimulatedUserLLM
 from conversation_eval.orchestration import ConversationOrchestrator
 # Előre definiált personák és célok
 from conversation_eval.personas import PREDEFINED_PERSONAS

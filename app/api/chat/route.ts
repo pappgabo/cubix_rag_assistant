@@ -1,6 +1,7 @@
 import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
 import { openai, CHAT_MODEL } from "@/lib/openai";
 import { calcCostUsd, logLlmUsage } from "@/lib/monitoring/llmUsageLog";
+import { loadPrompt, renderTemplate } from "@/lib/prompts";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
@@ -54,19 +55,14 @@ export async function POST(req: Request) {
       .join("\n\n---\n\n");
 
     // -----------------------------------------------------------------------
-    // 2) System prompt
+    // 2) Promptok (prompts/rag/)
     // -----------------------------------------------------------------------
-    const systemPrompt =
-      "Te egy főzőasszisztens vagy. Kizárólag a felhasználó által megadott kontextus alapján válaszolsz. " +
-      "Nem használsz külső tudást, nem találsz ki információt, és nem egészíted ki a hiányzó részeket. " +
-      "Mindig tartsd be a felhasználó által megadott korlátokat: időkeret, alapanyagok, eszközök, diétás megkötések. " +
-      "Ha a kontextus nem tartalmaz elegendő adatot, mondd azt: 'A megadott kontextus alapján ezt nem tudom.' " +
-      "Mindig magyarul és tömören válaszolj.";
-
-    const userPrompt = `Kérdés: ${question}
-
-Kontextus a dokumentumokból:
-${contextText || "[Nincs találat a tudásbázisban]"}`;
+    const systemPrompt = loadPrompt("rag/system.txt");
+    const userTemplate = loadPrompt("rag/user.template.txt");
+    const userPrompt = renderTemplate(userTemplate, {
+      question,
+      context: contextText || "[Nincs találat a tudásbázisban]",
+    });
 
     // -----------------------------------------------------------------------
     // 3) OpenAI chat hívás

@@ -1,0 +1,24 @@
+[project]
+name = "cubix-rag-assistant"
+version = "0.1.0"
+description = "RAG recipe assistant with offline evaluation harness"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=2.0.0",
+    "psycopg[binary]>=3.3.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0.0",
+    "requests>=2.32.0",
+    "sentence-transformers>=5.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

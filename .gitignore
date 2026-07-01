@@ -1,11 +1,25 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
-node_modules
+.next
+
+# env
 .env
 .env.local
-.next
-!.gitkeep
+.env*.local
+
+# python
 __pycache__/
 *.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# runtime / generated outputs
+logs/
+outputs/
+*.log
+rag_eval/rag_results.json
+prompt_eval/prompt_eval_results.json
+
+# uv
+.uv/

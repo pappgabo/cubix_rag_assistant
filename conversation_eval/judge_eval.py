@@ -4,11 +4,13 @@ from typing import List, Dict, Any
 from openai import OpenAI
 from config import (
     OPENAI_API_KEY,
-    JUDGE_MODEL,
+    CONVERSATION_JUDGE_SYSTEM_PROMPT_PATH,
     CONVERSATIONS_PATH,
+    JUDGE_MODEL,
     JUDGE_RESULTS_PATH,
 )
 from monitoring.log_llm_usage import log_llm_usage, calc_cost_usd
+from utils.prompt_utils import load_prompt_file
 import time
 import uuid
 import datetime
@@ -20,31 +22,7 @@ if not OPENAI_API_KEY:
 # ===== OpenAI kliens =====
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# ===== System prompt a judge-hoz =====
-JUDGE_SYSTEM_PROMPT = """
-Te egy független értékelő vagy, aki többkörös (multi-turn) receptajánló beszélgetéseket értékel.
-
-Feladatod:
-- A TELJES beszélgetést nézd (összes kör, user + bot üzenetek).
-- Vedd figyelembe a persona leírását és a goal-t (célfeladatot).
-- 0-3 skálán értékeld:
-  1) goal_completion: a beszélgetés végére a felhasználó reálisan eljutott-e egy neki megfelelő, elkészíthető megoldásig;
-  2) answer_quality: mennyire helyesek, relevánsak és használhatóak a bot válaszai összességében a beszélgetés során.
-
-Skála:
-- 0 = teljes kudarc
-- 1 = gyenge
-- 2 = jó
-- 3 = kiváló
-
-Mindig CSAK a következő JSON-t add vissza:
-
-{
-  "goal_completion": 0-3 egész szám,
-  "answer_quality": 0-3 egész szám,
-  "explanation": "rövid, 2-4 mondatos indoklás magyarul"
-}
-"""
+JUDGE_SYSTEM_PROMPT = load_prompt_file(CONVERSATION_JUDGE_SYSTEM_PROMPT_PATH)
 
 # ===== Helper függvények =====
 

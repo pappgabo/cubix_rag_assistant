@@ -1,22 +1,38 @@
-import time, uuid
+import time
+import uuid
+from typing import Any, Dict, List
+
 from config import PROMPT_TESTS_PATH
-from utils.load_prompt_test import load_prompt_test
 from prompt_eval.prompt_judge import judge_answer
-from rag_app.generate_response import generate_response
-from rag_app.retrieval_for_prompt_eval import retrieve_docs_for_question
-from typing import List, Dict, Any
+from rag_core.pipeline import run_rag
+from rag_core.types import RAGRequest, RetrievalStrategy
+from utils.prompt_utils import load_prompt_tests
 
-def call_rag_assistant(question: str, session_id: str, request_id: str) -> str:
-    docs = retrieve_docs_for_question(question, session_id=session_id, request_id=request_id)
-    # A generate_response-nak is át KELL adni, különben újat generál magának!
-    return generate_response(
-        question, 
-        docs, 
-        session_id=session_id, 
-        request_id=request_id
+
+def call_rag_assistant(
+    question: str,
+    session_id: str,
+    request_id: str,
+    prompt_version: str = "prod",
+) -> str:
+    """A kanonikus RAG pipeline hívása (ugyanaz, amit a prod használ)."""
+    response = run_rag(
+        RAGRequest(
+            question=question,
+            session_id=session_id,
+            request_id=request_id,
+            strategy=RetrievalStrategy.BASELINE,
+            prompt_version=prompt_version,
+        )
     )
+    return response.answer
 
-def eval_single_case(case: Dict[str, Any],session_id: str) -> Dict[str, Any]:
+
+def eval_single_case(
+    case: Dict[str, Any],
+    session_id: str,
+    prompt_version: str = "prod",
+) -> Dict[str, Any]:
     qid = case["id"]
     question = case["question"]
     # Ez lesz a közös RequestId a RAG és a Judge számára!
@@ -24,8 +40,12 @@ def eval_single_case(case: Dict[str, Any],session_id: str) -> Dict[str, Any]:
     request_id = f"req-{qid}-{uuid.uuid4().hex[:8]}"
 
     t0 = time.perf_counter()
-    # Továbbpasszoljuk mindkét hívásnak
-    answer = call_rag_assistant(question, session_id=session_id, request_id=request_id)
+    answer = call_rag_assistant(
+        question,
+        session_id=session_id,
+        request_id=request_id,
+        prompt_version=prompt_version,
+    )
     t1 = time.perf_counter()
     latency_ms = (t1 - t0) * 1000
 
@@ -46,9 +66,12 @@ def eval_single_case(case: Dict[str, Any],session_id: str) -> Dict[str, Any]:
     }
 
 
-def run_all_cases() -> List[Dict[str, Any]]:
-    tests = load_prompt_test(PROMPT_TESTS_PATH)
-    return [eval_single_case(case) for case in tests]
+def run_all_cases(session_id: str, prompt_version: str = "prod") -> List[Dict[str, Any]]:
+    tests = load_prompt_tests(PROMPT_TESTS_PATH)
+    return [
+        eval_single_case(case, session_id=session_id, prompt_version=prompt_version)
+        for case in tests
+    ]
 
 
 def compute_summary(results: List[Dict[str, Any]]) -> Dict[str, Any]:
