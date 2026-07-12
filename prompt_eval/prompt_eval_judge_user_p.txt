@@ -1,0 +1,15 @@
+Felhasználói kérdés:
+{question}
+
+Asszisztens válasza:
+{answer}
+
+Értékeld a választ az utasításaid alapján.
+Gondold át röviden, majd VÁLASZOLJ KIZÁRÓLAG az alábbi JSON objektummal, pontosan ebben a formában:
+
+{{
+  "context_relevance": ,
+  "faithfulness": "",
+  "answer_quality": ,
+  "explanation": ""
+}}
