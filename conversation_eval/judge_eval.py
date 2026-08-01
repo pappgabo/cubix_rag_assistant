@@ -1,5 +1,6 @@
 import os
 import json
+from pathlib import Path
 from typing import List, Dict, Any
 from openai import OpenAI
 from config import (
@@ -159,6 +160,7 @@ def load_conversations(path: str) -> List[Dict[str, Any]]:
 
 def save_results(results: List[Dict[str, Any]], path: str) -> None:
     """Eredmények mentése JSON fájlba."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 

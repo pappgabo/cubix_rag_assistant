@@ -7,6 +7,7 @@
 # így a QA / regression testing teljesen konfigurálható.
 
 import json
+from pathlib import Path 
 import yaml
 from datetime import datetime
 
@@ -107,6 +108,7 @@ def run_batch():
     # -----------------------------------------------------------------------
     # 3) EREDMÉNYEK MENTÉSE
     # -----------------------------------------------------------------------
+    Path(CONVERSATIONS_PATH).parent.mkdir(parents=True, exist_ok=True)
     with open(CONVERSATIONS_PATH, "w", encoding="utf-8") as f:
         json.dump(batch_results, f, ensure_ascii=False, indent=2)
 
