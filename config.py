@@ -55,9 +55,17 @@ RERANKER_MODEL = os.getenv(
 )
 SIMULATED_USER_MODEL = os.getenv("SIMULATED_USER_MODEL", "gpt-4.1-mini")
 
-# RAG generálás (rag_core) — a prod TS oldal ugyanezt a CHAT_MODEL-t használja.
+# RAG generálás (rag_core) — a prod TS oldal ugyanezeket az env-kulcsokat olvassa.
 RAG_CHAT_MODEL = os.getenv("CHAT_MODEL", "gpt-4.1-mini")
-RAG_GENERATION_TEMPERATURE = float(os.getenv("RAG_GENERATION_TEMPERATURE", "0.2"))
+RAG_GENERATION_TEMPERATURE = float(os.getenv("RAG_GENERATION_TEMPERATURE", "0.7"))
+RAG_MAX_COMPLETION_TOKENS = int(os.getenv("RAG_MAX_COMPLETION_TOKENS", "400"))
+RAG_DEFAULT_STRATEGY = os.getenv("RAG_STRATEGY", "baseline")
+_VALID_RAG_STRATEGIES = frozenset({"baseline", "chunked", "chunked_rerank"})
+if RAG_DEFAULT_STRATEGY not in _VALID_RAG_STRATEGIES:
+    raise ValueError(
+        f"Érvénytelen RAG_STRATEGY={RAG_DEFAULT_STRATEGY!r}. "
+        f"Engedélyezett: {sorted(_VALID_RAG_STRATEGIES)}"
+    )
 
 # ------------------------------------------------------------
 # PostgreSQL kapcsolat (pgvector)
@@ -81,7 +89,7 @@ DOCUMENTS_CHUNKS_TABLE = "documents_chunks"
 # ------------------------------------------------------------
 RAG_TESTS_PATH = PROJECT_ROOT / "rag_eval" / "rag_tests.json"
 RAG_RESULTS_PATH = PROJECT_ROOT / "rag_eval" / "rag_results.json"
-RAG_TOP_K = 5
+RAG_TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 # Rerank pipeline: hányszoros jelöltlistából válogat a reranker (candidate_k = top_k * ez).
 RAG_CANDIDATE_MULTIPLIER = int(os.getenv("RAG_CANDIDATE_MULTIPLIER", "4"))
 

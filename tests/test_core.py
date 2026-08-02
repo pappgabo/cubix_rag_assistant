@@ -4,9 +4,13 @@ from config import (
     CONVERSATION_JUDGE_SYSTEM_PROMPT_PATH,
     PROMPT_EVAL_JUDGE_PROMPT_PATH,
     PROMPTS_DIR,
+    RAG_DEFAULT_STRATEGY,
     RAG_EXPERIMENTS_DIR,
+    RAG_GENERATION_TEMPERATURE,
+    RAG_MAX_COMPLETION_TOKENS,
     RAG_SYSTEM_PROMPT_PATH,
     RAG_TESTS_PATH,
+    RAG_TOP_K,
     RAG_USER_PROMPT_PATH,
     SIMULATED_USER_SYSTEM_PROMPT_PATH,
 )
@@ -61,9 +65,9 @@ def test_user_template_uses_unified_placeholders():
 
 def test_rag_request_defaults():
     req = RAGRequest(question="Hogyan készül a hummus?", session_id="s1")
-    assert req.strategy == RetrievalStrategy.BASELINE
+    assert req.strategy == RetrievalStrategy(RAG_DEFAULT_STRATEGY)
     assert req.prompt_version == "prod"
-    assert req.top_k >= 1
+    assert req.top_k == RAG_TOP_K
 
 
 def test_rag_response_roundtrip():
@@ -117,3 +121,12 @@ def test_eval_case_structure():
 
 def test_rag_tests_fixture_exists():
     assert RAG_TESTS_PATH.exists()
+
+
+# --- RAG runtime config (PR2) ---
+
+def test_rag_runtime_config_defaults():
+    assert RAG_GENERATION_TEMPERATURE == 0.7
+    assert RAG_MAX_COMPLETION_TOKENS == 400
+    assert RAG_DEFAULT_STRATEGY == "baseline"
+    assert RAG_TOP_K == 5

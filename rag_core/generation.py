@@ -9,7 +9,7 @@ from typing import List, Optional
 
 from openai import OpenAI
 
-from config import OPENAI_API_KEY, RAG_CHAT_MODEL, RAG_GENERATION_TEMPERATURE
+from config import OPENAI_API_KEY, RAG_CHAT_MODEL, RAG_GENERATION_TEMPERATURE, RAG_MAX_COMPLETION_TOKENS
 from monitoring.log_llm_usage import log_llm_usage, calc_cost_usd
 from utils.prompt_utils import load_prompt_file
 
@@ -64,7 +64,7 @@ def generate_answer(
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": user_message},
             ],
-            max_completion_tokens=400,
+            max_completion_tokens=RAG_MAX_COMPLETION_TOKENS,
             temperature=RAG_GENERATION_TEMPERATURE,
             timeout=30.0,
         )

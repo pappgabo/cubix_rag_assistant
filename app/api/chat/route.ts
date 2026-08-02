@@ -1,25 +1,20 @@
-import { PgvectorVectorStore } from "@/lib/vectorstore/pgvector";
-import { openai, CHAT_MODEL } from "@/lib/openai";
+import { CHAT_MODEL } from "@/lib/openai";
+import { RAG_BACKEND } from "@/lib/ragConfig";
 import { calcCostUsd, logLlmUsage } from "@/lib/monitoring/llmUsageLog";
-import { loadPrompt, renderTemplate } from "@/lib/prompts";
+import { applySafetyFilter } from "@/lib/chat/safetyFilter";
+import { runInlineRag } from "@/lib/chat/inlineRag";
+import { queryRagService } from "@/lib/chat/ragServiceClient";
 import crypto from "crypto";
 
 export async function POST(req: Request) {
-  // Egyedi azonosító minden kéréshez
   const requestId = crypto.randomUUID();
   const startedAt = Date.now();
 
   try {
-    // 1) Body beolvasása
     const body = await req.json().catch(() => null);
     const question = body?.question as string | undefined;
-
-    // 2) Eredeti sessionId kinyerése (eval futás esetén)
     const incomingSessionId = body?.sessionId as string | undefined;
 
-    // 3) DRÓTOZÁS:
-    //    - Ha van incomingSessionId → eval futás
-    //    - Ha nincs → prod hívás → kapjon prod- prefixet
     let sessionId: string;
     let componentName: string;
 
@@ -31,7 +26,6 @@ export async function POST(req: Request) {
       componentName = "chat";
     }
 
-    // Validáció
     if (!question || !question.trim()) {
       return Response.json(
         { error: "A 'question' mező kötelező." },
@@ -39,107 +33,66 @@ export async function POST(req: Request) {
       );
     }
 
-    // -----------------------------------------------------------------------
-    // 1) Kontextus lekérése Pgvectorból
-    // -----------------------------------------------------------------------
-    const results = await PgvectorVectorStore.search(
-      question,
-      5,
-      "baseline",
-      sessionId // mindig a közös sessionId-t adjuk át
-    );
+    let answer: string;
+    let sources: Awaited<ReturnType<typeof queryRagService>>["sources"];
+    let model: string;
+    let promptTokens = 0;
+    let completionTokens = 0;
 
-    const contextText = results
-      .map((r) => r.text)
-      .filter(Boolean)
-      .join("\n\n---\n\n");
-
-    // -----------------------------------------------------------------------
-    // 2) Promptok (prompts/rag/)
-    // -----------------------------------------------------------------------
-    const systemPrompt = loadPrompt("rag/system.txt");
-    const userTemplate = loadPrompt("rag/user.template.txt");
-    const userPrompt = renderTemplate(userTemplate, {
-      question,
-      context: contextText || "[Nincs találat a tudásbázisban]",
-    });
-
-    // -----------------------------------------------------------------------
-    // 3) OpenAI chat hívás
-    // -----------------------------------------------------------------------
-    const completion = await openai.chat.completions.create({
-      model: CHAT_MODEL,
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt },
-      ],
-      temperature: 0.7,
-    });
-
-    const latencyMs = Date.now() - startedAt;
-
-    const usage = completion.usage;
-    const promptTokens = usage?.prompt_tokens ?? 0;
-    const completionTokens = usage?.completion_tokens ?? 0;
-    const totalTokens = usage?.total_tokens ?? promptTokens + completionTokens;
-
-    const costUsd = calcCostUsd(CHAT_MODEL, promptTokens, completionTokens);
-
-    let answer =
-      completion.choices[0]?.message?.content ??
-      "Nem sikerült választ generálni.";
-
-    // -----------------------------------------------------------------------
-    // 4) Biztonsági szűrő
-    // -----------------------------------------------------------------------
-    const DANGEROUS_TERMS = [
-      "öngyilkosság",
-      "gyilkosság",
-      "méreg",
-      "tiszafa",
-      "cianid",
-      "arzén",
-      "gyilkos galóca",
-      "THC",
-      "kokain",
-    ];
-
-    if (DANGEROUS_TERMS.some((t) => answer.toLowerCase().includes(t))) {
-      console.error("SAFETY TRIGGERED: Dangerous content detected!");
-      answer =
-        "Sajnálom, de technikai vagy biztonsági okokból erre a kérdésre nem válaszolhatok.";
+    if (RAG_BACKEND === "inline") {
+      const inlineResult = await runInlineRag({ question, sessionId });
+      answer = inlineResult.answer;
+      sources = inlineResult.sources;
+      model = inlineResult.model;
+      promptTokens = inlineResult.promptTokens;
+      completionTokens = inlineResult.completionTokens;
+    } else {
+      const serviceResult = await queryRagService({
+        question,
+        sessionId,
+        requestId,
+      });
+      answer = serviceResult.answer;
+      sources = serviceResult.sources;
+      model = serviceResult.model;
     }
 
-    // -----------------------------------------------------------------------
-    // 5) LLM logolás
-    // -----------------------------------------------------------------------
+    answer = applySafetyFilter(answer);
+
+    const latencyMs = Date.now() - startedAt;
+    const proxyComponent =
+      RAG_BACKEND === "inline"
+        ? componentName
+        : `${componentName}-proxy`;
+
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
       sessionId,
-      component: componentName,
-      model: CHAT_MODEL,
+      component: proxyComponent,
+      model,
       provider: "openai",
       promptTokens,
       completionTokens,
-      totalTokens,
-      costUsd,
+      totalTokens: promptTokens + completionTokens,
+      costUsd:
+        RAG_BACKEND === "inline"
+          ? calcCostUsd(model, promptTokens, completionTokens)
+          : 0,
       latencyMs,
       success: true,
     });
 
-    // -----------------------------------------------------------------------
-    // 6) Válasz visszaadása
-    // -----------------------------------------------------------------------
-    return Response.json({ ok: true, answer }, { status: 200 });
-  } catch (err: any) {
+    return Response.json({ ok: true, answer, sources }, { status: 200 });
+  } catch (err: unknown) {
     const latencyMs = Date.now() - startedAt;
+    const message = err instanceof Error ? err.message : "Unknown error";
 
     await logLlmUsage({
       timestamp: new Date(startedAt).toISOString(),
       requestId,
       sessionId: `prod-${requestId}`,
-      component: "chat",
+      component: RAG_BACKEND === "inline" ? "chat" : "chat-proxy",
       model: CHAT_MODEL,
       provider: "openai",
       promptTokens: 0,
@@ -148,14 +101,17 @@ export async function POST(req: Request) {
       costUsd: 0,
       latencyMs,
       success: false,
-      errorMessage: err?.message ?? "Unknown error",
+      errorMessage: message,
     });
 
     console.error(err);
 
-    return Response.json(
-      { error: "Váratlan hiba történt a chat endpointban." },
-      { status: 500 }
-    );
+    const status = RAG_BACKEND === "service" ? 502 : 500;
+    const errorMessage =
+      RAG_BACKEND === "service"
+        ? "A RAG service nem elérhető vagy hibát adott vissza."
+        : "Váratlan hiba történt a chat endpointban.";
+
+    return Response.json({ error: errorMessage }, { status });
   }
 }

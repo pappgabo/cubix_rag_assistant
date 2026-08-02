@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
-from config import RAG_TOP_K
+from config import RAG_DEFAULT_STRATEGY, RAG_TOP_K
 
 
 class RetrievalStrategy(str, Enum):
@@ -24,13 +24,22 @@ class RetrievalStrategy(str, Enum):
 
 
 class RetrievedChunk(BaseModel):
-    """Egy visszakeresett dokumentum/chunk a kontextusban."""
+    """Egy visszakeresett dokumentum/chunk a kontextusban.
+    A 'score' mindig a vektoros hasonlóság (pgvector koszinusz). 
+    A 'rerank_score' csak a chunked_rerank stratégiánál van kitöltve, és ilyenkor **ez** adja a 
+    találatok sorrendjét - nem a 'score'.
+    """
 
     doc_id: str
     base_id: str
     text: str
     score: float
+    rerank_score: Optional[float] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
+
+
+def _default_retrieval_strategy() -> RetrievalStrategy:
+    return RetrievalStrategy(RAG_DEFAULT_STRATEGY)
 
 
 class RAGRequest(BaseModel):
@@ -40,7 +49,7 @@ class RAGRequest(BaseModel):
     session_id: str
     request_id: Optional[str] = None
     top_k: int = RAG_TOP_K
-    strategy: RetrievalStrategy = RetrievalStrategy.BASELINE
+    strategy: RetrievalStrategy = Field(default_factory=_default_retrieval_strategy)
     # Prompt életciklus: "prod" -> prompts/rag/system.txt,
     # egyébként prompts/rag/experiments/<prompt_version>.txt
     prompt_version: str = "prod"
