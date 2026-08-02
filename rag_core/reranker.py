@@ -39,7 +39,9 @@ def rerank_chunks(
     start = time.perf_counter()
     success = True
     error_msg = None
-    reranked: List[Dict] = []
+    # Hiba esetén a pgvector sorrend marad érvényben: rosszabb sorrendet adni
+    # még mindig jobb, mint kontextus nélkül hagyni a generálást.
+    reranked: List[Dict] = chunks
 
     try:
         pairs = [[query, c["text"]] for c in chunks]
@@ -53,6 +55,10 @@ def rerank_chunks(
     except Exception as e:
         success = False
         error_msg = str(e)
+        # Félbemaradt pontozás esetén a részleges rerank_score félrevezető lenne.
+        for c in chunks:
+            c.pop("rerank_score", None)
+        reranked = chunks
         print(f"❌ Reranker error: {error_msg}")
 
     finally:

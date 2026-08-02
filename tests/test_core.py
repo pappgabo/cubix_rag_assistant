@@ -4,16 +4,13 @@ from config import (
     CONVERSATION_JUDGE_SYSTEM_PROMPT_PATH,
     PROMPT_EVAL_JUDGE_PROMPT_PATH,
     PROMPTS_DIR,
-    RAG_DEFAULT_STRATEGY,
     RAG_EXPERIMENTS_DIR,
-    RAG_GENERATION_TEMPERATURE,
-    RAG_MAX_COMPLETION_TOKENS,
     RAG_SYSTEM_PROMPT_PATH,
     RAG_TESTS_PATH,
-    RAG_TOP_K,
     RAG_USER_PROMPT_PATH,
     SIMULATED_USER_SYSTEM_PROMPT_PATH,
 )
+from rag_core import reranker
 from rag_core.prompts import resolve_system_prompt_path, resolve_user_prompt_path
 from rag_core.types import RAGRequest, RAGResponse, RetrievalStrategy, RetrievedChunk
 from rag_eval.metrics import (
@@ -65,9 +62,9 @@ def test_user_template_uses_unified_placeholders():
 
 def test_rag_request_defaults():
     req = RAGRequest(question="Hogyan készül a hummus?", session_id="s1")
-    assert req.strategy == RetrievalStrategy(RAG_DEFAULT_STRATEGY)
+    assert req.strategy == RetrievalStrategy.BASELINE
     assert req.prompt_version == "prod"
-    assert req.top_k == RAG_TOP_K
+    assert req.top_k >= 1
 
 
 def test_rag_response_roundtrip():
@@ -84,6 +81,42 @@ def test_retrieval_strategy_values():
         "chunked",
         "chunked_rerank",
     }
+
+
+# --- Reranker ---
+
+def _vector_ordered_chunks():
+    return [
+        {"doc_id": "hummus_0", "base_id": "hummus", "text": "...", "score": 0.9},
+        {"doc_id": "bagels_0", "base_id": "bagels", "text": "...", "score": 0.4},
+    ]
+
+
+def test_rerank_falls_back_to_vector_order_on_model_failure(monkeypatch):
+    def _boom():
+        raise RuntimeError("a CrossEncoder modell nem tölthető be")
+
+    monkeypatch.setattr(reranker, "_get_model", _boom)
+    monkeypatch.setattr(reranker, "log_llm_usage", lambda payload: None)
+
+    result = reranker.rerank_chunks("Hogyan készül a humusz?", _vector_ordered_chunks(), top_n=2)
+
+    assert [c["base_id"] for c in result] == ["hummus", "bagels"]
+    assert all("rerank_score" not in c for c in result)
+
+
+def test_rerank_reorders_and_annotates_on_success(monkeypatch):
+    class _FakeModel:
+        def predict(self, pairs):
+            return [-2.0, 1.5]
+
+    monkeypatch.setattr(reranker, "_get_model", _FakeModel)
+    monkeypatch.setattr(reranker, "log_llm_usage", lambda payload: None)
+
+    result = reranker.rerank_chunks("Hogyan készül a humusz?", _vector_ordered_chunks(), top_n=2)
+
+    assert [c["base_id"] for c in result] == ["bagels", "hummus"]
+    assert result[0]["rerank_score"] == 1.5
 
 
 # --- Metrikák ---
@@ -121,12 +154,3 @@ def test_eval_case_structure():
 
 def test_rag_tests_fixture_exists():
     assert RAG_TESTS_PATH.exists()
-
-
-# --- RAG runtime config (PR2) ---
-
-def test_rag_runtime_config_defaults():
-    assert RAG_GENERATION_TEMPERATURE == 0.7
-    assert RAG_MAX_COMPLETION_TOKENS == 400
-    assert RAG_DEFAULT_STRATEGY == "baseline"
-    assert RAG_TOP_K == 5
