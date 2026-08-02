@@ -13,11 +13,16 @@ dependencies = [
     "pyyaml>=6.0.0",
     "requests>=2.32.0",
     "sentence-transformers>=5.0.0",
+<<<<<<< HEAD
     "uvicorn>=0.51.0",
+=======
+    "uvicorn[standard]>=0.32.0",
+>>>>>>> feature/phase-2-fastapi
 ]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.0",
     "pytest>=8.0.0",
     "httpx>=0.28.0",
 ]

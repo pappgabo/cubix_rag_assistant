@@ -24,12 +24,18 @@ class RetrievalStrategy(str, Enum):
 
 
 class RetrievedChunk(BaseModel):
-    """Egy visszakeresett dokumentum/chunk a kontextusban."""
+    """Egy visszakeresett dokumentum/chunk a kontextusban.
+
+    A `score` mindig a vektoros hasonlóság (pgvector koszinusz). A `rerank_score`
+    csak a chunked_rerank stratégiánál van kitöltve, és ilyenkor **ez** adja a
+    találatok sorrendjét — nem a `score`.
+    """
 
     doc_id: str
     base_id: str
     text: str
     score: float
+    rerank_score: Optional[float] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
 

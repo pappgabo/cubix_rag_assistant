@@ -10,6 +10,7 @@ from config import (
     RAG_USER_PROMPT_PATH,
     SIMULATED_USER_SYSTEM_PROMPT_PATH,
 )
+from rag_core import reranker
 from rag_core.prompts import resolve_system_prompt_path, resolve_user_prompt_path
 from rag_core.types import RAGRequest, RAGResponse, RetrievalStrategy, RetrievedChunk
 from rag_eval.metrics import (
@@ -80,6 +81,42 @@ def test_retrieval_strategy_values():
         "chunked",
         "chunked_rerank",
     }
+
+
+# --- Reranker ---
+
+def _vector_ordered_chunks():
+    return [
+        {"doc_id": "hummus_0", "base_id": "hummus", "text": "...", "score": 0.9},
+        {"doc_id": "bagels_0", "base_id": "bagels", "text": "...", "score": 0.4},
+    ]
+
+
+def test_rerank_falls_back_to_vector_order_on_model_failure(monkeypatch):
+    def _boom():
+        raise RuntimeError("a CrossEncoder modell nem tölthető be")
+
+    monkeypatch.setattr(reranker, "_get_model", _boom)
+    monkeypatch.setattr(reranker, "log_llm_usage", lambda payload: None)
+
+    result = reranker.rerank_chunks("Hogyan készül a humusz?", _vector_ordered_chunks(), top_n=2)
+
+    assert [c["base_id"] for c in result] == ["hummus", "bagels"]
+    assert all("rerank_score" not in c for c in result)
+
+
+def test_rerank_reorders_and_annotates_on_success(monkeypatch):
+    class _FakeModel:
+        def predict(self, pairs):
+            return [-2.0, 1.5]
+
+    monkeypatch.setattr(reranker, "_get_model", _FakeModel)
+    monkeypatch.setattr(reranker, "log_llm_usage", lambda payload: None)
+
+    result = reranker.rerank_chunks("Hogyan készül a humusz?", _vector_ordered_chunks(), top_n=2)
+
+    assert [c["base_id"] for c in result] == ["bagels", "hummus"]
+    assert result[0]["rerank_score"] == 1.5
 
 
 # --- Metrikák ---

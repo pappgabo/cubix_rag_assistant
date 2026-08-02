@@ -167,6 +167,7 @@ def retrieve(
             base_id=row["base_id"],
             text=row["text"],
             score=row.get("score", 0.0),
+            rerank_score=row.get("rerank_score"),
             metadata=row.get("metadata", {}),
         )
         for row in rows

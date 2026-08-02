@@ -158,7 +158,8 @@ uv run python -c "import rag_core.pipeline, prompt_eval.eval_engine, rag_eval.ru
 
 ## Ami tudatosan kimaradt (Fázis 2)
 
-- A prod `/api/chat` átállítása a `rag_core`-ra (FastAPI façade) — a TS oldal
-  egyelőre saját retrievallel „tükrözi" a contractot.
-- Retrieval stratégia configból prodban, `sources[]` a chat válaszban.
-- Indexelés (`ingest` vs `/api/upload-docs`) összevonása, streaming.
+> **Kész:** a Fázis 2 (FastAPI façade) megvalósult — lásd `docs/phase-2-fastapi.md`.
+
+- ~~A prod `/api/chat` átállítása a `rag_core`-ra~~ ✅
+- ~~Retrieval stratégia configból prodban, `sources[]` a chat válaszban~~ ✅
+- Indexelés (`ingest` vs `/api/upload-docs`) összevonása, streaming — **későbbi fázis**

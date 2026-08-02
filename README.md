@@ -2,9 +2,10 @@
 
 RAG-alapú receptasszisztens **pgvector** + **OpenAI** stackkel, háromszintű offline eval rendszerrel és egységes LLM monitoringgal.
 
-- **Prod path:** Next.js UI + `/api/chat` (TypeScript)
+- **Prod path:** Next.js UI + `/api/chat` (proxy) → FastAPI `rag_service` → `rag_core`
 - **Eval path:** Python batch scriptek (retrieval / prompt / conversation)
 - **Promptok:** központi `prompts/` mappa
+- **Dokumentáció:** `docs/phase-1-refactor.md`, `docs/phase-2-fastapi.md`
 
 Repo: https://github.com/pappgabo/cubix_rag_assistant
 
@@ -15,7 +16,8 @@ Repo: https://github.com/pappgabo/cubix_rag_assistant
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ PROD (Next.js)                                              │
-│  UI → POST /api/chat → pgvector + OpenAI                    │
+│  UI → POST /api/chat (proxy) → FastAPI rag_service          │
+│       → rag_core.run_rag → pgvector + OpenAI                │
 │  ingest.py → POST /api/upload-docs → pgvector index         │
 └─────────────────────────────────────────────────────────────┘
 
@@ -33,15 +35,47 @@ Repo: https://github.com/pappgabo/cubix_rag_assistant
 | `prompt_eval` | Generálás + judge | `rag_core` pipeline (`run_rag`) + `prompts/rag/system.txt` |
 | `conversation_eval` | Multi-turn UX | **Prod** `/api/chat` + `prompts/rag/system.txt` |
 
-A `prompt_eval` és a prod `/api/chat` **ugyanazt** a `system.txt` promptot használja,
-így a prompt eval valódi regressziót mér a prod prompton.
+A `prompt_eval` és a prod `/api/chat` **ugyanazt** a `system.txt` promptot és **ugyanazt**
+a `rag_core.run_rag` pipeline-t használja (service módban), így a prompt eval valódi
+regressziót mér a prod viselkedésen.
+
+---
+
+## RAG service (`rag_service`)
+
+A prod chat alapértelmezetten a Python FastAPI service-t hívja — nem másolja a RAG-logikát TypeScriptben.
+
+| Endpoint | Feladat |
+|----------|---------|
+| `GET /health` | Service él-e |
+| `POST /v1/rag/query` | `RAGRequest` → `run_rag` → `RAGResponse` |
+
+Indítás: `uv run uvicorn rag_service.main:app --port 8000 --reload`
+
+OpenAPI: http://localhost:8000/docs
+
+A Next.js `/api/chat` vékony proxy: session-drótozás, FastAPI hívás, **TS safety filter**, `{ ok, answer, sources }` válasz.
+
+Rollback (service nélkül): `RAG_BACKEND=inline` — régi TS retrieval + OpenAI (`lib/chat/inlineRag.ts`).
+
+---
+
+## TypeScript modulok (prod)
+
+| Modul | Feladat |
+|-------|---------|
+| `app/api/chat/route.ts` | Proxy orchestrátor |
+| `lib/chat/ragServiceClient.ts` | FastAPI kliens |
+| `lib/chat/safetyFilter.ts` | Prod biztonsági szűrő |
+| `lib/ragConfig.ts` | Közös env-kulcsok (temp, strategy, service URL) |
+| `lib/vectorstore/pgvector.ts` | **Ingest only** (`/api/upload-docs`); `search()` csak inline rollback |
 
 ---
 
 ## RAG adatmodell (`rag_core`)
 
 A korábban több helyen duplikált RAG-logika egyetlen csomagba, a `rag_core`-ba
-került. Ez a kanonikus mag, amit az eval harness (és később a prod façade) hív.
+került. Ez a kanonikus mag: az eval harness **és** a prod FastAPI service ezt hívja.
 
 | Modul | Feladat |
 |-------|---------|
@@ -78,8 +112,8 @@ print([c.base_id for c in resp.chunks])
 
 | Fájl | Használja |
 |------|-----------|
-| `prompts/rag/system.txt` | Prod `/api/chat` + prompt eval (prod) |
-| `prompts/rag/user.template.txt` | Prod `/api/chat` + prompt eval |
+| `prompts/rag/system.txt` | `rag_core` (prod service) + prompt eval |
+| `prompts/rag/user.template.txt` | `rag_core` (prod service) + prompt eval |
 | `prompts/rag/experiments/system.friendly.txt` | Kísérleti RAG system prompt |
 | `prompts/eval/prompt_judge_*.txt` | Prompt-level LLM judge |
 | `prompts/eval/conversation_judge_system.txt` | Multi-turn judge |
@@ -100,12 +134,35 @@ print([c.base_id for c in resp.chunks])
 
 ### 1. Környezeti változók
 
-Hozd létre a `.env.local` fájlt (Next.js) — a Python `config.py` is betölti a `.env` / `.env.local` értékeket:
+A titkokat a projekt gyökerében lévő **`.env`** fájl tárolja (gitignore-olva). A repóban
+van egy `.env.example` sablon — másold `.env`-be és töltsd ki:
+
+```bash
+cp .env.example .env          # macOS/Linux
+Copy-Item .env.example .env   # Windows PowerShell
+```
+
+> **Miért `.env` és nem `.env.local`?** A Python oldal (`config.py` → `load_dotenv()`)
+> a **`.env`**-et olvassa, a Next.js pedig a `.env`-et **és** a `.env.local`-t is betölti.
+> Egyetlen `.env` a gyökérben tehát **mindkét oldalt** kiszolgálja (Python eval + `rag_service` + Next.js).
+> Ha csak `.env.local`-t hozol létre, a Next.js működik, de a Python eval „OPENAI_API_KEY nincs beállítva" hibával elszáll.
+
+A `.env` tartalma (lásd `.env.example`):
 
 ```env
 OPENAI_API_KEY=sk-...
 EMBEDDING_MODEL=text-embedding-3-small
 CHAT_MODEL=gpt-4.1-mini
+
+# RAG runtime (Python rag_core + Next.js /api/chat)
+RAG_GENERATION_TEMPERATURE=0.7
+RAG_MAX_COMPLETION_TOKENS=400
+RAG_STRATEGY=baseline
+RAG_TOP_K=5
+
+# FastAPI RAG service (Fázis 2 — default backend; inline = service nélkül)
+RAG_SERVICE_URL=http://localhost:8000
+RAG_BACKEND=service
 
 PGHOST=localhost
 PGPORT=5432
@@ -161,7 +218,15 @@ uv sync --group dev
 uv run pytest
 ```
 
-### 4. Next.js
+### 4. Next.js + RAG service
+
+**Terminal 1 — FastAPI (rag_core):**
+
+```bash
+uv run uvicorn rag_service.main:app --port 8000 --reload
+```
+
+**Terminal 2 — Next.js:**
 
 ```bash
 npm install
@@ -169,6 +234,8 @@ npm run dev
 ```
 
 App: http://localhost:3000
+
+Rollback a régi TS útra (service nélkül): `RAG_BACKEND=inline` a `.env`-ben.
 
 ### 5. Ingest
 
@@ -192,7 +259,7 @@ uv run python -m rag_eval.run_rag_eval
 # Prompt-level eval (Python RAG path)
 uv run python -m prompt_eval.run_prompt_eval
 
-# Multi-turn szimuláció (prod API-t hívja — Next.js fusson!)
+# Multi-turn szimuláció (prod API-t hívja — Next.js ÉS rag_service fusson!)
 uv run python -m conversation_eval.run_conversation_simulation
 uv run python -m conversation_eval.judge_eval
 ```
@@ -209,8 +276,34 @@ uv run python -m conversation_eval.judge_eval
 
 Minden LLM hívás log: `logs/llm-usage.log`
 
+| Komponens | Forrás |
+|-----------|--------|
+| `rag-embed`, `rag-response` | Python `rag_core` (prod service + eval) |
+| `chat-proxy`, `eval-chat-proxy` | Next.js proxy (latencia) |
+| `rag-embed` (ingest) | `pgvector.ts` indexeléskor |
+
 ```bash
 uv run python -m monitoring.summarize_llm_usage
+```
+
+---
+
+## Chat API
+
+```bash
+curl -X POST http://localhost:3000/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Hogyan készül a hummus?"}'
+```
+
+Válasz:
+
+```json
+{
+  "ok": true,
+  "answer": "...",
+  "sources": [{ "docId": "hummus", "baseId": "hummus", "text": "...", "score": 0.92 }]
+}
 ```
 
 ---
@@ -221,7 +314,7 @@ uv run python -m monitoring.summarize_llm_usage
 uv run pytest
 ```
 
-Unit tesztek: RAG metrikák, prompt fájlok létezése, config path-ek. Integrációs tesztek (DB, OpenAI) manuálisan / CI-ben külön.
+Unit tesztek: RAG metrikák, prompt fájlok, config defaultok, FastAPI service (mockolt `run_rag`). Integrációs tesztek (DB, OpenAI, end-to-end chat) manuálisan / CI-ben külön.
 
 ---
 

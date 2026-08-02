@@ -19,8 +19,13 @@ const openai = new OpenAI({
 });
 
 // -----------------------------------------------------------------------------
-// Pgvector alapú vector store
-// Feladata: embedding generálás, dokumentumok indexelése, keresés pgvectorral
+// Pgvector vector store (TypeScript)
+//
+// PROD SZEREP (Fázis 2 után):
+//   - indexDocuments() → /api/upload-docs (ingest pipeline)
+//   - search()         → csak RAG_BACKEND=inline rollback módban (/api/chat)
+//
+// A default prod chat a FastAPI rag_service → rag_core Python retrievalt használ.
 // -----------------------------------------------------------------------------
 export class PgvectorVectorStore {
 
@@ -158,8 +163,8 @@ export class PgvectorVectorStore {
   // ---------------------------------------------------------------------------
   // 3) Hasonló dokumentumok keresése pgvector segítségével
   //
-  // - cosine similarity
-  // - sessionId továbbadása az embedding híváshoz
+  // Csak RAG_BACKEND=inline rollback esetén használja a /api/chat.
+  // Default prod út: rag_service → rag_core.retrieval (Python).
   // ---------------------------------------------------------------------------
   static async search(
     query: string,
